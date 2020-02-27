@@ -1,0 +1,158 @@
+$blue: #3f5262;
+$teal: #528486;
+$gold: #bc8540;
+$tan: #fbf7eb;
+
+$colors: (
+  'blue': $blue,
+  'teal': $teal,
+  'gold': $gold,
+  'tan': $tan,
+);
+
+$font-sizes: (
+  '0': 0rem,
+  '11': 1.1rem,
+  '12': 1.2rem,
+  '14': 1.4rem,
+  '16': 1.6rem,
+  '18': 1.8rem,
+  '21': 2.1rem,
+  '22': 2.2rem,
+  '24': 2.4rem,
+  '27': 2.7rem,
+  '32': 3.2rem,
+  '36': 3.6rem,
+  '38': 3.8rem,
+  '50': 5rem,
+  '72': 7.2rem,
+);
+
+$line-heights: (
+  '1': 1,
+  '111': 1.11,
+  '119': 1.19,
+  '1136': 1.136,
+  '1138': 1.138,
+  '12': 1.2,
+  '125': 1.25,
+  '1318': 1.318,
+  '133': 1.33,
+  '138': 1.38,
+  '1437': 1.437,
+  '15': 1.5,
+  '155': 1.55,
+  '1625': 1.625,
+  '175': 1.75,
+);
+
+$letter-spacings: (
+  '01em': 0.01em,
+  '02em': 0.02em,
+);
+
+$font-stacks: (
+  'serif': "'Cambon Demi', serif",
+  'sans': "'Lausanne', sans-serif",
+  'mono': "'Messina Sans Mono', monospace",
+);
+
+// $margin-units: ();
+// @for $i from -50 through 50 {
+//   $key: $i * 5;
+//   @if ($i < 0) {
+//     $key: 'n#{$i * -5}';
+//   }
+//   $value: $i * 0.5rem;
+//   $margin-units: map-merge(
+//     $margin-units,
+//     (
+//       $key: $value,
+//     )
+//   );
+// }
+
+// $padding-units: ();
+// @for $i from 0 through 50 {
+//   $key: $i * 5;
+//   $value: $key * 0.1rem;
+//   $padding-units: map-merge(
+//     $padding-units,
+//     (
+//       $key: $value,
+//     )
+//   );
+// }
+
+$max-widths: (
+  '822': 82.2rem,
+  '880': 88rem,
+  '1080': 108rem,
+);
+
+$aspect-ratios: (
+  '4x3': (
+    4,
+    3,
+  ),
+);
+
+$default-border: 1px solid $blue;
+
+$border-styles: (
+  'solid': solid,
+);
+
+$border-widths: (
+  '1': 1px,
+  '2': 2px,
+);
+
+$border-radiuses: (
+  '50': 50%,
+  '3': 3px,
+);
+
+$breakpoints: (
+  xs: 415px,
+  s: 650px,
+  m: 850px,
+  l: 1025px,
+  xl: 1440px,
+);
+
+// $media-queries: ();
+// @each $name, $breakpoint in $breakpoints {
+//   $media-queries: map-merge(
+//     $media-queries,
+//     (
+//       '#{$name}': 'min-width: #{$breakpoint}',
+//     )
+//   );
+// }
+
+/* easings */
+$ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+$ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715);
+$ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$ease-in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+$ease-out-sine: cubic-bezier(0.39, 0.575, 0.565, 1);
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+$ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+$ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+$ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+$ease-in-out-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+$ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);

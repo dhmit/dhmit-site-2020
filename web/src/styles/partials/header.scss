@@ -1,0 +1,33 @@
+.header {
+  &__logo {
+    width: 18rem;
+
+    @media (query('xs')) {
+      width: 21.2rem;
+    }
+
+    @media (query('s')) {
+      width: 27rem;
+    }
+
+    @media (query('l')) {
+      width: 30rem;
+    }
+  }
+
+  &__mit {
+    width: 4rem;
+
+    @media (query('xs')) {
+      width: 5.5rem;
+    }
+
+    @media (query('s')) {
+      width: 7rem;
+    }
+
+    @media (query('l')) {
+      width: 8rem;
+    }
+  }
+}

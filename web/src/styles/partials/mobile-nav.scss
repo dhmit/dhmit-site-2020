@@ -1,0 +1,41 @@
+.mobile-nav {
+  opacity: 0;
+  transition: opacity 0.2s $ease-out-cubic;
+  pointer-events: none;
+
+  @media (query('m')) {
+    display: none;
+  }
+
+  body.is-nav-open & {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__items {
+    transition: transform 0.8s $ease-out-expo;
+    transform: translateY(2rem);
+
+    body.is-nav-open & {
+      transform: none;
+    }
+  }
+
+  &__item {
+    transition: opacity 0.8s $ease-out-expo, transform 0.8s $ease-out-expo;
+    opacity: 0;
+
+    @for $i from 0 through 5 {
+      $n: $i + 1;
+      &:nth-child(#{$n}) {
+        transform: translateY($n * $n * 0.25rem);
+        transition-delay: 0.02s * $i;
+      }
+    }
+
+    body.is-nav-open & {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
