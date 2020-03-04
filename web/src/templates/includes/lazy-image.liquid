@@ -1,0 +1,38 @@
+{% comment %}
+  props = {
+    containerCx,
+    lqipCx,
+    imgWrapCx,
+    imgCx,
+    image,
+    altText,
+    padding
+  }
+{% endcomment %}
+
+<div
+  class="{% classNames 'lazy-image', containerCx %}"
+  data-component="lazyImage"
+  {% if padding %}
+    style="padding-bottom: {{ 1 | divided_by: image.metadata.dimensions.aspectRatio | times: 100 }}%"
+  {% endif %}
+>
+  <div class="{% classNames 'lazy-image__lqip js-lqip', lqipCx %}">
+    <img
+      {% if imgCx %}
+        class="{{ imgCx }}"
+      {% endif %}
+      src="{{ image.metadata.lqip }}"
+      alt=""
+    >
+  </div>
+  <div
+    class="{% classNames 'lazy-image__img-wrap js-imgWrap', imgWrapCx %}"
+  >
+    <img
+      class="{% classNames 'lazy-image__img js-img', imgCx %}"
+      data-src="{{ image.url }}"
+      alt="{{ altText }}"
+    >
+  </div>
+</div>

@@ -2,8 +2,53 @@
 layout: base.liquid
 title: Home
 ---
+{% assign intro = landingPage.intro %}
+{% assign projects = landingPage.projects %}
+
 <div data-router-view="home">
   {% include header %}
+
+  <section id="intro" class="rel ph80 pv200">
+    <div class="rel z1">
+      <h1 class="serif f72 lh1138 mb45 max-w920">{{ intro.headline }}</h1>
+      <div class="sans f24 lh150 ls02em max-w850">{{ intro.body }}</div>
+    </div>
+    <div class="abs right bottom w25">
+      <svg class="db" viewBox="0 0 384 469" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 458.371C0 461.886 2.91015 464.736 6.5 464.736H160.5C164.09 464.736 167 461.886 167 458.371V12.7614C167 9.2456 164.09 6.39551 160.5 6.39551H6.5C2.91015 6.39551 0 9.24559 0 12.7614V458.371Z" fill="#528486"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M384 276.124C364.552 259.782 339.314 249.914 311.734 249.914C250.246 249.914 200.4 298.958 200.4 359.457C200.4 419.956 250.246 469 311.734 469C339.314 469 364.552 459.132 384 442.79V276.124Z" fill="#3F5262"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M384 26.21C364.552 9.86744 339.314 0 311.734 0C250.246 0 200.4 49.044 200.4 109.543C200.4 170.042 250.246 219.086 311.734 219.086C339.314 219.086 364.552 209.218 384 192.876V26.21Z" fill="#BC8540"/>
+      </svg>
+    </div>
+  </section>
+
+  <section id="projects" class="pt20 mb80">
+    <div class="pl80 pb50">
+      {% include section-title, title: "Projects" %}
+    </div>
+    <div class="project-slider x ox">
+      <ul class="f0 nowrap pl80">
+        {% for project in projects %}
+          <li class="project-slider__item w30 dib wrap mb40" style="vertical-align: top;">
+            <a class="db" href="/project/{{ project.slug }}">
+              {% include lazy-image,
+                image: project.image,
+                altText: project.altText,
+                containerCx: 'r--4x3 br7 oh mb20',
+                imgCx: 'x y cover',
+                padding: false
+              %}
+              <p class="mono f14 mb5">
+                {{ project.metadata.semester | capitalize }} {{ project.metadata.year }}
+              </p>
+              <h3 class="serif f32 lh125 mb15">{{ project.title }}</h3>
+              <p class="sans f18 lh155 ls02em">{{ project.subtitle }}</p>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
 
   {% debug landingPage %}
 </div>

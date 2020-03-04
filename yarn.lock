@@ -6910,6 +6910,11 @@ nano-pubsub@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/nano-pubsub/-/nano-pubsub-1.0.2.tgz#34ce776f7af959915b8f7acfe8dd6b9c66f3bde9"
 
+nanoclass@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/nanoclass/-/nanoclass-0.0.2.tgz#ace3ff9f746f4a0e632760d4531d01b832c1a09b"
+  integrity sha512-2xku8GgTJeBpcQQNOynygfDcV6H85vKwC8w4UI1u6oeujJA3YER0ji1xg6hCL9STiGhASUmHOL9r70YcDsJb5w==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.npmjs.org/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"

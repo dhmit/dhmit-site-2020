@@ -1,10 +1,10 @@
 import { picoapp } from 'picoapp'
 import burger from '@/components/burger'
-// import mobileNav from '@/components/mobileNav'
+import lazyImage from '@/components/lazyImage'
 
 const components = {
   burger,
-  // mobileNav,
+  lazyImage,
 }
 
 const state = {

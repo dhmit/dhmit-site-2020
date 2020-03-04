@@ -2,28 +2,32 @@ const fs = require('fs')
 const path = require('path')
 const util = require('util')
 const readFile = util.promisify(fs.readFile)
-
-const webpackAsset = async (name) => {
-  const manifestData = await readFile(
-    path.resolve(__dirname, 'src/templates/includes/manifest.json'),
-  )
-  const manifest = JSON.parse(manifestData)
-
-  return manifest[name]
-}
+const cx = require('nanoclass')
 
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addPassthroughCopy('src/assets')
-  eleventyConfig.addLiquidShortcode('webpackAsset', webpackAsset)
+  eleventyConfig.addLiquidShortcode('webpackAsset', async (name) => {
+    const manifestData = await readFile(
+      path.resolve(__dirname, 'src/templates/includes/manifest.json'),
+    )
+    const manifest = JSON.parse(manifestData)
+
+    return manifest[name]
+  })
+
   eleventyConfig.addShortcode(
     'debug',
     (value) =>
-      `<pre class="ph25 pv100 f14 mono bg-tan">${JSON.stringify(
-        value,
-        null,
-        2,
-      )}</pre>`,
+      `<div class="ph25 pv100">
+        <pre
+          class="p25 f14 mono bg-blue tan"
+          style="width: 100%; overflow: auto; border-radius: 6px;"
+        >
+          ${JSON.stringify(value, null, 2)}
+        </pre>
+      </div>`,
   )
+
+  eleventyConfig.addShortcode('classNames', (...all) => cx(all))
 
   return {
     dir: {
@@ -32,6 +36,5 @@ module.exports = function(eleventyConfig) {
       includes: 'includes',
       output: 'build',
     },
-    passthroughFileCopy: true,
   }
 }
