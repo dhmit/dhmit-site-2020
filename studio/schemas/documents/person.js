@@ -1,3 +1,5 @@
+import ConditionalField from '../../plugins/ConditionalField'
+
 export default {
   type: 'document',
   title: 'Person',
@@ -27,13 +29,20 @@ export default {
       title: 'Title',
       name: 'title',
       type: 'string',
-      description: 'This field is only used for Staff and Steering Committee',
+      inputComponent: ConditionalField,
+      options: {
+        condition: ({ category }) =>
+          category === 'Staff' || category === 'Steering Committee',
+      },
     },
     {
       title: 'Link',
       name: 'link',
       type: 'url',
-      description: 'This field is only used for Steering Committee',
+      inputComponent: ConditionalField,
+      options: {
+        condition: ({ category }) => category === 'Steering Committee',
+      },
     },
   ],
   preview: {
