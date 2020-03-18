@@ -10,8 +10,8 @@ module.exports = async function() {
       "projects": *[_type == "project"] | order(metadata.year desc, metadata.semester desc, title) {
          title,
          subtitle,
-         slug,
          metadata,
+         "slug": slug.current,
          "image": image.image.asset->,
          "altText": image.altText
       }

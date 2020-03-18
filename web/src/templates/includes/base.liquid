@@ -53,7 +53,15 @@
 
     <link rel="stylesheet" href="{% webpackAsset 'style.css' %}">
   </head>
-  <body class="bg-tan blue sans f18">
+  <body class="bg-tan c-blue sans f18">
+
+    {% comment %}
+      Ensures reliable live reloading via browser-sync during development
+    {% endcomment %}
+    {% unless env == 'production' %}
+      <script async="" src="/browser-sync/browser-sync-client.js?v=2.26.7"></script>
+    {% endunless %}
+    
     <div id="root">
       <main data-router-wrapper>
         {{ content }}

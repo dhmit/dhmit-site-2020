@@ -1536,9 +1536,10 @@
     "@sanity/util" "1.148.1"
     loader-utils "1.1.0"
 
-"@selfaware/wool@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@selfaware/wool/-/wool-0.2.1.tgz#05f5939f6fa888065ccb22335d6bed33cf35cdbd"
+"@selfaware/wool@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@selfaware/wool/-/wool-1.0.0.tgz#ff6d442c677f7df4e7efae4ba40e102f5e234da1"
+  integrity sha512-kbvWjQ2bSkGymidk9qB2ch0oIvRIBNz2fZr4Ne9fYL590g9xUZclbT0eyqEvyDUg9H/rH0kdbe6wuHU4gjssmg==
 
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.7"

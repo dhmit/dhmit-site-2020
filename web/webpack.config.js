@@ -91,7 +91,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: `[name].[contenthash].css`,
     }),
-    new ManifestPlugin({ fileName: '../src/templates/includes/manifest.json' }),
+    new ManifestPlugin({
+      fileName: '../src/templates/includes/_manifest.json',
+    }),
   ],
   node: {
     fs: 'empty',

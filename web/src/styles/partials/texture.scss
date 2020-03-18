@@ -1,0 +1,7 @@
+.texture {
+  transform: translateX(38%);
+
+  @media (query('s')) {
+    transform: translateX(60%);
+  }
+}

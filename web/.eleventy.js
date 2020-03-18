@@ -7,7 +7,7 @@ const cx = require('nanoclass')
 module.exports = function(eleventyConfig) {
   eleventyConfig.addLiquidShortcode('webpackAsset', async (name) => {
     const manifestData = await readFile(
-      path.resolve(__dirname, 'src/templates/includes/manifest.json'),
+      path.resolve(__dirname, 'src/templates/includes/_manifest.json'),
     )
     const manifest = JSON.parse(manifestData)
 
@@ -19,7 +19,7 @@ module.exports = function(eleventyConfig) {
     (value) =>
       `<div class="ph25 pv100">
         <pre
-          class="p25 f14 mono bg-blue tan"
+          class="p25 f14 mono bg-blue c-tan"
           style="width: 100%; overflow: auto; border-radius: 6px;"
         >
           ${JSON.stringify(value, null, 2)}

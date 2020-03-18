@@ -17,6 +17,7 @@ $font-sizes: (
   '14': 1.4rem,
   '16': 1.6rem,
   '18': 1.8rem,
+  '20': 2rem,
   '21': 2.1rem,
   '22': 2.2rem,
   '24': 2.4rem,
@@ -25,6 +26,7 @@ $font-sizes: (
   '36': 3.6rem,
   '38': 3.8rem,
   '50': 5rem,
+  '52': 5.2rem,
   '72': 7.2rem,
 );
 
@@ -58,34 +60,9 @@ $font-stacks: (
   'mono': "'Messina Sans Mono', monospace",
 );
 
-// $margin-units: ();
-// @for $i from -50 through 50 {
-//   $key: $i * 5;
-//   @if ($i < 0) {
-//     $key: 'n#{$i * -5}';
-//   }
-//   $value: $i * 0.5rem;
-//   $margin-units: map-merge(
-//     $margin-units,
-//     (
-//       $key: $value,
-//     )
-//   );
-// }
-
-// $padding-units: ();
-// @for $i from 0 through 50 {
-//   $key: $i * 5;
-//   $value: $key * 0.1rem;
-//   $padding-units: map-merge(
-//     $padding-units,
-//     (
-//       $key: $value,
-//     )
-//   );
-// }
-
 $max-widths: (
+  '600': 60rem,
+  '700': 70rem,
   '850': 85rem,
   '920': 92rem,
 );
@@ -118,7 +95,7 @@ $breakpoints: (
   xs: 415px,
   s: 650px,
   m: 850px,
-  l: 1025px,
+  l: 1050px,
   xl: 1440px,
 );
 
