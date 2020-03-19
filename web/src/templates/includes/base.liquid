@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    {% comment %} <title>{{ config.seo.title }}</title> {% endcomment %}
+    <title>{{ config.seo.title }}</title>
 
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="preload" href="{% webpackAsset 'style.css' %}" as="style">
@@ -20,25 +20,28 @@
       gtag('config', 'UA-104211298-1');
     </script> {% endcomment %}
     
-    {% comment %} <meta name="description" content="{{ config.seo.description }}"> {% endcomment %}
+    <meta name="description" content="{{ config.seo.description }}">
 
     {% comment %} Facebook Open Graph {% endcomment %}
-    {% comment %} <meta property="og:url" content="https://rebees.com">
+    <meta property="og:url" content="https://digitalhumanities.mit.edu/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ config.seo.title }}">
     <meta property="og:description" content="{{ config.seo.description }}">
     <meta property="og:site_name" content="{{ config.seo.title }}">
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="{{ config.seo.image.url }}">
+    <meta property="og:image:secure_url" content="{{ config.seo.image.url }}">
+    <meta property="og:image:alt" content="{{ config.seo.image.altText }}">
     <meta property="og:image:width" content="{{ config.seo.image.width }}">
-    <meta property="og:image:height" content="{{ config.seo.image.height }}"> {% endcomment %}
+    <meta property="og:image:height" content="{{ config.seo.image.height }}">
 
     {% comment %} Twitter Card {% endcomment %}
-    {% comment %} <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="https://rebees.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="ttps://digitalhumanities.mit.edu/">
     <meta name="twitter:title" content="{{ config.seo.title }}">
     <meta name="twitter:description" content="{{ config.seo.description }}">
-    <meta name="twitter:image" content="{{ config.seo.image.url }}"> {% endcomment %}
+    <meta name="twitter:image" content="{{ config.seo.image.url }}">
+    <meta name="twitter:image:alt" content="{{ config.seo.image.altText }}">
 
     {% comment %} Favicons {% endcomment %}
     {% comment %} <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">

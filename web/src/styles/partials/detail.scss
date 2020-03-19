@@ -1,0 +1,28 @@
+.detail {
+  &__close {
+  }
+
+  &__x {
+    width: 4rem;
+    height: 4rem;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2.5rem;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 100%;
+      height: 2px;
+      background-color: $blue;
+      border-radius: 1px;
+      position: absolute;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+}

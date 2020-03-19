@@ -23,6 +23,7 @@ module.exports = {
     path: paths.build,
     filename: `[name].[contenthash].js`,
     chunkFilename: '[id].[contenthash]',
+    publicPath: '/',
   },
   resolve: {
     alias: {

@@ -1,0 +1,63 @@
+---
+layout: base.liquid
+permalink: /project/{{ project.slug }}/
+pagination: 
+  alias: project
+  data: projects
+  size: 1
+renderData:
+  title: "{{ project.title }}"
+---
+<div class="detail" data-router-view="detail">
+  <div class="fix fill bg-blue js-bg"></div>
+  <div class="pv75 ph80 rel z1 min-vh100">
+    <div class="bg-tan rel br13 min-vh100">
+      <a class="detail__close db abs top right pv35 ph45 df aic" href="/">
+        <p class="mono f18 lh155">Close</p>
+        <span class="detail__x"></span>
+      </a>
+      <div class="df ph165 pt105">
+        <div class="w50 pr75">
+          <h2 class="mono f18 lh155 mb15">Faculty/Student Project</h2>
+          <h3 class="serif f36 lh125 mb40">{{ project.title }}</h3>
+          <ul class="mono f18 lh155 mb70" aria-label="Project Metadata">
+            <li class="mb5">{{ project.metadata.semester | capitalize }} {{ project.metadata.year }}</li>
+            {% for link in project.metadata.links %}
+              <li class="mb5">
+                <a class="tdu" href="{{ link.url }}" target="_blank" rel="noopener noreferr">
+                  {{ link.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+          <div class="max-w305">
+            {% include lazy-image,
+              image: project.image,
+              containerCx: 'r--4x3 br4 oh mb10',
+              imgCx: 'x y cover',
+              padding: false
+            %}
+            {% if project.image.caption %}
+              <p class="f16 lh155 ls02em o80">{{ project.image.caption }}</p>
+            {% endif %}
+          </div>
+        </div>
+        <div class="w50 pl15 pt40">
+          <div class="f18 lh155 ls02em mb60">
+            {{ project.editorial }}
+          </div>
+          <div class="mb165">
+            {% if project.studentTeam %}
+              <h4 class="mono f18 lh155 mb20">Student Team</h2>
+              <ul class="f16 lh1625 ls01em">
+                {% for person in project.studentTeam %}
+                  <li class="dib">{{ person.name }}{% unless forloop.last %},{% endunless %}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

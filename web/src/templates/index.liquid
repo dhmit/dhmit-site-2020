@@ -24,7 +24,7 @@ title: Home
     </div>
   </section>
 
-  <section id="projects" class="pt25 mb60 s:mb80">
+  <section id="projects" class="pt25 mb60 s:mb80 oh">
     <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
       {% include section-title, title: "Projects" %}
     </div>
@@ -32,7 +32,7 @@ title: Home
       <ul class="f0 nowrap pl20 m:pl40 l:pl80">
         {% for project in projects %}
           <li class="project-slider__item w40 l:w30 dib wrap mb40" style="vertical-align: top;">
-            <a class="db" href="/project/{{ project.slug }}">
+            <a class="db" href="/project/{{ project.slug }}/">
               {% include lazy-image,
                 image: project.image,
                 containerCx: 'r--4x3 br7 oh mb10 s:mb20',
@@ -51,7 +51,7 @@ title: Home
     </div>
   </section>
 
-  <section id="about" class="ph20 m:ph40 l:ph80 pt75 pb110 mb60 s:mb80 c-tan bg-blue">
+  <section id="about" class="ph20 m:ph40 l:ph80 pt75 pb110 mb60 s:mb80 c-tan bg-blue oh">
     {% include section-title, title: "About", cx: "mb40" %}
     <div class="about-carousel df" data-component="aboutCarousel">
       <ul class="w50 pt20">
@@ -137,7 +137,7 @@ title: Home
             <div class="f18 lh155 ls02em mb45">{{ teaser }}</div>
             <a 
               class="button button--tan dib mono f18 lh111 pv20 ph35 ba br3"
-              href="/faculty-spotlight/{{ lab.facultySpotlight.name | downcase | split: ' ' | join: '-' }}"
+              href="/faculty-spotlight/{{ lab.facultySpotlight.name | downcase | split: ' ' | join: '-' }}/"
             >
               Read more +
             </a>
@@ -147,7 +147,7 @@ title: Home
     </div>
   </section>
 
-  <section id="people" class="mb115">
+  <section id="people" class="mb115 oh">
     <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
       {% include section-title, title: "People" %}
     </div>
@@ -207,12 +207,12 @@ title: Home
     </div>
   </section>
   
-  <section id="events" class="ph20 m:ph40 l:ph80 mb100">
+  <section id="events" class="ph20 m:ph40 l:ph80 mb100 oh">
     {% include section-title, title: "Events", cx: "mb45" %}
     <ul class="df mhn15">
       {% for event in events %}
         <li class="w25 ph15">
-          <a href="/event/{{ event.slug }}">
+          <a href="/event/{{ event.slug }}/">
             <div class="rel db br4 oh mb15">
               {% include lazy-image,
                 image: event.image,
@@ -240,7 +240,7 @@ title: Home
     </ul>
   </section>
 
-  <section id="community" class="ph20 m:ph40 l:ph80 mb140">
+  <section id="community" class="ph20 m:ph40 l:ph80 mb140 oh">
     {% include section-title, title: "Community", cx: "mb20" %}
     <div class="df">
       <div class="w50 pt25 pr25">

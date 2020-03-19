@@ -16,6 +16,7 @@
     "start:eleventy": "eleventy --quiet --watch"
   },
   "dependencies": {
+    "@dogstudio/highway": "^2.1.3",
     "@selfaware/wool": "^1.0.2",
     "choozy": "^0.0.6",
     "focus-visible": "^5.0.2",
