@@ -4,6 +4,12 @@ title: Home
 ---
 {% assign intro = landingPage.intro %}
 {% assign projects = landingPage.projects %}
+{% assign about = landingPage.about %}
+{% assign lab = landingPage.lab %}
+{% assign people = landingPage.people %}
+{% assign events = landingPage.events %}
+{% assign community = landingPage.community %}
+{% assign footer = landingPage.footer %}
 
 <div data-router-view="home">
   {% include header %}
@@ -13,7 +19,7 @@ title: Home
       <h1 class="serif f32 s:f52 l:f72 lh1156 s:lh1138 mb20 s:mb45 max-w700 l:max-w920">{{ intro.headline }}</h1>
       <div class="sans f16 s:f20 l:f24 lh150 ls01em s:ls02em max-w600 l:max-w850">{{ intro.body }}</div>
     </div>
-    <div class="texture abs right bottom w80 s:w70">
+    <div class="texture--1 abs right bottom w80 s:w70">
       {% include texture %}
     </div>
   </section>
@@ -29,7 +35,6 @@ title: Home
             <a class="db" href="/project/{{ project.slug }}">
               {% include lazy-image,
                 image: project.image,
-                altText: project.altText,
                 containerCx: 'r--4x3 br7 oh mb10 s:mb20',
                 imgCx: 'x y cover',
                 padding: false
@@ -46,5 +51,266 @@ title: Home
     </div>
   </section>
 
-  {% debug landingPage %}
+  <section id="about" class="ph20 m:ph40 l:ph80 pt75 pb110 mb60 s:mb80 c-tan bg-blue">
+    {% include section-title, title: "About", cx: "mb40" %}
+    <div class="about-carousel df" data-component="aboutCarousel">
+      <ul class="w50 pt20">
+        {% for item in about.carouselItems %}
+          <li class="about-carousel__button {% if forloop.first %}is-active{% endif %}">
+            <button class="f50 lh150">{{ item.name }}</button>
+          </li>
+        {% endfor %}
+      </ul>
+      <ul class="w50 pl25">
+        {% for item in about.carouselItems %}
+          <li class="about-carousel__content {% if forloop.first %}is-active{% else %}abs o0{% endif %}">
+            <h3 class="serif f50 lh120 mb30">{{ item.headline }}</h3>
+            <div class="f18 lh155 ls02em">{{ item.body }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section id="lab" class="mb80 s:mb100 oh">
+    <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
+      {% include section-title, title: "Lab" %}
+    </div>
+    <div class="df ph20 m:ph40 l:ph80 mb110">
+      <div class="w50 pr25">
+        <h3 class="serif f50 lh120 mb30">{{ lab.row1.headline }}</h3>
+        <div class="f18 lh155 ls02em mb45">{{ lab.row1.body }}</div>
+        <a 
+          class="button dib mono f18 lh111 pv20 ph35 ba br3"
+          href="{{ lab.row1.button.url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ lab.row1.button.title }} +
+        </a>
+      </div>
+      <div class="texture--2">
+        {% include texture %}
+      </div>
+    </div>
+    <div class="df ph20 m:ph40 l:ph80 mb110">
+      <div class="w50 pl25">
+        <h3 class="serif f50 lh120 mb30">{{ lab.row2.headline }}</h3>
+        <div class="f18 lh155 ls02em">{{ lab.row2.body }}</div>
+      </div>
+      <div class="on1 w50 pr80 pt45">
+        <div class="r r--4x3">
+          {% for image in lab.row2.images %}
+            <div class="abs w55{% if forloop.first %} top left{% else %} bottom right{% endif %}">
+              {% include lazy-image,
+                image: image,
+                containerCx: 'r--4x3 br4 oh',
+                imgCx: 'x y cover',
+                padding: false
+              %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="ph20 m:ph40 l:ph80 c-tan">
+      <div class="br16 p50 bg-teal">
+        <div class="df">
+          <div class="w50 pr80">  
+            {% include lazy-image,
+              image: lab.facultySpotlight.image,
+              containerCx: 'r--4x3 br4 oh',
+              imgCx: 'x y cover',
+              padding: false
+            %}
+          </div>
+          <div class="w50 pl25">
+            <h3 class="mono f18 lh138 mb30">Faculty Spotlight</h3>
+            <h4 class="serif f50 lh120 mb30">{{ lab.facultySpotlight.name }}</h4>
+            {% capture teaser %}
+              {% if lab.facultySpotlight.teaser %}
+                {{ lab.facultySpotlight.teaser }}
+              {% else %}
+                {{ lab.facultySpotlight.editorial | truncate: 280 }}
+              {% endif %}
+            {% endcapture %}
+            <div class="f18 lh155 ls02em mb45">{{ teaser }}</div>
+            <a 
+              class="button button--tan dib mono f18 lh111 pv20 ph35 ba br3"
+              href="/faculty-spotlight/{{ lab.facultySpotlight.name | downcase | split: ' ' | join: '-' }}"
+            >
+              Read more +
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="people" class="mb115">
+    <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
+      {% include section-title, title: "People" %}
+    </div>
+    <div class="df">
+      <div class="w50">
+        <div class="pl20 m:pl40 l:pl80 pr80 mb110">
+          <h3 class="mono f18 f138 mb20">Staff</h3>
+          <ul>
+            {% for person in people.staff %}
+              <li class="bb pv15">
+                <h4 class="f22 lh113 ls01em mb5">{{ person.name }}</h4>
+                <p class="f18 lh138 ls02em">{{ person.title }}</p>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="texture--3">
+          {% include texture %}
+        </div>
+      </div>
+      <div class="w50">
+        <div class="pl25 pr20 m:pr40 l:pr80 mb65">
+          <h3 class="mono f18 f138 mb20">UROP Students</h3>
+          <ul class="f16 lh1625 ls01em">
+            {% for person in people.students %}
+              <li class="dib">{{ person.name }}{% unless forloop.last %},{% endunless %}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="pl25 pr20 m:pr40 l:pr80 mb65">
+          <h3 class="mono f18 f138 mb20">Former Members</h3>
+          <ul class="f16 lh1625 ls01em">
+            {% for person in people.formerMembers %}
+              <li class="dib">{{ person.name }}{% unless forloop.last %},{% endunless %}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="pl25 pr20 m:pr40 l:pr80">
+          <h3 class="mono f18 f138 mb20">Steering Committee</h3>
+          <ul>
+            {% for person in people.steeringCommittee %}
+              <li class="f16 lh1625 ls01em mb5">
+                <h4 class="di mr5">
+                  <a
+                    class="tdu"
+                    href="{{ person.link }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >{{ person.name }}</a>
+                </h4>
+                <p class="di o80 i">{{ person.title }}</p>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="events" class="ph20 m:ph40 l:ph80 mb100">
+    {% include section-title, title: "Events", cx: "mb45" %}
+    <ul class="df mhn15">
+      {% for event in events %}
+        <li class="w25 ph15">
+          <a href="/event/{{ event.slug }}">
+            <div class="rel db br4 oh mb15">
+              {% include lazy-image,
+                image: event.image,
+                containerCx: 'r--4x3',
+                imgCx: 'x y o-cover',
+                padding: false
+              %}
+              <span
+                class="db abs top left bg-teal pv5 ph10 z1 c-tan mono f14 ttu"
+                style="border-bottom-right-radius: 4px;">
+                {% assign startDate = event.startDatetime | date: '%b %d' %}
+                {% assign endDate = event.endDatetime | date: '%b %d' %}
+                {% if startDate == endDate %}
+                  {{ startDate }}
+                {% else %}
+                  {{ startDate }} - {{ endDate }}
+                {% endif %}
+              </span>
+            </div>
+            <h3 class="serif f22 lh1318 mb10">{{ event.title }}</h3>
+            <p class="f18 lh155 ls02em">Presented by {{ event.speakerName }}</p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section id="community" class="ph20 m:ph40 l:ph80 mb140">
+    {% include section-title, title: "Community", cx: "mb20" %}
+    <div class="df">
+      <div class="w50 pt25 pr25">
+        <h3 class="mono f18 f138 mb20">{{ community.accordion.label }}</h3>
+        <dl class="accordion bb" data-component="accordion">
+          {% for item in community.accordion.items %}
+            <dt>
+              <button class="accordion__header x tl pt20 pb15{% unless forloop.first %} bt{% endunless%} js-headers">
+                <h4 class="f22 lh125 ls01em">{{ item.title }}</h4>
+              </button>
+            </dt>
+            <dd class="accordion__panel js-panels">
+              <div class="accordion__panel-inner js-inners">
+                <div class="f18 lh155 ls02em pb15">
+                  {{ item.body }}
+                </div>
+              </div>
+            </dd>
+          {% endfor %}
+        </dl>
+      </div>
+      <div class="w50 pl150">
+        <div class="br13 bg-teal c-tan p25">
+          <h3 class="mono f18 f138 mb30">Publications</h3>
+          <ul>
+            {% for publication in community.publications %}
+              <li class="f18 lh133 ls01em mb25">
+                <h4 class="mb5">{{ publication.title }}</h4>
+                <p class="i o80">{{ publication.authors }}</p>
+                <p class="i o80">{{ publication.journal }}</p>
+              </li>
+            {% endfor %}
+          </ul>
+          <a class="mono f18 f138 tdu" href="/publications">Show more</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="footer bg-blue c-tan ph20 m:ph40 l:ph80 pt30 pb70">
+    <div class="df jcb">
+      <a class="footer__logo" href="#intro">
+        {% include mark-tan %}
+      </a>
+      <div class="w50 df pl25 f16 lh1437 ls02em pt10">
+        <div class="x pt10">
+          <p>{{ footer.addressLine1 }}</p>
+          <p class="mb20">{{ footer.addressLine2 }}</p>
+          <ul class="df pb70 mb20 bb bc-tan mr85">
+            <li class="mr40"><p>{{ footer.phone }}</p></li>
+            <li class="mr40">
+              <a class="tdu" href="mailto:{{ footer.emailAddress }}">Email</a>
+            </li>
+            <li>
+              <a
+                class="tdu"
+                href="https://twitter.com/{{ twitterHandle }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Twitter</a>
+            </li>
+          </ul>
+          <div class="footer__funded-by">
+            {{ footer.fundedByText }}
+          </div>
+        </div>
+        <a class="footer__mit" href="https://mit.edu">
+          {% include mit-logo, primary: '#FBF7EB', secondary: '#BC8540' %}
+        </a>
+      </div>
+    </div>
+  </footer>
 </div>

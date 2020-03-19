@@ -1,7 +1,20 @@
 .texture {
-  transform: translateX(38%);
+  &--1 {
+    transform: translateX(38%);
 
-  @media (query('s')) {
-    transform: translateX(60%);
+    @media (query('s')) {
+      transform: translateX(60%);
+    }
+  }
+
+  &--2 {
+    position: absolute;
+    right: 0;
+    transform: translateX(58%) rotate(180deg);
+    width: 96.8rem;
+  }
+
+  &--3 {
+    transform: translateX(-25%);
   }
 }

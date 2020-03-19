@@ -1,0 +1,20 @@
+.button {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: $ease-out-quart;
+
+  &:hover {
+    color: $tan;
+    background-color: $teal;
+    border-color: $teal;
+  }
+
+  &--tan {
+    border-color: $tan;
+
+    &:hover {
+      background-color: $tan;
+      color: $teal;
+    }
+  }
+}

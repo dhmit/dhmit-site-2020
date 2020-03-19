@@ -16,7 +16,7 @@
     "start:eleventy": "eleventy --quiet --watch"
   },
   "dependencies": {
-    "@selfaware/wool": "^1.0.0",
+    "@selfaware/wool": "^1.0.2",
     "choozy": "^0.0.6",
     "focus-visible": "^5.0.2",
     "picoapp": "^3.4.0"

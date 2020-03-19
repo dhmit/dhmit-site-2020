@@ -1,0 +1,15 @@
+.footer {
+  &__logo {
+    width: 12rem;
+  }
+
+  &__funded-by {
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &__mit {
+    width: 8rem;
+  }
+}

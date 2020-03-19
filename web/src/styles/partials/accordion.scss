@@ -1,0 +1,55 @@
+.accordion {
+  &__header {
+    outline: unset;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      margin-top: -1px;
+      background-color: $blue;
+      transition: transform 0.4s $ease-in-out-cubic;
+      height: 2px;
+      width: 1.8rem;
+      right: 1.5rem;
+      border-radius: 1px;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+
+    &[aria-expanded='true'] {
+      &::after {
+        transform: none;
+      }
+    }
+  }
+
+  &__panel {
+    margin: 0;
+    max-height: 75vh;
+    overflow: hidden;
+    transition: all 0.4s $ease-in-out-cubic;
+    max-height: 0;
+    transform: none;
+
+    p {
+      margin-bottom: 1em;
+    }
+
+    &.is-hidden {
+      max-height: 0 !important;
+      visibility: hidden;
+    }
+  }
+
+  // &__panel-inner {
+  //   a {
+  //     font-family: 'Suisse Works', serif;
+  //     color: $crimson;
+  //   }
+  // }
+}

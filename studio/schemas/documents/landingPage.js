@@ -30,6 +30,7 @@ export default {
           name: 'carouselItems',
           type: 'array',
           of: [{ type: 'aboutCarouselItem' }],
+          validation: (Rule) => Rule.max(3),
         },
         {
           title: 'Carousel Settings',

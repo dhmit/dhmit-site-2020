@@ -14,7 +14,7 @@
   class="{% classNames 'lazy-image', containerCx %}"
   data-component="lazyImage"
   {% if padding %}
-    style="padding-bottom: {{ 1 | divided_by: image.metadata.dimensions.aspectRatio | times: 100 }}%"
+    style="padding-bottom: {{ image.metadata.dimensions.aspectRatio | times: 100 }}%"
   {% endif %}
 >
   <div class="{% classNames 'lazy-image__lqip js-lqip', lqipCx %}">
@@ -32,7 +32,7 @@
     <img
       class="{% classNames 'lazy-image__img js-img', imgCx %}"
       data-src="{{ image.url }}"
-      alt="{{ altText }}"
+      alt="{{ image.altText }}"
     >
   </div>
 </div>
