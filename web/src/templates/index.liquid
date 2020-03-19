@@ -14,7 +14,7 @@ title: Home
 <div data-router-view="home">
   {% include header %}
 
-  <section id="intro" class="rel ph20 m:ph40 l:ph80 pt100 s:pt150 m:pt200 pb200 oh">
+  <section id="intro" class="rel ph20 m:ph40 l:ph80 pt100 s:pt150 m:pt200 pb200">
     <div class="rel z1">
       <h1 class="serif f32 s:f52 l:f72 lh1156 s:lh1138 mb20 s:mb45 max-w700 l:max-w920">{{ intro.headline }}</h1>
       <div class="sans f16 s:f20 l:f24 lh150 ls01em s:ls02em max-w600 l:max-w850">{{ intro.body }}</div>
@@ -24,7 +24,7 @@ title: Home
     </div>
   </section>
 
-  <section id="projects" class="pt25 mb60 s:mb80 oh">
+  <section id="projects" class="pt25 mb60 s:mb80">
     <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
       {% include section-title, title: "Projects" %}
     </div>
@@ -51,7 +51,7 @@ title: Home
     </div>
   </section>
 
-  <section id="about" class="ph20 m:ph40 l:ph80 pt75 pb110 mb60 s:mb80 c-tan bg-blue oh">
+  <section id="about" class="ph20 m:ph40 l:ph80 pt75 pb110 mb60 s:mb80 c-tan bg-blue">
     {% include section-title, title: "About", cx: "mb40" %}
     <div class="about-carousel df" data-component="aboutCarousel">
       <ul class="w50 pt20">
@@ -72,7 +72,7 @@ title: Home
     </div>
   </section>
 
-  <section id="lab" class="mb80 s:mb100 oh">
+  <section id="lab" class="mb80 s:mb100">
     <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
       {% include section-title, title: "Lab" %}
     </div>
@@ -137,7 +137,7 @@ title: Home
             <div class="f18 lh155 ls02em mb45">{{ teaser }}</div>
             <a 
               class="button button--tan dib mono f18 lh111 pv20 ph35 ba br3"
-              href="/faculty-spotlight/{{ lab.facultySpotlight.name | downcase | split: ' ' | join: '-' }}/"
+              href="/faculty-spotlight/{{ lab.facultySpotlight.slug }}/"
             >
               Read more +
             </a>
@@ -147,7 +147,7 @@ title: Home
     </div>
   </section>
 
-  <section id="people" class="mb115 oh">
+  <section id="people" class="mb115">
     <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
       {% include section-title, title: "People" %}
     </div>
@@ -207,7 +207,7 @@ title: Home
     </div>
   </section>
   
-  <section id="events" class="ph20 m:ph40 l:ph80 mb100 oh">
+  <section id="events" class="ph20 m:ph40 l:ph80 mb100">
     {% include section-title, title: "Events", cx: "mb45" %}
     <ul class="df mhn15">
       {% for event in events %}
@@ -240,7 +240,7 @@ title: Home
     </ul>
   </section>
 
-  <section id="community" class="ph20 m:ph40 l:ph80 mb140 oh">
+  <section id="community" class="ph20 m:ph40 l:ph80 mb140">
     {% include section-title, title: "Community", cx: "mb20" %}
     <div class="df">
       <div class="w50 pt25 pr25">
@@ -266,7 +266,7 @@ title: Home
         <div class="br13 bg-teal c-tan p25">
           <h3 class="mono f18 f138 mb30">Publications</h3>
           <ul>
-            {% for publication in community.publications %}
+            {% for publication in community.publications limit:4 %}
               <li class="f18 lh133 ls01em mb25">
                 <h4 class="mb5">{{ publication.title }}</h4>
                 <p class="i o80">{{ publication.authors }}</p>
@@ -274,7 +274,9 @@ title: Home
               </li>
             {% endfor %}
           </ul>
-          <a class="mono f18 f138 tdu" href="/publications">Show more</a>
+          {% if publications.size > 4 %}
+            <a class="mono f18 f138 tdu" href="/publications">Show more</a>
+          {% endif %}
         </div>
       </div>
     </div>

@@ -1,0 +1,16 @@
+---
+layout: base-modal.liquid
+permalink: /faculty-spotlight/{{ faculty.slug }}/
+pagination: 
+  alias: faculty
+  data: facultySpotlight
+  size: 1
+renderData:
+  title: "{{ faculty.name }}"
+---
+{% include detail,
+  label: 'Faculty Spotlight',
+  title: faculty.headline,
+  image: faculty.image,
+  editorial: faculty.editorial
+%}

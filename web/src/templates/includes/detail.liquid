@@ -1,0 +1,28 @@
+<div class="df">
+  <div class="w50 pr75">
+    <h2 class="mono f18 lh155 mb15">{{ label }}</h2>
+    <h3 class="serif f36 lh125 mb40">{{ title }}</h3>
+    {% if metadata %}
+      {{ metadata }}
+    {% endif %}
+    <div class="max-w305">
+      {% include lazy-image,
+        image: image,
+        containerCx: 'r--4x3 br4 oh mb10',
+        imgCx: 'x y o-cover',
+        padding: false
+      %}
+      {% if image.caption %}
+        <p class="f16 lh155 ls02em o80">{{ image.caption }}</p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="w50 pl15 pt40 mb165">
+    <div class="f18 lh155 ls02em">
+      {{ editorial }}
+    </div>
+    {% if additionalContent %}
+      {{ additionalContent }}
+    {% endif %}
+  </div>
+</div>

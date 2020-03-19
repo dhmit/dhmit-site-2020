@@ -21,6 +21,7 @@ module.exports = async function() {
       lab {
         facultySpotlight-> {
           ...,
+          "slug": slug.current,
           "image": {
             ...image.image.asset->,
             "altText": image.altText,

@@ -1,0 +1,17 @@
+---
+layout: base.liquid
+---
+<div class="modal" data-router-view="modal">
+  <div class="fix fill bg-blue js-bg"></div>
+  <div class="pv75 ph80 rel z1 min-vh100 js-content">
+    <div class="bg-tan rel br13 min-vh100">
+      <a class="modal__close db abs top right pv35 ph45 df aic" href="/">
+        <p class="mono f18 lh155">Close</p>
+        <span class="modal__x"></span>
+      </a>
+      <div class="ph140 pt105">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</div>

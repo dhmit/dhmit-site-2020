@@ -3,13 +3,12 @@ const groq = require('groq')
 const allBlocksToHtml = require('../util/allBlocksToHtml')
 
 module.exports = async function() {
-  const projects = await client.fetch(
+  const events = await client.fetch(
     groq`
-      *[_type == "project"] {
+      *[_type == "event"] {
         title,
         metadata,
         editorial,
-        studentTeam[]->,
         "slug": slug.current,
         "image": {
           ...image.image.asset->,
@@ -20,5 +19,5 @@ module.exports = async function() {
     `,
   )
 
-  return allBlocksToHtml(projects)
+  return allBlocksToHtml(events)
 }

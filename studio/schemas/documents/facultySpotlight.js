@@ -10,13 +10,22 @@ export default {
   name: 'facultySpotlight',
   fields: [
     {
-      title: 'Headline',
-      name: 'headline',
+      title: 'Name',
+      name: 'name',
       type: 'string',
     },
     {
-      title: 'Name',
-      name: 'name',
+      title: 'Slug',
+      name: 'slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 200,
+      },
+    },
+    {
+      title: 'Headline',
+      name: 'headline',
       type: 'string',
     },
     {
