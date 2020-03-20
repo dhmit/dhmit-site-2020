@@ -57,24 +57,16 @@ export const has = classes('contains')
 export const html = document.documentElement
 export const body = document.body
 
-// Rather than measuring viewport dimensions using `window.innerWidth` and
-// `window.innerHeight`, we store the dimensions of a dom element that we can
-// guarantee will always be 100% viewport size. This technique provides
-// consistent viewport dimensions, avoiding common bugs/quirks.
-//
-// Relevant links:
-// https://bugs.webkit.org/show_bug.cgi?id=170595
-// https://benfrain.com/the-ios-safari-menu-bar-is-hostile-to-web-apps-discuss/
-const sizeReferenceElement = document.getElementById('size')
 export function size() {
-  const bounds = sizeReferenceElement.getBoundingClientRect()
-  const width = bounds.width
-  const height = bounds.height
-  const dpr = window.devicePixelRatio
-  const isLandscape = width > height
-  return { width, height, dpr, isLandscape }
+  const windowWidth = window.innerWidth
+  const windowHeight = window.innerHeight
+  const isLandscape = windowWidth > windowHeight
+  return {
+    windowWidth,
+    windowHeight,
+    isLandscape,
+    dpr: window.devicePixelRatio,
+  }
 }
-
-export const parser = new DOMParser()
 
 export const index = (el) => Array.from(el.parentNode.children).indexOf(el)

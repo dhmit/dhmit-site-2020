@@ -11,7 +11,7 @@ title: Home
 {% assign community = landingPage.community %}
 {% assign footer = landingPage.footer %}
 
-<div data-router-view="home">
+<div data-router-view="home" data-component="anchors">
   {% include header %}
 
   <section id="intro" class="rel ph20 m:ph40 l:ph80 pt100 s:pt150 m:pt200 pb200">
@@ -31,8 +31,8 @@ title: Home
     <div class="project-slider x ox">
       <ul class="f0 nowrap pl20 m:pl40 l:pl80">
         {% for project in projects %}
-          <li class="project-slider__item w40 l:w30 dib wrap mb40" style="vertical-align: top;">
-            <a class="db" href="/project/{{ project.slug }}/">
+          <li class="w40 l:w30 dib wrap mb40 pr20" style="vertical-align: top;">
+            <a class="project-slider__link db" href="/project/{{ project.slug }}/">
               {% include lazy-image,
                 image: project.image,
                 containerCx: 'r--4x3 br7 oh mb10 s:mb20',
@@ -51,7 +51,7 @@ title: Home
     </div>
   </section>
 
-  <section id="about" class="ph20 m:ph40 l:ph80 pt75 pb110 mb60 s:mb80 c-tan bg-blue">
+  <section id="about" class="pt25 ph20 m:ph40 l:ph80 pt75 pb110 mb60 s:mb80 c-tan bg-blue">
     {% include section-title, title: "About", cx: "mb40" %}
     <div class="about-carousel df" data-component="aboutCarousel">
       <ul class="w50 pt20">
@@ -72,7 +72,7 @@ title: Home
     </div>
   </section>
 
-  <section id="lab" class="mb80 s:mb100">
+  <section id="lab" class="pt25 mb80 s:mb100">
     <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
       {% include section-title, title: "Lab" %}
     </div>
@@ -147,7 +147,7 @@ title: Home
     </div>
   </section>
 
-  <section id="people" class="mb115">
+  <section id="people" class="pt25 mb115">
     <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
       {% include section-title, title: "People" %}
     </div>
@@ -207,7 +207,7 @@ title: Home
     </div>
   </section>
   
-  <section id="events" class="ph20 m:ph40 l:ph80 mb100">
+  <section id="events" class="pt25 ph20 m:ph40 l:ph80 mb100">
     {% include section-title, title: "Events", cx: "mb45" %}
     <ul class="df mhn15">
       {% for event in events %}
@@ -240,7 +240,7 @@ title: Home
     </ul>
   </section>
 
-  <section id="community" class="ph20 m:ph40 l:ph80 mb140">
+  <section id="community" class="pt25 ph20 m:ph40 l:ph80 mb140">
     {% include section-title, title: "Community", cx: "mb20" %}
     <div class="df">
       <div class="w50 pt25 pr25">
@@ -284,7 +284,7 @@ title: Home
   
   <footer class="footer bg-blue c-tan ph20 m:ph40 l:ph80 pt30 pb70">
     <div class="df jcb">
-      <a class="footer__logo" href="#intro">
+      <a class="footer__logo" href="#intro" data-router-disabled>
         {% include mark-tan %}
       </a>
       <div class="w50 df pl25 f16 lh1437 ls02em pt10">

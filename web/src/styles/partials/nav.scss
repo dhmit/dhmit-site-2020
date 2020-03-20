@@ -21,7 +21,8 @@
       bottom: 5px;
       left: -20px;
       opacity: 0;
-      transition: opacity 0.5s $ease-out-cubic;
+      transform: scale(0.75);
+      transition: all 0.3s $ease-out-cubic;
     }
 
     &::after {
@@ -46,6 +47,7 @@
     &.is-active {
       &::before {
         opacity: 1;
+        transform: scale(1);
       }
     }
   }
