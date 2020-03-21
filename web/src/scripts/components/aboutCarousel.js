@@ -1,89 +1,109 @@
 import { component } from 'picoapp'
 import choozy from 'choozy'
-import { on, add, remove, index } from '@/util/dom'
+import { on } from '@/util/dom'
 import { wrap } from '@/util/math'
 import gsap from 'gsap'
 
 export default component((node, ctx) => {
+  // select dom elements
   const { buttons, lines, slides } = choozy(node)
+
+  // grab dynamic autoplay duration value
   const autoplayDuration = parseInt(node.dataset.autoplayDuration)
+
+  // store the duration of our animation for use later
   const tweenDuration = 0.5
+
+  // create a gsap timeline instance
   const tl = gsap.timeline()
 
-  let prevIndex = null
-  let activeIndex = 0
-  let isPlaying = true
+  // setup local state
+  let previousSlideIndex = null
+  let currentSlideIndex = 0
+  let isAutoplayEnabled = true
 
+  // subscribe to global resize event
   ctx.on('resize', resize)
 
+  // subscribe to button click events
   const offClick = on(buttons, 'click', ({ currentTarget: t }) => {
-    isPlaying = false
-    setActiveSlide(index(t.parentNode))
+    // disable autoplay after user interacts with the carousel
+    isAutoplayEnabled = false
+
+    // grab the index of the clicked button
+    const selectedIndex = parseInt(t.dataset.index)
+
+    setSlideIndex(selectedIndex)
   })
 
+  // set initial styles and kick things off
   setInitialStyles()
-  setActiveSlide(activeIndex)
+  setSlideIndex(currentSlideIndex)
 
-  function setActiveSlide(index) {
-    prevIndex = activeIndex
-    activeIndex = index
+  function setSlideIndex(index) {
+    // update local state
+    previousSlideIndex = currentSlideIndex
+    currentSlideIndex = index
 
-    const prevSlide = slides[prevIndex]
-    const prevLine = lines[prevIndex]
-    const slide = slides[activeIndex]
-    const line = lines[activeIndex]
+    // save refs to the elements we want to animate
+    const prevSlide = slides[previousSlideIndex]
+    const prevLine = lines[previousSlideIndex]
+    const slide = slides[currentSlideIndex]
+    const line = lines[currentSlideIndex]
 
+    // clear any in progress tweens
     tl.clear()
 
-    // is not playing and there's a previous slide
-    if (prevIndex > -1) {
-      // animate line to scaleX 0 to the right
-      if (!isPlaying) {
+    // animate out previous slide (if there is one)
+    if (previousSlideIndex > -1) {
+      // line only needs to be animated out when autoplay is already disabled
+      if (!isAutoplayEnabled) {
         tl.set(prevLine, { transformOrigin: 'right' }).to(
           prevLine,
           {
             duration: tweenDuration,
             scaleX: 0,
-            ease: 'quart.inOut',
+            ease: 'quart',
           },
           'leave',
         )
       }
 
-      // fade out the prevSlide
+      // fade out the previous slide
       tl.to(
         prevSlide,
         {
           duration: tweenDuration,
           autoAlpha: 0,
-          ease: 'quart.inOut',
+          ease: 'quart',
         },
         'leave',
       )
     }
 
-    // enter
-    // line scales up from left
+    // animate in the selected slide
+    // scale up line
     tl.set(line, { transformOrigin: 'left' })
       .to(
         line,
         {
           duration: tweenDuration,
           scaleX: 1,
-          ease: 'quart.inOut',
+          ease: 'quart',
         },
         'enter',
       )
-      // slide fades in
+      // fade in slide
       .to(
         slide,
         {
           duration: tweenDuration,
           autoAlpha: 1,
-          ease: 'quart.inOut',
+          ease: 'quart',
           onComplete: () => {
-            // if isPlaying when finished, animateProgress
-            if (isPlaying) {
+            // if autoplay is still enabled when tween is complete
+            if (isAutoplayEnabled) {
+              // kick off progress bar animation
               animateProgress()
             }
           },
@@ -92,29 +112,35 @@ export default component((node, ctx) => {
       )
   }
 
-  function nextSlide() {
-    setActiveSlide(wrap(activeIndex + 1, slides.length))
-  }
-
   function animateProgress() {
-    const line = lines[activeIndex]
+    const line = lines[currentSlideIndex]
 
     tl.set(line, {
       transformOrigin: 'right',
     }).to(line, {
+      // here's where we use the dynamic autoplayDuration value
+      // converting from milliseconds to seconds
       duration: autoplayDuration / 1000,
       scaleX: 0,
       ease: 'linear',
       onComplete: () => {
+        // when complete, go to the next slide
         nextSlide()
       },
     })
   }
 
+  // helper function to increment the slide
+  function nextSlide() {
+    setSlideIndex(wrap(currentSlideIndex + 1, slides.length))
+  }
+
+  // on resize, we need to set the height of the entire carousel element to be
+  // equal to the tallest slide
   function resize() {
     let maxHeight = 0
     slides.forEach((slide) => {
-      let height = slide.offsetHeight
+      const height = slide.offsetHeight
       if (height > maxHeight) {
         maxHeight = height
       }

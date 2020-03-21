@@ -6,7 +6,7 @@
   <ul class="w50 pt20">
     {% for item in items %}
       <li class="mb10">
-        <button class="about-carousel__button f50 lh150 js-buttons">
+        <button class="about-carousel__button f50 lh150 js-buttons" data-index="{{ forloop.index0 }}">
           {{ item.name }}
           <span class="js-lines"></span>
         </button>
