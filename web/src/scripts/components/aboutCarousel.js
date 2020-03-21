@@ -74,6 +74,7 @@ export default component((node, ctx) => {
         prevSlide,
         {
           duration: tweenDuration,
+          y: -10,
           autoAlpha: 0,
           ease: 'quart',
         },
@@ -94,10 +95,15 @@ export default component((node, ctx) => {
         'enter',
       )
       // fade in slide
-      .to(
+      .fromTo(
         slide,
         {
+          y: 10,
+          autoAlpha: 0,
+        },
+        {
           duration: tweenDuration,
+          y: 0,
           autoAlpha: 1,
           ease: 'quart',
           onComplete: () => {
