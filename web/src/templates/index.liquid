@@ -53,23 +53,10 @@ title: Home
 
   <section id="about" class="pt25 ph20 m:ph40 l:ph80 pt75 pb110 mb60 s:mb80 c-tan bg-blue">
     {% include section-title, title: "About", cx: "mb40" %}
-    <div class="about-carousel df" data-component="aboutCarousel">
-      <ul class="w50 pt20">
-        {% for item in about.carouselItems %}
-          <li class="about-carousel__button {% if forloop.first %}is-active{% endif %}">
-            <button class="f50 lh150">{{ item.name }}</button>
-          </li>
-        {% endfor %}
-      </ul>
-      <ul class="w50 pl25">
-        {% for item in about.carouselItems %}
-          <li class="about-carousel__content {% if forloop.first %}is-active{% else %}abs o0{% endif %}">
-            <h3 class="serif f50 lh120 mb30">{{ item.headline }}</h3>
-            <div class="f18 lh155 ls02em">{{ item.body }}</div>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+    {% include about-carousel,
+      items: about.carouselItems,
+      autoplayDuration: about.carouselSettings.autoplayDuration
+    %}
   </section>
 
   <section id="lab" class="pt25 mb80 s:mb100">

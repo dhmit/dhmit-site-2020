@@ -1,6 +1,6 @@
 import { component } from 'picoapp'
 import { on, add, remove } from '@/util/dom'
-import { Animate } from '@oframe/animate'
+import gsap from 'gsap'
 
 export default component((node, ctx) => {
   const header = node.querySelector('.header')
@@ -24,11 +24,12 @@ export default component((node, ctx) => {
 
     setActiveLinks(targetEl, links)
 
-    new Animate(scroll, 700, {
+    gsap.to(scroll, {
+      duration: 0.7,
       y: targetY,
-      ease: 'inOutCubic',
-      update: () => window.scroll(0, scroll.y),
-      complete: () => {
+      ease: 'cubic.inOut',
+      onUpdate: () => window.scroll(0, scroll.y),
+      onComplete: () => {
         isAnimating = false
       },
     })

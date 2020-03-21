@@ -1,0 +1,24 @@
+<div
+  class="about-carousel df"
+  data-component="aboutCarousel"
+  data-autoplay-duration="{{ autoplayDuration }}"
+>
+  <ul class="w50 pt20">
+    {% for item in items %}
+      <li class="mb10">
+        <button class="about-carousel__button f50 lh150 js-buttons">
+          {{ item.name }}
+          <span class="js-lines"></span>
+        </button>
+      </li>
+    {% endfor %}
+  </ul>
+  <ul class="rel w50 pl25">
+    {% for item in items %}
+      <li class="about-carousel__content o0 js-slides">
+        <h3 class="serif f50 lh120 mb30">{{ item.headline }}</h3>
+        <div class="f18 lh155 ls02em">{{ item.body }}</div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

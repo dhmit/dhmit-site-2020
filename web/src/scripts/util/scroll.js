@@ -44,6 +44,11 @@ export function scrollPercentage(el) {
   )
 }
 
+export function inview(el) {
+  const percent = scrollPercentage(el)
+  return percent > 0 && percent < 1
+}
+
 export function scrollReset() {
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual'
