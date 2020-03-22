@@ -18,7 +18,7 @@ export default component((node, ctx) => {
 
     const id = ev.currentTarget.getAttribute('href')
     const targetEl = node.querySelector(id)
-    const scroll = { y: window.pageYOffset }
+    const scroll = { y: node.scrollTop }
     const offsetY = id === '#intro' ? 0 : header.offsetHeight
     const targetY = targetEl.offsetTop - offsetY
 
@@ -28,25 +28,30 @@ export default component((node, ctx) => {
       duration: 0.7,
       y: targetY,
       ease: 'cubic.inOut',
-      onUpdate: () => window.scroll(0, scroll.y),
+      onUpdate: () => (node.scrollTop = scroll.y),
       onComplete: () => {
         isAnimating = false
       },
     })
   })
 
-  ctx.on('tick', () => {
+  ctx.on('tick', ({ windowHeight }) => {
     if (isAnimating) return
 
     sections.forEach((section, i) => {
       const bounds = section.getBoundingClientRect()
       const top = bounds.top
       const bottom = bounds.top + bounds.height
-      const threshold = window.innerHeight * 0.5
+      const threshold = windowHeight * 0.5
       if (top < threshold && bottom > threshold) {
         setActiveLinks(section, links)
       }
     })
+
+    const percentScrolled =
+      node.scrollTop / (node.firstElementChild.offsetHeight - windowHeight)
+
+    ctx.hydrate({ percentScrolled })
   })
 
   return () => {

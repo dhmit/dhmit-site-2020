@@ -19,6 +19,7 @@ const state = {
   ...size(),
   isNavOpen: false,
   aboutCarouselIndex: 0,
+  percentScrolled: 0,
 }
 
 export default picoapp(components, state)

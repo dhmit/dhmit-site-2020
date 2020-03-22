@@ -1,5 +1,7 @@
 .modal {
-  &__close {
+  &__inner {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
   }
 
   &__x {
