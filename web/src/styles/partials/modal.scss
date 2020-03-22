@@ -6,6 +6,7 @@
     top: 7.5rem;
     left: 8rem;
     right: 8rem;
+    min-height: calc(100vh - 7.5rem);
   }
 
   &__x {
