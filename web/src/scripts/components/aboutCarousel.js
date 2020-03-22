@@ -21,17 +21,22 @@ export default component((node, ctx) => {
   let previousSlideIndex = null
   let currentSlideIndex = 0
   let isAutoplayEnabled = true
+  let isTransitioning = false
 
   // subscribe to global resize event
   ctx.on('resize', resize)
 
   // subscribe to button click events
   const offClick = on(buttons, 'click', ({ currentTarget: t }) => {
+    if (isTransitioning) return
+
     // disable autoplay after user interacts with the carousel
     isAutoplayEnabled = false
 
     // grab the index of the clicked button
     const selectedIndex = parseInt(t.dataset.index)
+
+    if (selectedIndex === currentSlideIndex) return
 
     setSlideIndex(selectedIndex)
   })
@@ -42,6 +47,7 @@ export default component((node, ctx) => {
 
   function setSlideIndex(index) {
     // update local state
+    isTransitioning = true
     previousSlideIndex = currentSlideIndex
     currentSlideIndex = index
 
@@ -107,6 +113,7 @@ export default component((node, ctx) => {
           autoAlpha: 1,
           ease: 'quart',
           onComplete: () => {
+            isTransitioning = false
             // if autoplay is still enabled when tween is complete
             if (isAutoplayEnabled) {
               // kick off progress bar animation
