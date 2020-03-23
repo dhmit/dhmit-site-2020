@@ -14,6 +14,8 @@ export default component((node, ctx) => {
 
     if (isAnimating) return
 
+    ctx.getState().isNavOpen && ctx.emit('burger:toggle')
+
     isAnimating = true
 
     const id = ev.currentTarget.getAttribute('href')

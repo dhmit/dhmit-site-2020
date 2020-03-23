@@ -1,16 +1,23 @@
 import { component } from 'picoapp'
-import { on, toggle, body } from '@/util/dom'
+import { on, toggle as toggleClass, body } from '@/util/dom'
 
 export default component((node, ctx) => {
+  ctx.on('burger:toggle', toggle)
+
   let offClick = on(node, 'click', () => {
-    const prevState = ctx.getState()
-    toggle(body, 'is-nav-open')
+    ctx.emit('burger:toggle')
+  })
+
+  function toggle(prevState) {
+    toggleClass(body, 'is-nav-open')
+
     node.setAttribute(
       'aria-label',
       `${prevState.isNavOpen ? 'Open' : 'Close'} Navigation`,
     )
-    ctx.emit('burger:toggle', { isNavOpen: !prevState.isNavOpen })
-  })
+
+    ctx.hydrate({ isNavOpen: !prevState.isNavOpen })
+  }
 
   return offClick
 })
