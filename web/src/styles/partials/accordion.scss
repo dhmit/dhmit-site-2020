@@ -10,7 +10,7 @@
       top: 50%;
       margin-top: -1px;
       background-color: $blue;
-      transition: transform 0.4s $ease-in-out-cubic;
+      transition: transform 0.3s $ease-out-quart;
       height: 2px;
       width: 1.8rem;
       right: 1.5rem;
@@ -18,12 +18,16 @@
     }
 
     &::after {
-      transform: rotate(90deg);
+      transform: rotate(-90deg);
     }
 
     &[aria-expanded='true'] {
+      &::before {
+        transform: rotate(-180deg);
+      }
+
       &::after {
-        transform: none;
+        transform: rotate(-180deg);
       }
     }
   }
@@ -32,7 +36,7 @@
     margin: 0;
     max-height: 75vh;
     overflow: hidden;
-    transition: all 0.4s $ease-in-out-cubic;
+    transition: all 0.3s $ease-out-quart;
     max-height: 0;
     transform: none;
 
@@ -45,11 +49,4 @@
       visibility: hidden;
     }
   }
-
-  // &__panel-inner {
-  //   a {
-  //     font-family: 'Suisse Works', serif;
-  //     color: $crimson;
-  //   }
-  // }
 }
