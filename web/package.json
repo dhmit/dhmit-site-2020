@@ -19,6 +19,7 @@
     "@dogstudio/highway": "^2.1.3",
     "@selfaware/wool": "^1.0.3",
     "choozy": "^0.0.6",
+    "embla-carousel": "^2.8.1",
     "focus-visible": "^5.0.2",
     "gsap": "^3.2.5",
     "picoapp": "^3.4.0"

@@ -4,6 +4,7 @@ import { size } from '@/util/dom'
 import anchors from '@/components/anchors'
 import burger from '@/components/burger'
 import lazyImage from '@/components/lazyImage'
+import projectSlider from '@/components/projectSlider'
 import aboutCarousel from '@/components/aboutCarousel'
 import accordion from '@/components/accordion'
 
@@ -11,6 +12,7 @@ const components = {
   anchors,
   burger,
   lazyImage,
+  projectSlider,
   aboutCarousel,
   accordion,
 }

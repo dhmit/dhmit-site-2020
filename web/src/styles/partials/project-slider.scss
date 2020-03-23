@@ -1,4 +1,20 @@
 .project-slider {
+  &.is-draggable {
+    cursor: -webkit-grab;
+  }
+
+  &.is-dragging {
+    cursor: -webkit-grabbing;
+  }
+
+  &__item {
+    width: 47%;
+
+    @media (query('l')) {
+      width: 30%;
+    }
+  }
+
   &__link {
     transition: opacity 0.4s $ease-out-quart;
     &:hover {
