@@ -11,6 +11,16 @@
     }
   }
 
+  &__content {
+    a {
+      transition: 0.3s $ease-out-quart;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
   &__funded-by {
     a {
       text-decoration: underline;
