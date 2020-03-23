@@ -1,0 +1,26 @@
+<section id="projects" class="pt25 mb60 s:mb80">
+  <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
+    {% include section-title, title: "Projects" %}
+  </div>
+  <div class="project-slider x ox">
+    <ul class="f0 nowrap pl20 m:pl40 l:pl80">
+      {% for project in projects %}
+        <li class="w40 l:w30 dib wrap mb40 pr20" style="vertical-align: top;">
+          <a class="project-slider__link db" href="/project/{{ project.slug }}/">
+            {% include lazy-image,
+              image: project.image,
+              containerCx: 'r--4x3 br7 oh mb10 s:mb20',
+              imgCx: 'x y cover',
+              padding: false
+            %}
+            <p class="mono f11 s:f14 mb5 s:mb10 m:mb5">
+              {{ project.metadata.semester | capitalize }} {{ project.metadata.year }}
+            </p>
+            <h3 class="serif f16 s:f21 m:f32 lh125 mb15">{{ project.title }}</h3>
+            <p class="sans f16 m:f18 lh155 ls02em dn s:db">{{ project.subtitle }}</p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

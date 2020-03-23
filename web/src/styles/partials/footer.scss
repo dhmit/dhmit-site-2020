@@ -1,6 +1,14 @@
 .footer {
   &__logo {
-    width: 12rem;
+    width: 7.7rem;
+
+    @media (query('m')) {
+      width: 10rem;
+    }
+
+    @media (query('l')) {
+      width: 12rem;
+    }
   }
 
   &__funded-by {
@@ -10,6 +18,14 @@
   }
 
   &__mit {
-    width: 8rem;
+    width: 5.8rem;
+
+    @media (query('m')) {
+      width: 7rem;
+    }
+
+    @media (query('l')) {
+      width: 8rem;
+    }
   }
 }

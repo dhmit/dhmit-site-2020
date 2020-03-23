@@ -1,0 +1,63 @@
+<section id="people" class="pt25 mb55 m:mb80 l:mb115">
+  <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
+    {% include section-title, title: "People" %}
+  </div>
+  <div class="m:df">
+    <div class="m:w50">
+      <div class="pl20 m:pl40 l:pl80 pr20 m:pr0 m:pr25 l:pr40 xl:pr80 mb50 m:mb110">
+        <h3 class="mono f16 l:f18 f138 mb20 m:mb30">Staff</h3>
+        <ul>
+          {% for person in people.staff %}
+            <li class="bb pv15">
+              <h4 class="f18 l:f22 lh113 ls01em mb5">{{ person.name }}</h4>
+              <p class="f16 l:f18 lh138 ls01em l:ls02em">{{ person.title }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="texture--3 dn m:db">
+        {% include texture %}
+      </div>
+    </div>
+    <div class="m:w50">
+      <div class="pl25 pr20 m:pr40 l:pr80 mb30 m:mb65">
+        <h3 class="mono f16 l:f18 f138 mb20 m:mb30">UROP Students</h3>
+        <ul class="f16 lh1625 ls01em">
+          {% for person in people.students %}
+            <li class="dib">{{ person.name }}{% unless forloop.last %},{% endunless %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="pl25 pr20 m:pr40 l:pr80 mb30 m:mb65">
+        <h3 class="mono f16 l:f18 f138 mb20 m:mb30">Former Members</h3>
+        <ul class="f16 lh1625 ls01em">
+          {% for person in people.formerMembers %}
+            <li class="dib">{{ person.name }}{% unless forloop.last %},{% endunless %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="pl25 pr20 m:pr40 l:pr80">
+        <h3 class="mono f16 l:f18 f138 mb20 m:mb30">Steering Committee</h3>
+        <ul>
+          {% for person in people.steeringCommittee %}
+            <li class="f16 lh1625 ls01em mb5">
+              <h4 class="db s:di s:mr5">
+                <a
+                  class="tdu"
+                  href="{{ person.link }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >{{ person.name }}</a>
+              </h4>
+              <p class="db s:di o80 i lh150">{{ person.title }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="texture--3 db m:dn mt50">
+        {% include texture %}
+      </div>
+    </div>
+  </div>
+</section>

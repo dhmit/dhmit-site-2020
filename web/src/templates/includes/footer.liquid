@@ -1,0 +1,36 @@
+<footer class="footer bg-blue c-tan ph20 m:ph40 l:ph80 pt30 pb70">
+  <div class="df aic jcb">
+    <a class="footer__logo" href="#intro" data-router-disabled>
+      {% include mark-tan %}
+    </a>
+    <a class="footer__mit" href="https://mit.edu">
+      {% include mit-logo, primary: '#FBF7EB', secondary: '#BC8540' %}
+    </a>
+  </div>
+  <div class="df">
+    <div class="w40 xl:w50 dn l:db"></div>
+    <div class="pt105 l:pt0 f16 lh1437 ls02em pt10">
+      <div class="x">
+        <p>{{ footer.addressLine1 }}</p>
+        <p class="mb20">{{ footer.addressLine2 }}</p>
+        <ul class="df fw pb70 mb20 bb bc-tan mr85">
+          <li class="mr40 mb25"><p>{{ footer.phone }}</p></li>
+          <li class="mr40">
+            <a class="tdu" href="mailto:{{ footer.emailAddress }}">Email</a>
+          </li>
+          <li>
+            <a
+              class="tdu"
+              href="https://twitter.com/{{ twitterHandle }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Twitter</a>
+          </li>
+        </ul>
+        <div class="footer__funded-by">
+          {{ footer.fundedByText }}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

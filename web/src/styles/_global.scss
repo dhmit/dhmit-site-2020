@@ -9,7 +9,7 @@
 html {
   font-size: 10px;
 
-  @media (query('xl')) {
+  @media (query('xxl')) {
     font-size: 10 / 1440 * 100vw;
   }
 }

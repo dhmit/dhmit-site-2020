@@ -8,10 +8,20 @@
   }
 
   &--2 {
-    position: absolute;
-    right: 0;
-    transform: translateX(58%) rotate(180deg);
-    width: 96.8rem;
+    width: 125%;
+    transform: translateX(40%) rotate(180deg);
+
+    @media (query('m')) {
+      position: absolute;
+      right: 0;
+      width: 85rem;
+      transform: translateX(64%) rotate(180deg);
+    }
+
+    @media (query('l')) {
+      transform: translateX(58%) rotate(180deg);
+      width: 96.8rem;
+    }
   }
 
   &--3 {
