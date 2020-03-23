@@ -894,7 +894,6 @@
 "@dogstudio/highway@^2.1.3":
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/@dogstudio/highway/-/highway-2.1.3.tgz#c67193118aec417fc9bbf1925890fe75a249c97a"
-  integrity sha512-yf2vhsyd7ew0h6tjrCZd0fMYBYPpPNR1Dy0it0UkvWiYq/ZIziAgtUlqrar6TlElb5BuwIus0H4lrETZqA1fHg==
   dependencies:
     tiny-emitter "^2.1.0"
 
@@ -982,14 +981,12 @@
 "@sanity/block-content-to-html@^1.3.8":
   version "1.3.8"
   resolved "https://registry.yarnpkg.com/@sanity/block-content-to-html/-/block-content-to-html-1.3.8.tgz#eff8e3dafe82f4a7e10ed914f7fa646c3e59ec2d"
-  integrity sha512-eXXilwPQCFe2uHMK5DItzZWg2CgaCfbo2hpcY1BbJEDPNhPjRlkaNBxM65U9M6yxreNnFffTNWHORVX3vZmIeQ==
   dependencies:
     "@sanity/block-content-to-hyperscript" "^2.0.5"
 
 "@sanity/block-content-to-hyperscript@^2.0.5":
   version "2.0.10"
   resolved "https://registry.yarnpkg.com/@sanity/block-content-to-hyperscript/-/block-content-to-hyperscript-2.0.10.tgz#9cf805c5d2341d043bcab8b3740c9b3466b5ae6b"
-  integrity sha512-xT3iEmZkK0fvO5PDFpn9GMWGfvOopvbrRCBU48XxpFoTxRrfsHhxbRy8J0eND1HGXHUENkIKv5jbohtGd1MiVg==
   dependencies:
     "@sanity/generate-help-url" "^0.140.0"
     "@sanity/image-url" "^0.140.15"
@@ -1016,7 +1013,6 @@
 "@sanity/cli@^1.148.6":
   version "1.148.6"
   resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-1.148.6.tgz#d269b65a21fe10a0cb19a6937c11a2d111d16bf9"
-  integrity sha512-cEgLKEGTkWwl3sd5Afu1ViR8PSsvJPotbFpShTb0ogz+T+caHqce6dumzYhSHKkAW59GDZ7jwLAUzuUEIA8sgw==
 
 "@sanity/client@1.148.3":
   version "1.148.3"
@@ -1141,6 +1137,14 @@
     postcss-modules-values "^1.3.0"
     postcss-value-parser "^3.3.0"
     source-list-map "^2.0.0"
+
+"@sanity/dashboard@^1.149.5":
+  version "1.149.5"
+  resolved "https://registry.npmjs.org/@sanity/dashboard/-/dashboard-1.149.5.tgz#1ab40db25168026ae7b9643d4108adcd2311da77"
+  dependencies:
+    lodash "^4.17.15"
+    react-icons "^2.2.7"
+    rxjs "^6.5.3"
 
 "@sanity/data-aspects@1.148.1":
   version "1.148.1"
@@ -1285,7 +1289,6 @@
 "@sanity/generate-help-url@^0.140.0":
   version "0.140.0"
   resolved "https://registry.yarnpkg.com/@sanity/generate-help-url/-/generate-help-url-0.140.0.tgz#f60ab75be5fdc346b9f0d1c2a0858aa3c2870109"
-  integrity sha512-H/G/WA9S22TXcXST52CIiTsHx3S2hH0gvK7LnI5w76vfKS0obnDPh8jrPg4xeNRYGPuV9MHYRlyERGpRGoo4Qw==
 
 "@sanity/image-url@0.140.15":
   version "0.140.15"
@@ -1294,7 +1297,6 @@
 "@sanity/image-url@^0.140.15":
   version "0.140.17"
   resolved "https://registry.yarnpkg.com/@sanity/image-url/-/image-url-0.140.17.tgz#fa4feecab1441fde6e95766b4bf721ca1a842872"
-  integrity sha512-RWyrTXmdDwujYZ2Rpd7eqKTfbr+rAcZ6zWlCqEtGG0mQwV/O22AoiL++lKq6YHsOn/etl6CsqrQAsEQNMF4r1A==
 
 "@sanity/imagetool@1.148.1":
   version "1.148.1"
@@ -1546,7 +1548,6 @@
 "@selfaware/wool@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@selfaware/wool/-/wool-1.0.3.tgz#77b7633fd7106dfce3a1e02782df08670a82d649"
-  integrity sha512-bq93IufRCwAl3aWGLYcF+L1IfpCjsctrzKHfNWC4SqJIjacZrQd5hzYnP5IiWKgYgH+FRZu3XaNw+tCNyiKTiw==
 
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.7"
@@ -1760,6 +1761,12 @@ abab@^2.0.0:
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
+
+abort-controller@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.npmjs.org/abort-controller/-/abort-controller-2.0.3.tgz#b174827a732efadff81227ed4b8d1cc569baf20a"
+  dependencies:
+    event-target-shim "^5.0.0"
 
 accepts@~1.3.4, accepts@~1.3.7:
   version "1.3.7"
@@ -2372,7 +2379,6 @@ browser-process-hrtime@^0.1.2:
 browser-split@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/browser-split/-/browser-split-0.0.0.tgz#41419caef769755929dd518967d3eec0a6262771"
-  integrity sha1-QUGcrvdpdVkp3VGJZ9PuwKYmJ3E=
 
 browser-sync-client@^2.26.6:
   version "2.26.6"
@@ -2880,7 +2886,6 @@ circular-at@^1.0.3:
 class-list@~0.1.0, class-list@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/class-list/-/class-list-0.1.1.tgz#9b9745192c4179b5da0a0d7633658e3c70d796cb"
-  integrity sha1-m5dFGSxBebXaCg12M2WOPHDXlss=
   dependencies:
     indexof "0.0.1"
 
@@ -3982,7 +3987,6 @@ emitter-mixin@0.0.3:
 emoji-regex@^6.4.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.5.1.tgz#9baea929b155565c11ea41c6626eaa65cef992c2"
-  integrity sha512-PAHp6TxrCy7MGMFidro8uikr+zlJJKJ/Q6mm2ExZ7HwkyR9lSVFfE3kt36qcwa24BQL7y0G9axycGjK1A/0uNQ==
 
 emoji-regex@^7.0.1:
   version "7.0.3"
@@ -3995,7 +3999,6 @@ emojis-list@^2.0.0:
 emojis-list@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-3.0.0.tgz#5570662046ad29e2e916e71aae260abdff4f6a78"
-  integrity sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==
 
 encodeurl@~1.0.1, encodeurl@~1.0.2:
   version "1.0.2"
@@ -4293,6 +4296,10 @@ event-emitter@~0.3.5:
     d "1"
     es5-ext "~0.10.14"
 
+event-target-shim@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.npmjs.org/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
+
 eventemitter3@1.x.x:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-1.2.0.tgz#1c86991d816ad1e504750e73874224ecf3bec508"
@@ -4549,7 +4556,6 @@ file-loader@^1.1.4:
 file-loader@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-5.1.0.tgz#cb56c070efc0e40666424309bd0d9e45ac6f2bb8"
-  integrity sha512-u/VkLGskw3Ue59nyOwUwXI/6nuBCo7KBkniB/l7ICwr/7cPNGsL1WCXUp3GB0qgOOKU1TiP49bv4DZF/LJqprg==
   dependencies:
     loader-utils "^1.4.0"
     schema-utils "^2.5.0"
@@ -4681,7 +4687,6 @@ flux@^3.1.3:
 focus-visible@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/focus-visible/-/focus-visible-5.0.2.tgz#4fae9cf40458b73c10701c9774c462e3ccd53caf"
-  integrity sha512-zT2fj/bmOgEBjqGbURGlowTmCwsIs3bRDMr/sFZz8Ly7VkEiwuCn9swNTL3pPuf8Oua2de7CLuKdnuNajWdDsQ==
 
 follow-redirects@1.5.10:
   version "1.5.10"
@@ -5057,12 +5062,10 @@ gray-matter@^4.0.2:
 groq@^1.149.0:
   version "1.149.0"
   resolved "https://registry.yarnpkg.com/groq/-/groq-1.149.0.tgz#a9b0ee8302a0a8fadcc021ee584d0b906b025f1e"
-  integrity sha512-Xam21k48sP9z50QVgM+i9tMCGbQ2vjfYvjx/pctpdrq0rYWbRfeBkcYF6Kt0j/SFKT4hoZuwUGUKbZPUVWu2pQ==
 
 gsap@^3.2.5:
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.2.5.tgz#4e4841e8c219b06d0d0d54c1c09c0681e2351c0a"
-  integrity sha512-3D5YZFnuoTj8hkMREadLq4+joYIGk+XE7DUVzWRu5ErtyfrDqRNDKFLMvJBsZP1u8VlMpcqFXmPBCZjKjOUbQw==
 
 gud@^1.0.0:
   version "1.0.0"
@@ -5260,7 +5263,6 @@ html-comment-regex@^1.1.0:
 html-element@^2.0.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/html-element/-/html-element-2.3.1.tgz#5feb23dd5226467ef8c2faec51a5bf29c4ef5440"
-  integrity sha512-xnFt2ZkbFcjc+JoAtg3Hl89VeEZDjododu4VCPkRvFmBTHHA9U1Nt6hLUWfW2O+6Sl/rT1hHK/PivleX3PdBJQ==
   dependencies:
     class-list "~0.1.1"
 
@@ -5348,7 +5350,6 @@ husky@^4.1.0:
 hyperscript@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/hyperscript/-/hyperscript-2.0.2.tgz#3839cba45554bdfe27bb81c2142d1684f8135af5"
-  integrity sha1-ODnLpFVUvf4nu4HCFC0WhPgTWvU=
   dependencies:
     browser-split "0.0.0"
     class-list "~0.1.0"
@@ -6287,7 +6288,6 @@ loader-utils@^0.2.16:
 loader-utils@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
-  integrity sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
   dependencies:
     big.js "^5.2.2"
     emojis-list "^3.0.0"
@@ -6355,7 +6355,6 @@ lodash.curry@^4.0.1:
 lodash.flatten@^4.2.0, lodash.flatten@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.flatten/-/lodash.flatten-4.4.0.tgz#f31c22225a9632d2bbf8e4addbef240aa765a61f"
-  integrity sha1-8xwiIlqWMtK7+OSt2+8kCqdlph8=
 
 lodash.flow@^3.3.0:
   version "3.5.0"
@@ -6389,7 +6388,6 @@ lodash.isplainobject@^4.0.0:
 lodash.isstring@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
-  integrity sha1-1SfftUVuynzJu5XV2ur4i6VKVFE=
 
 lodash.keys@^3.0.0:
   version "3.1.2"
@@ -6926,7 +6924,6 @@ nano-pubsub@^1.0.2:
 nanoclass@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/nanoclass/-/nanoclass-0.0.2.tgz#ace3ff9f746f4a0e632760d4531d01b832c1a09b"
-  integrity sha512-2xku8GgTJeBpcQQNOynygfDcV6H85vKwC8w4UI1u6oeujJA3YER0ji1xg6hCL9STiGhASUmHOL9r70YcDsJb5w==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -8854,7 +8851,6 @@ react-dom@^16.2:
 react-emoji-render@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-emoji-render/-/react-emoji-render-1.2.1.tgz#646302217ffe9af53033b8582e930c7933ce58e5"
-  integrity sha512-h6gBzD63LEUt06WiwIlipbX9deYzfdWBmWpN0exGnMk2BoyVmtZ33B9ep0C6jmt4Un3wJN2CPJV4E1+uXS4inQ==
   dependencies:
     classnames "^2.2.5"
     emoji-regex "^6.4.1"
@@ -9505,6 +9501,13 @@ safe-regex@^1.1.0:
 same-origin@^0.1.1:
   version "0.1.1"
   resolved "https://registry.npmjs.org/same-origin/-/same-origin-0.1.1.tgz#c2287d3192577df517acbbd6d1451a9c3c3914f5"
+
+sanity-plugin-dashboard-widget-netlify@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/sanity-plugin-dashboard-widget-netlify/-/sanity-plugin-dashboard-widget-netlify-1.0.1.tgz#e510e40e05b9bcfdf11a4a2affed590e191bb93b"
+  dependencies:
+    abort-controller "^2.0.3"
+    react-props-stream "^1.0.0"
 
 sass-loader@^8.0.2:
   version "8.0.2"
@@ -10184,7 +10187,6 @@ string-hash@^1.1.3:
 string-replace-to-array@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/string-replace-to-array/-/string-replace-to-array-1.0.3.tgz#c93eba999a5ee24d731aebbaf5aba36b5f18f7bf"
-  integrity sha1-yT66mZpe4k1zGuu69auja18Y978=
   dependencies:
     invariant "^2.2.1"
     lodash.flatten "^4.2.0"
@@ -10519,7 +10521,6 @@ timsort@^0.3.0:
 tiny-emitter@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
-  integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
 
 tiny-invariant@^1.0.1, tiny-invariant@^1.0.2:
   version "1.0.6"
