@@ -9,7 +9,7 @@ renderData:
   title: "{{ project.title }}"
 ---
 {% capture projectMetadata %}
-  <ul class="mono f18 lh155 mb70">
+  <ul class="mono f16 m:f18 lh155 mb40 m:mb70">
     <li class="mb5">{{ project.metadata.semester | capitalize }} {{ project.metadata.year }}</li>
     {% for link in project.metadata.links %}
       <li class="mb5">
@@ -22,9 +22,9 @@ renderData:
 {% endcapture %}
 
 {% capture studentTeam %}
-  <div class="mt60">
+  <div class="mt40 m:mt60">
     {% if project.studentTeam %}
-      <h4 class="mono f18 lh155 mb20">Student Team</h2>
+      <h4 class="mono f16 m:f18 lh155 mb15 m:mb20">Student Team</h2>
       <ul class="f16 lh1625 ls01em">
         {% for person in project.studentTeam %}
           <li class="dib">{{ person.name }}{% unless forloop.last %},{% endunless %}</li>

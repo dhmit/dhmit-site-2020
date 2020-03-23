@@ -2,13 +2,13 @@
 layout: base.liquid
 ---
 <div class="modal abs fill oy z2 wco" data-router-view="modal">
-  <a class="db fix fill bg-blue pt75 ph80" href="/"></a>
+  <a class="db fix fill bg-blue" href="/" aria-label="Go back home"></a>
   <div class="modal__inner bg-tan wct js-inner">
-    <a class="modal__close db abs top right pv35 ph45 df aic" href="/">
-      <p class="mono f18 lh155">Close</p>
+    <a class="modal__close db abs top right pv15 m:pv35 ph15 m:ph45 df aic" href="/">
+      <p class="mono f14 m:f16 l:f18 lh155">Close</p>
       <span class="modal__x"></span>
     </a>
-    <div class="ph140 pt105">
+    <div class="ph15 m:ph50 l:ph80 xl:ph140 pt80 m:pt105">
       {{ content }}
     </div>
   </div>

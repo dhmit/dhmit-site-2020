@@ -9,7 +9,7 @@ renderData:
   title: "{{ event.title }}"
 ---
 {% capture eventMetadata %}
-  <ul class="mono f18 lh155 mb70">
+  <ul class="mono f16 m:f18 lh155 mb40 m:mb70">
     <li class="mb5">{{ event.metadata.speakerName }}</li>
     <li class="mb5">{{ event.metadata.startDatetime | date: '%A, %B %d, %Y' }}</li>
     <li class="mb5">

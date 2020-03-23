@@ -3,20 +3,40 @@
     border-top-left-radius: 13px;
     border-top-right-radius: 13px;
     position: absolute;
-    top: 7.5rem;
-    left: 8rem;
-    right: 8rem;
-    min-height: calc(100vh - 7.5rem);
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    min-height: calc(100vh - 1rem);
+
+    @media (query('m')) {
+      top: 4rem;
+      left: 4rem;
+      right: 4rem;
+      min-height: calc(100vh - 4rem);
+    }
+
+    @media (query('l')) {
+      top: 7.5rem;
+      left: 8rem;
+      right: 8rem;
+      min-height: calc(100vh - 7.5rem);
+    }
   }
 
   &__x {
-    width: 4rem;
-    height: 4rem;
-    transform: rotate(45deg);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 2.5rem;
+    transform: rotate(45deg);
+    margin-left: 1rem;
+    width: 2.4rem;
+    height: 2.4rem;
+
+    @media (query('m')) {
+      width: 4rem;
+      height: 4rem;
+      margin-left: 2.5rem;
+    }
 
     &::before,
     &::after {
