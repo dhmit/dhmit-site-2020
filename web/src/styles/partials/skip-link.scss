@@ -1,0 +1,11 @@
+.skip-link {
+  opacity: 0;
+  pointer-events: none;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &:focus {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
