@@ -2,7 +2,7 @@
   {% include section-title, title: "Events", cx: "mb45" %}
   <ul class="df fw mhn5 s:mhn10 m:mhn15">
     {% for event in events %}
-      <li class="w50 m:w25 ph5 s:ph10 m:ph15">
+      <li class="event-card w50 m:w25 ph5 s:ph10 m:ph15">
         <a href="/event/{{ event.slug }}/">
           <div class="rel db br4 oh mb15">
             {% include lazy-image,
@@ -11,9 +11,7 @@
               imgCx: 'x y o-cover',
               padding: false
             %}
-            <span
-              class="db abs top left bg-teal pv5 ph10 z1 c-tan mono f12 m:f14 ttu"
-              style="border-bottom-right-radius: 4px;">
+            <span class="event-card__date db abs top left bg-teal ph10 z1 c-tan mono f12 m:f14 ttu">
               {% assign startDate = event.startDatetime | date: '%b %d' %}
               {% assign endDate = event.endDatetime | date: '%b %d' %}
               {% if startDate == endDate %}

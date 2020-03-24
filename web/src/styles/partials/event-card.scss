@@ -1,0 +1,10 @@
+.event-card {
+  &__date {
+    padding: 0.5rem 1rem;
+    border-bottom-right-radius: 4px;
+
+    @media (query('m')) {
+      padding: 0.8rem 1.4rem;
+    }
+  }
+}
