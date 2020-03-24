@@ -18,7 +18,7 @@
       background-color: $blue;
       border-radius: 50%;
       position: absolute;
-      bottom: 5px;
+      bottom: 10px;
       left: -20px;
       opacity: 0;
       transform: scale(0.75);
@@ -32,7 +32,7 @@
       height: 1px;
       background-color: $gold;
       position: absolute;
-      bottom: 0;
+      bottom: 8px;
       transition: transform 0.4s $ease-in-out-quart;
       transform: scaleX(0);
       transform-origin: left;
