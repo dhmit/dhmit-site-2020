@@ -174,6 +174,12 @@ export default {
           fieldset: 'address',
         },
         {
+          title: 'Address Line 3',
+          name: 'addressLine3',
+          type: 'string',
+          fieldset: 'address',
+        },
+        {
           title: 'Phone number',
           name: 'phone',
           type: 'string',
