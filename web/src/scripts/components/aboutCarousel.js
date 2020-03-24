@@ -2,6 +2,7 @@ import { component } from 'picoapp'
 import choozy from 'choozy'
 import { on } from '@/util/dom'
 import { wrap } from '@/util/math'
+import { inview } from '@/util/scroll'
 import gsap from 'gsap'
 
 export default component((node, ctx) => {
@@ -22,6 +23,7 @@ export default component((node, ctx) => {
   let currentSlideIndex = 0
   let isAutoplayEnabled = true
   let isTransitioning = false
+  let isInViewport = false
 
   // subscribe to global resize event
   ctx.on('resize', resize)
@@ -43,7 +45,21 @@ export default component((node, ctx) => {
 
   // set initial styles and kick things off
   setInitialStyles()
-  setSlideIndex(currentSlideIndex)
+
+  // subscribe to global animation loop
+  let offTick = ctx.on('tick', () => {
+    // safe-guard against initializing more than once
+    if (isInViewport) return
+
+    // check if the carousel is visible inside the viewport
+    if (inview(node)) {
+      isInViewport = true
+      // unsubscribe from tick
+      offTick()
+      // set initial index
+      setSlideIndex(currentSlideIndex)
+    }
+  })
 
   function setSlideIndex(index) {
     // update local state
