@@ -8,8 +8,8 @@
   }
 
   &--2 {
-    width: 125%;
-    transform: translateX(40%) rotate(180deg);
+    width: 140%;
+    transform: translateX(35%) rotate(180deg);
 
     @media (query('m')) {
       position: absolute;
@@ -25,6 +25,11 @@
   }
 
   &--3 {
+    width: 84%;
     transform: translateX(-25%);
+
+    @media (query('m')) {
+      width: 100%;
+    }
   }
 }

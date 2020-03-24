@@ -1,10 +1,10 @@
-<section id="events" class="pt25 ph20 m:ph40 l:ph80 mb100">
-  {% include section-title, title: "Events", cx: "mb45" %}
+<section id="events" class="pt25 ph20 m:ph40 l:ph80 mb40 m:mb100">
+  {% include section-title, title: "Events", cx: "mb20 m:mb45" %}
   <ul class="df fw mhn5 s:mhn10 m:mhn15">
     {% for event in events %}
       <li class="event-card w50 m:w25 ph5 s:ph10 m:ph15">
         <a href="/event/{{ event.slug }}/">
-          <div class="rel db br4 oh mb15">
+          <div class="rel db br2 m:br4 oh mb15">
             {% include lazy-image,
               image: event.image,
               containerCx: 'r--4x3',

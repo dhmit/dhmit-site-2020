@@ -2,7 +2,7 @@
   {% include section-title, title: "Community", cx: "mb20" %}
   <div class="m:df">
     <div class="m:w50 pt25 m:pr25 mb50 m:mb0">
-      <h3 class="mono f16 l:f18 f138 mb20 m:mb30">{{ community.accordion.label }}</h3>
+      <h3 class="mono f16 l:f18 f138 mb15 m:mb30">{{ community.accordion.label }}</h3>
       <dl class="accordion bb" data-component="accordion">
         {% for item in community.accordion.items %}
           <dt>
@@ -26,7 +26,7 @@
         <ul>
           {% for publication in community.publications limit:4 %}
             <li class="f16 l:f18 lh133 ls01em mb25">
-              <a href="{{ publication.link }}" target="_blank" rel="noopener noreferrer">
+              <a class="publication" href="{{ publication.link }}" target="_blank" rel="noopener noreferrer">
                 <h4 class="mb5">{{ publication.title }}</h4>
                 <p class="i o80">{{ publication.authors }}</p>
                 <p class="i o80">{{ publication.journal }}</p>

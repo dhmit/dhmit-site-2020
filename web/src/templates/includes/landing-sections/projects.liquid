@@ -1,11 +1,11 @@
-<section id="projects" class="pt25 mb60 s:mb80">
+<section id="projects" class="pt25 mb30 s:mb60 m:mb80">
   <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
     {% include section-title, title: "Projects" %}
   </div>
   <ul class="project-slider ph20 m:ph40 l:ph80" data-component="projectSlider">
     <ul class="f0 nowrap mhn5 m:mhn10">
       {% for project in projects %}
-        <li class="project-slider__item dib wrap mb40 ph5 m:ph10" style="vertical-align: top;">
+        <li class="project-slider__item dib wrap ph5 m:ph10" style="vertical-align: top;">
           <a class="project-slider__link db pen" href="/project/{{ project.slug }}/">
             {% include lazy-image,
               image: project.image,
