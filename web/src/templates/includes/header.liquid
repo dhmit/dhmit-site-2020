@@ -1,6 +1,11 @@
 <header class="header fix top fill-x bg-tan bb z2">
   <div class="header__inner df aic jcb ph10 xs:ph20 pv10">
-    <a class="header__logo db" href="#intro" data-router-disabled>
+    <a
+      class="header__logo db"
+      href="#intro"
+      aria-label="MIT Programs in Digital Humanities"
+      data-router-disabled
+    >
       {% include logo-blue %}
     </a>
     <div class="df aic">
@@ -19,6 +24,7 @@
           href="https://mit.edu"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="MIT"
         >
           {% include mit-logo, primary: '#3D5262', secondary: '#528486' %}
         </a>

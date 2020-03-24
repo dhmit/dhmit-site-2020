@@ -1,9 +1,20 @@
 <footer class="footer bg-blue c-tan ph20 m:ph40 l:ph80 pt30 pb70">
   <div class="df aic jcb">
-    <a class="footer__logo" href="#intro" data-router-disabled>
+    <a 
+      class="footer__logo"
+      href="#intro"
+      data-router-disabled
+      aria-label="MIT Programs in Digital Humanities"
+    >
       {% include mark-tan %}
     </a>
-    <a class="footer__mit" href="https://mit.edu">
+    <a
+      class="footer__mit"
+      href="https://mit.edu"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="MIT"
+    >
       {% include mit-logo, primary: '#FBF7EB', secondary: '#BC8540' %}
     </a>
   </div>
