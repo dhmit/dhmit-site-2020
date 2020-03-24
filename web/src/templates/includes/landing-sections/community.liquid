@@ -26,9 +26,11 @@
         <ul>
           {% for publication in community.publications limit:4 %}
             <li class="f16 l:f18 lh133 ls01em mb25">
-              <h4 class="mb5">{{ publication.title }}</h4>
-              <p class="i o80">{{ publication.authors }}</p>
-              <p class="i o80">{{ publication.journal }}</p>
+              <a href="{{ publication.link }}" target="_blank" rel="noopener noreferrer">
+                <h4 class="mb5">{{ publication.title }}</h4>
+                <p class="i o80">{{ publication.authors }}</p>
+                <p class="i o80">{{ publication.journal }}</p>
+              </a>
             </li>
           {% endfor %}
         </ul>
