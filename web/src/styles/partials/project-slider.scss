@@ -13,12 +13,14 @@
     @media (query('l')) {
       width: 30%;
     }
-  }
 
-  &__link {
-    transition: opacity 0.4s $ease-out-quart;
-    &:hover {
-      opacity: 0.8;
+    &__inner {
+      cursor: pointer;
+      transition: opacity 0.4s $ease-out-quart;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 }
