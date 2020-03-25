@@ -1,7 +1,7 @@
 import choozy from 'choozy'
-
 import { on, add, remove, has } from '@/util/dom'
 
+// A lightweight and accessible accordion implementation
 export default function squeezebox(
   node,
   { openMultiple = false, strictMode = -1, autoResize = false } = {},

@@ -1,8 +1,9 @@
 @import 'config';
-@import 'tools';
 @import 'reset';
 @import 'fonts';
 @import '@selfaware/wool';
 @import 'global';
 
+// Glob imports enabled by node-sass-glob-importer
+// https://www.npmjs.com/package/node-sass-glob-importer
 @import 'partials/*.scss';

@@ -21,7 +21,8 @@ body {
 }
 
 ::selection {
-  background-color: #ccc;
+  background-color: $blue;
+  color: $tan;
 }
 
 h1,

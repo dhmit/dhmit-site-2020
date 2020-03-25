@@ -1,5 +1,5 @@
 import { component } from 'picoapp'
-import { on, toggle as toggleClass, body } from '@/util/dom'
+import { on, toggle as toggleClass } from '@/util/dom'
 
 export default component((node, ctx) => {
   ctx.on('burger:toggle', toggle)
@@ -9,7 +9,7 @@ export default component((node, ctx) => {
   })
 
   function toggle(prevState) {
-    toggleClass(body, 'is-nav-open')
+    toggleClass(document.body, 'is-nav-open')
 
     node.setAttribute(
       'aria-label',
