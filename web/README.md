@@ -16,3 +16,25 @@ This website uses the following technologies, methodologies, and libraries:
 - [picoapp](https://github.com/estrattonbailey/picoapp) for managing JS modules across PJAX page transitions
 - [Babel](https://babeljs.io/) to transpile modern JS syntax into ES5 for wider browser support
 - [Terser](https://terser.org/) for minimizing the Javascript bundle for production
+
+## Project Structure
+
+```sh
+├── src
+│   ├── assets # fonts, favicons, etc.
+│   ├── data # eleventy global data files
+│   ├── scripts # javascript
+│   │   ├── components # picoapp components
+│   │   ├── lib # custom modules
+│   │   ├── transitions # highway.js page transitions
+│   │   ├── util # shared utilities
+│   │   ├── app.js # picoapp setup
+│   │   ├── index.js # (entry) add listeners and mount app
+│   │   └── router.js # highway.js setup
+│   ├── styles # scss
+│   ├── templates # liquid templates
+│   └── util # build-time utilities
+├── README.md # you're currently reading me
+├── package.json
+└── webpack.config.js # webpack configuration
+```
