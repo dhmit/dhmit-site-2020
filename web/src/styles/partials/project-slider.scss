@@ -1,9 +1,11 @@
 .project-slider {
   &.is-draggable {
+    cursor: grab;
     cursor: -webkit-grab;
   }
 
   &.is-dragging {
+    cursor: grabbing;
     cursor: -webkit-grabbing;
   }
 
