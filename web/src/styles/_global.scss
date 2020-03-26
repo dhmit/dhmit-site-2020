@@ -20,6 +20,10 @@ body {
   height: 100%;
 }
 
+body {
+  transition: opacity 1s $ease-out-quart;
+}
+
 ::selection {
   background-color: $blue;
   color: $tan;

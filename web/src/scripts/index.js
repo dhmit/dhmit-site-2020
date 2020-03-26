@@ -1,8 +1,13 @@
 import 'focus-visible'
 import app from '@/app'
 import router from '@/router'
-import { on, size } from '@/util/dom'
+import { remove, on, size } from '@/util/dom'
 import gsap from 'gsap'
+import loadFonts from '@/lib/font-loader'
+
+loadFonts().then(() => {
+  remove(document.body, 'o0')
+})
 
 // Broadcast window resize events
 on(window, 'resize', resize)
