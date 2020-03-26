@@ -16,17 +16,17 @@ export default function loadFonts() {
     Promise.all(observers.map((font) => font.load()))
       .then((res) => {
         // if (process.env.NODE_ENV !== 'production') {
-        console.group('FontFaceObserver')
-        res.forEach((font) =>
-          console.log(`Loaded ${font.family} (${font.style})`),
-        )
-        console.groupEnd()
+        //   console.group('FontFaceObserver')
+        //   res.forEach((font) =>
+        //     console.log(`Loaded ${font.family} (${font.style})`),
+        //   )
+        //   console.groupEnd()
         // }
         resolve()
       })
       .catch(() => {
         // if (process.env.NODE_ENV !== 'production') {
-        console.warn('FFO: 3s loading timeout exceeded.')
+        //   console.warn('FFO: 3s loading timeout exceeded.')
         // }
         reject()
       })
