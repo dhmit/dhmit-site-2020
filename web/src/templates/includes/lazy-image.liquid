@@ -5,6 +5,7 @@
     imgWrapCx,
     imgCx,
     image,
+    width,
     altText,
     padding
   }
@@ -31,7 +32,7 @@
   >
     <img
       class="{% classNames 'lazy-image__img js-img', imgCx %}"
-      data-src="{{ image.url }}"
+      data-src="{% urlFor, image, width %}"
       alt="{{ image.altText }}"
     >
   </div>
