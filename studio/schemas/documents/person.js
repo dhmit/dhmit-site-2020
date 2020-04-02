@@ -44,6 +44,16 @@ export default {
         condition: ({ category }) => category === 'Steering Committee',
       },
     },
+    {
+      title: 'Headshot',
+      name: 'headshot',
+      type: 'image',
+      inputComponent: ConditionalField,
+      options: {
+        condition: ({ category }) =>
+          category === 'UROP Students' || category === 'Former Members',
+      },
+    },
   ],
   preview: {
     select: {

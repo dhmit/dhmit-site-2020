@@ -9,7 +9,10 @@ module.exports = async function() {
         title,
         metadata,
         editorial,
-        studentTeam[]->,
+        studentTeam[]-> {
+          ...,
+          "headshot": headshot.asset->
+        },
         "slug": slug.current,
         "image": {
           ...image.image.asset->,

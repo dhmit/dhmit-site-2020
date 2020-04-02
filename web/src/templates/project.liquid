@@ -25,9 +25,18 @@ renderData:
   <div class="mt40 m:mt60">
     {% if project.studentTeam %}
       <h4 class="mono f16 m:f18 lh155 mb15 m:mb20">Student Team</h2>
-      <ul class="f16 lh1625 ls01em">
+      <ul class="f16 lh1625 ls01em mhn5 df fw">
         {% for person in project.studentTeam %}
-          <li class="dib">{{ person.name }}{% unless forloop.last %},{% endunless %}</li>
+          <li class="third ph5 mb10">
+            {% include lazy-image,
+              image: person.headshot,
+              containerCx: 'r--1x1 br4 oh mb10',
+              imgCx: 'x y o-cover',
+              width: 440,
+              padding: false
+            %}
+            <p class="sans f14 ls01em">{{ person.name }}</p>
+          </li>
         {% endfor %}
       </ul>
     {% endif %}
