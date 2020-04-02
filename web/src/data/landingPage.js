@@ -48,7 +48,7 @@ module.exports = async function() {
         "formerMembers": *[_type == "person" && category == 'Former Members'] | order(name) {
           name
         },
-        "steeringCommittee": *[_type == "person" && category == 'Steering Committee'] | order(name) {
+        steeringCommittee[]-> {
           name,
           title,
           link
