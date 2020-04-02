@@ -128,6 +128,21 @@ export default {
             },
           ],
         },
+        {
+          title: 'Steering Committee',
+          name: 'steeringCommittee',
+          type: 'array',
+          of: [
+            {
+              type: 'reference',
+              to: [{ type: 'person' }],
+              options: {
+                filter: 'category == $category',
+                filterParams: { category: 'Steering Committee' },
+              },
+            },
+          ],
+        },
       ],
     },
     {
