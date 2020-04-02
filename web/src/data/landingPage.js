@@ -28,7 +28,13 @@ module.exports = async function() {
             "caption": image.caption
           },
         },
-        row1,
+        row1 {
+          ...,
+          "images": images[] {
+            altText,
+            ...image.asset->
+          },
+        },
         row2 {
           ...,
           "images": images[] {
