@@ -74,6 +74,13 @@ export default {
               name: 'button',
               type: 'externalLink',
             },
+            {
+              title: 'Images',
+              name: 'images',
+              type: 'array',
+              of: [{ type: 'a11yImage' }],
+              validation: (Rule) => Rule.max(2),
+            },
           ],
         },
         {
