@@ -7,8 +7,8 @@ export default {
         sites: [
           {
             title: 'Website',
-            apiId: '5cccb8c2-5382-4b5e-9f03-19cb6ede805c',
-            buildHookId: '5e7904df232a7316c642dc86',
+            apiId: '6e9674f0-3037-4a45-8e3e-0725ec22f2de',
+            buildHookId: '5e99d222d3d7c6489d740176',
             name: 'dhmit',
           },
         ],
