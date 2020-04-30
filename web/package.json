@@ -16,7 +16,7 @@
     "start:eleventy": "eleventy --quiet --watch"
   },
   "dependencies": {
-    "@dogstudio/highway": "^2.1.3",
+    "@dogstudio/highway": "^2.2.1",
     "@selfaware/wool": "^1.0.3",
     "choozy": "^0.0.6",
     "embla-carousel": "^2.8.1",

@@ -891,9 +891,10 @@
   dependencies:
     find-up "^4.0.0"
 
-"@dogstudio/highway@^2.1.3":
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/@dogstudio/highway/-/highway-2.1.3.tgz#c67193118aec417fc9bbf1925890fe75a249c97a"
+"@dogstudio/highway@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@dogstudio/highway/-/highway-2.2.1.tgz#bf33cb3a026e9362e18468043574363204c16fa8"
+  integrity sha512-/03I5fib34y22VGjYFy2y1U0LHPlodH/Ua+YHil6CRf1tcD8uCIHvSH2s2B9rc2I9hjEPTC9I3VfYBIYKiXLAg==
   dependencies:
     tiny-emitter "^2.1.0"
 
