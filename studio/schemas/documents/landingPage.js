@@ -221,6 +221,11 @@ export default {
           name: 'fundedByText',
           type: 'richText',
         },
+        {
+          title: 'Mellon Logo',
+          name: 'mellon_logo',
+          type: 'a11yImageWithCaption',
+        },
       ],
     },
   ],
