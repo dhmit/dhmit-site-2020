@@ -3,3 +3,6 @@ node_modules
 build
 studio/dist
 web/src/templates/includes/_manifest.json
+
+# vim swap files
+*.swp
