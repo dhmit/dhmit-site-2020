@@ -217,11 +217,6 @@ export default {
           type: 'string',
         },
         {
-          title: 'Funded By Text',
-          name: 'fundedByText',
-          type: 'richText',
-        },
-        {
           title: 'Mellon Logo',
           name: 'mellonLogo',
           type: 'a11yImage',
