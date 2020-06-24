@@ -39,8 +39,17 @@
             >Twitter</a>
           </li>
         </ul>
-        <div class="footer__funded-by">
-          {{ footer.fundedByText }}
+        <div class="footer__funded-by w50 s:w100">
+            Generously funded in part by
+            <a href="https://www.mellon.org/">
+                {% include lazy-image,
+                  image: footer.mellonLogo,
+                  containerCx: 'r--4x3',
+                  imgCx: 'x y o-contain',
+                  width: 500,
+                  padding: false
+                %}
+            </a>
         </div>
       </div>
     </div>

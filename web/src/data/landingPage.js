@@ -74,7 +74,14 @@ module.exports = async function() {
         accordion,
         "publications": *[_type == 'publication'] | order(publicationDate desc)
       },
-      footer
+      footer {
+        ...,
+        "mellonLogo": {
+          ...mellonLogo.image.asset->,
+          "altText": mellonLogo.altText,
+          "caption": mellonLogo.caption
+        },
+      },
    } [0]`,
   )
 

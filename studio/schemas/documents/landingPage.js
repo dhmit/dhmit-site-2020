@@ -223,8 +223,8 @@ export default {
         },
         {
           title: 'Mellon Logo',
-          name: 'mellon_logo',
-          type: 'a11yImageWithCaption',
+          name: 'mellonLogo',
+          type: 'a11yImage',
         },
       ],
     },
