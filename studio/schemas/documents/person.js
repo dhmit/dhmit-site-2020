@@ -36,6 +36,11 @@ export default {
       },
     },
     {
+      title: 'Is lab alum?',
+      name: 'isAlum',
+      type: 'boolean',
+    },
+    {
       title: 'Link',
       name: 'link',
       type: 'url',
