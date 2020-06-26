@@ -44,15 +44,20 @@ module.exports = async function() {
         }
       },
       people {
-        staff[]-> {
+        "staff": *[_type == "person" && category == 'Staff' && isAlum != true] | order(seq) {
           name,
           title
         },
         "students": *[_type == "person" && category == 'UROP Students'] | order(name) {
           name
         },
-        "formerMembers": *[_type == "person" && category == 'Former Members'] | order(name) {
-          name
+        "formerUrops": *[_type == "person" && category == 'Former Members'] | order(name) {
+          name,
+        },
+        "formerStaff": *[_type == "person" && category == 'Staff' && isAlum] | order(seq) {
+          name,
+          title,
+          link
         },
         steeringCommittee[]-> {
           name,

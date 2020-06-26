@@ -36,6 +36,15 @@ export default {
       },
     },
     {
+      title: 'Sequence',
+      name: 'seq',
+      type: 'number',
+      inputComponent: ConditionalField,
+      options: {
+        condition: ({ category }) => category === 'Staff',
+      },
+    },
+    {
       title: 'Is lab alum?',
       name: 'isAlum',
       type: 'boolean',
@@ -46,7 +55,8 @@ export default {
       type: 'url',
       inputComponent: ConditionalField,
       options: {
-        condition: ({ category }) => category === 'Steering Committee',
+        condition: ({ category }) =>
+          category === 'Steering Committee' || category === 'Staff',
       },
     },
     {

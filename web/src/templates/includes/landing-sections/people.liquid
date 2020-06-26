@@ -29,11 +29,31 @@
         </ul>
       </div>
       <div class="pl25 pr20 m:pr40 l:pr80 mb30 m:mb65">
-        <h3 class="mono f16 l:f18 f138 mb20 m:mb30">Former Members</h3>
+        <h3 class="mono f16 l:f18 f138 mb20 m:mb30">Program Alumni</h3>
         <ul class="f16 lh1625 ls01em">
-          {% for person in people.formerMembers %}
-            <li class="dib">{{ person.name }}{% unless forloop.last %},{% endunless %}</li>
+
+          {% for person in people.formerStaff %} 
+              <li class="f16 lh1625 ls01em mb5">
+              <h4 class="db s:di s:mr5">
+                {% if person.link %}
+                    <a
+                      class="tdu"
+                      href="{{ person.link }}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    > {{ person.name }}</a>
+                {% else %}
+                {{ person.name }}
+                {% endif %}
+              </h4>
+              <p class="db s:di o80 i lh150">{{ person.title }}</p>
+              <li>
           {% endfor %}
+          {% for person in people.formerUrops %}
+            <li class="dib">{{ person.name }}{% unless forloop.last %},{% endunless %}</li>
+        {% endfor %}
+        <p class="s:di o80 i lh150">UROP Students</p>
+
         </ul>
       </div>
       <div class="pl25 pr20 m:pr40 l:pr80">
@@ -42,12 +62,16 @@
           {% for person in people.steeringCommittee %}
             <li class="f16 lh1625 ls01em mb5">
               <h4 class="db s:di s:mr5">
-                <a
-                  class="tdu"
-                  href="{{ person.link }}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >{{ person.name }}</a>
+                {% if person.link %}
+                    <a
+                      class="tdu"
+                      href="{{ person.link }}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    > {{ person.name }}</a>
+                {% else %}
+                {{ person.name }}
+                {% endif %}
               </h4>
               <p class="db s:di o80 i lh150">{{ person.title }}</p>
             </li>
