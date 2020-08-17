@@ -9,7 +9,18 @@
         <ul>
           {% for person in people.staff %}
             <li class="bb pt15 pb10">
-              <h4 class="f18 l:f22 lh113 ls01em mb5">{{ person.name }}</h4>
+                <h4 class="f18 l:f22 lh113 ls01em mb5">
+                    {% if person.link %}
+                        <a
+                          class="tdu"
+                          href="{{ person.link }}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        > {{ person.name }}</a>
+                    {% else %}
+                    {{ person.name }}
+                    {% endif %}
+                </h4>
               <p class="f16 l:f18 lh138 ls01em l:ls02em">{{ person.title }}</p>
             </li>
           {% endfor %}

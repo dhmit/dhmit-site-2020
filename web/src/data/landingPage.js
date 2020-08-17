@@ -46,7 +46,8 @@ module.exports = async function() {
       people {
         "staff": *[_type == "person" && category == 'Staff' && isAlum != true] | order(seq) {
           name,
-          title
+          title,
+          link
         },
         "students": *[_type == "person" && category == 'UROP Students'] | order(name) {
           name
