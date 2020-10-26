@@ -49,4 +49,8 @@ export default () =>
         .title('Publications')
         .icon(() => <Emoji style={{ fontSize: 30 }} text="📔" />)
         .child(S.documentTypeList('publication').title('Publications')),
+      S.listItem()
+        .title('Calls')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text="📔" />)
+        .child(S.documentTypeList('call').title('Calls')),
     ])

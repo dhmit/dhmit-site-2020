@@ -15,6 +15,7 @@ import config from './documents/config'
 import project from './documents/project'
 import person from './documents/person'
 import event from './documents/event'
+import call from './documents/call'
 import facultySpotlight from './documents/facultySpotlight'
 import publication from './documents/publication'
 import landingPage from './documents/landingPage'
@@ -36,6 +37,7 @@ export default createSchema({
     project,
     person,
     event,
+    call,
     facultySpotlight,
     publication,
     landingPage,

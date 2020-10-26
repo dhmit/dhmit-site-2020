@@ -10,11 +10,11 @@ title: Home
 {% assign events = landingPage.events %}
 {% assign community = landingPage.community %}
 {% assign footer = landingPage.footer %}
+{% assign landingPageHeader = true %}
 
 <div class="landing abs fill oy z1" data-router-view="home" data-component="anchors">
   <div>
     {% include header %}
-
     {% include landing-sections/intro %}
     {% include landing-sections/projects %}
     {% include landing-sections/about %}
@@ -22,7 +22,6 @@ title: Home
     {% include landing-sections/people %}
     {% include landing-sections/events %}
     {% include landing-sections/community %}
-    
     {% include footer %}
   </div>
 </div>
