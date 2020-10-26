@@ -1,11 +1,17 @@
-node_modules
 .DS_Store
+
+# local deps
+node_modules
+
+# Build byproducts
 build
 studio/dist
 web/src/templates/includes/_manifest.json
 
+# EDITOR STUFF
 # vim swap files
 *.swp
-
 # PyCharm
 .idea
+# vscode settings
+.vscode
