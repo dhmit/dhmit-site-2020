@@ -6,3 +6,6 @@ web/src/templates/includes/_manifest.json
 
 # vim swap files
 *.swp
+
+# PyCharm
+.idea
