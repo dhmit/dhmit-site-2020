@@ -6,33 +6,39 @@ landingPageHeader: false
 {% assign footer = landingPage.footer %}
 {% assign landingPageHeader = false %}
 
-<div class="landing abs fill oy z1" data-router-view="home" data-component="anchors">
+
+<div id="calls" class="abs fill oy z1" data-router-view="home" data-component="anchors">
   <div>
     {% include header %}
-    <section id="lab" class="pt100 mb20">
-      <div class="m:df ph20 m:ph40 l:ph80 mb20">
-        <div class="w100 m:pr25 mb35 m:mb0">
-          <h1 class="serif f27 m:f38 xl:f50 lh120 mb20 m:mb30">
-            Calls for Proposals
-          </h1>
-          <div class="f16 l:f18 lh155 ls01em l:ls02em mb45">
-            TODO: LLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </div>
-          </a>
+      <section id="intro" class="rel ph20 m:ph40 l:ph80 pt90 m:pt100 pb20">
+        <h1 class="serif f27 m:f38 xl:f50 lh120 mb20">
+          Calls for Proposals
+        </h1>
+        <ol class="f16 l:f18 lh155">
+          {% for call in calls %}
+          <li class='ml20 mb5 s:mb0'>
+            <a href="#{{ call.slug.current }}" data-router-disabled>
+            {{ call.title }}
+            </a>
+          </li>
+
+          {% endfor %}
+        </ol>
         </div>
-      </div>
+        </a>
+      </section>
 
       {% for call in calls %}
-      <div class="call m:df ph20 m:ph40 l:ph80 mb40 l:mb80">
+      <section id="{{ call.slug.current }}" class="call m:df ph20 m:ph40 l:ph80 mb40 l:mb80">
         <div class="w100 mb35 m:mb0">
-          <h2 class="serif f21 m:f32 lh125 mb15">
+          <h2 class="serif f21 m:f27 lh125 mb15">
             {{ call.title }}
           </h2>
           <div class="f16 l:f18 lh155 ls01em l:ls02em">
             {{ call.body }}
           </div>
         </div>
-      </div>
+      </section>
       {% endfor %}
 
     </section>

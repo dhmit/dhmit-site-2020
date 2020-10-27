@@ -22,5 +22,10 @@ export default {
       name: 'body',
       type: 'richText',
     },
+    {
+      title: 'Sequence',
+      name: 'sequence',
+      type: 'number',
+    },
   ],
 }

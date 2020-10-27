@@ -1,3 +1,12 @@
+#calls {
+  li {
+    list-style-type: circle;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
 .call {
   p {
     margin-bottom: 20px;
