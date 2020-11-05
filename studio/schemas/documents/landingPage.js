@@ -99,6 +99,11 @@ export default {
               type: 'richText',
             },
             {
+              title: 'Button',
+              name: 'button',
+              type: 'externalLink',
+            },
+            {
               title: 'Images',
               name: 'images',
               type: 'array',
