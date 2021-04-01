@@ -1,62 +1,64 @@
-<footer class="footer bg-blue c-tan ph20 m:ph40 l:ph80 pt30 pb70">
-  <div class="df aic jcb">
-    <a 
-      class="footer__logo"
-      href="#intro"
-      data-router-disabled
-      aria-label="MIT Programs in Digital Humanities"
-    >
-      {% include mark-tan %}
-    </a>
-    <a
-      class="footer__mit"
-      href="https://mit.edu"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="MIT"
-    >
-      {% include mit-logo, primary: '#FBF7EB', secondary: '#BC8540' %}
-    </a>
-  </div>
-  <div class="footer__content df">
-    <div class="w40 xl:w50 dn l:db"></div>
-    <div class="x l:w60 xl:w50 pt105 l:pt0 f16 lh1437 ls02em pt10">
-      <div class="x">
-        <p>{{ footer.addressLine1 }}</p>
-        <p class="db s:dib">{{ footer.addressLine2 }}</p><span class="dn s:di">,</span>
-        <p class="db s:dib mb20">{{ footer.addressLine3 }}</p>
-        <div class="m:mr160">
-          <ul class="pb100 mb20 bb bc-tan">
-            <li class="mr40 mb25 db s:dib"><p>{{ footer.phone }}</p></li>
-            <li class="mr40 dib">
-              <a class="tdu" href="mailto:{{ footer.email }}">Email</a>
-            </li>
-            <li class="mr40 dib">
-              <a
-                class="tdu"
-                href="https://twitter.com/{{ footer.twitterHandle }}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >Twitter</a>
-            </li>
-            <li class="dib">
-              <a
-                class="tdu"
-                href="https://github.com/dhmit"
-                target="_blank"
-                rel="noopener noreferrer"
-              >Github</a>
-            </li>
-          </ul>
-          <div class="footer__funded-by">
-            <h4 class="mt30 mb25">Generously funded by</h4>
-            <div class="df mhn10">
-              <a class="db w50 ph10" href="https://www.mellon.org/">
-                {% include mellon-logo %}
-              </a>
-              <a class="db w50 ph10" href="https://www.mellon.org/">
-                {% include mit-shass-logo %}
-              </a>
+<footer class="footer bg-blue c-tan ph20 m:ph40 l:ph60 pt50 pb70">
+  <div class="rel">
+    <div class="abs x df aic jcb">
+      <a 
+        class="footer__logo"
+        href="#intro"
+        data-router-disabled
+        aria-label="MIT Programs in Digital Humanities"
+      >
+        {% include mark-tan %}
+      </a>
+      <a
+        class="footer__mit"
+        href="https://mit.edu"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="MIT"
+      >
+        {% include mit-logo, primary: '#FBF7EB', secondary: '#BC8540' %}
+      </a>
+    </div>
+    <div class="footer__content df">
+      <div class="w40 xl:w50 dn l:db"></div>
+      <div class="x l:w60 xl:w50 f18 lh1437 ls02em">
+        <div class="x">
+          <p>{{ footer.addressLine1 }}</p>
+          <p class="db s:dib">{{ footer.addressLine2 }}</p><span class="dn s:di">,</span>
+          <p class="db s:dib mb20">{{ footer.addressLine3 }}</p>
+          <div class="m:mr160">
+            <ul class="pb65">
+              <li class="mr40 mb25 db s:dib"><p>{{ footer.phone }}</p></li>
+              <li class="mr40 dib">
+                <a class="tdu" href="mailto:{{ footer.email }}">Email</a>
+              </li>
+              <li class="mr40 dib">
+                <a
+                  class="tdu"
+                  href="https://twitter.com/{{ footer.twitterHandle }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Twitter</a>
+              </li>
+              <li class="dib">
+                <a
+                  class="tdu"
+                  href="https://github.com/dhmit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Github</a>
+              </li>
+            </ul>
+            <div class="footer__funded-by">
+              <h4 class="mono f14 mb25">Generously funded by</h4>
+              <div class="df mhn15">
+                <a class="db w50 ph15" href="https://www.mellon.org/">
+                  <img class="db x br6" src="/mellon-logo.jpg" alt="">
+                </a>
+                <a class="db w50 ph15" href="https://shass.mit.edu/">
+                  <img class="db x br6" src="/mit-shass-logo.jpg" alt="">
+                </a>
+              </div>
             </div>
           </div>
         </div>

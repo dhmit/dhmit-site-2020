@@ -49,6 +49,7 @@ module.exports = function(eleventyConfig) {
 
   // Copy favicons into the root of the build directory
   eleventyConfig.addPassthroughCopy({ 'src/assets/icons': '/' })
+  eleventyConfig.addPassthroughCopy({ 'src/assets/images': '/' })
 
   // Configure eleventy directory names and locations
   return {
