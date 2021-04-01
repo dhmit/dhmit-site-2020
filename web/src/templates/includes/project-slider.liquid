@@ -1,24 +1,52 @@
-<div class="project-slider ph20 m:ph40 l:ph80" data-component="projectSlider">
-  <ul class="f0 nowrap mhn5 m:mhn10">
-    {% for project in projects %}
-      <li class="project-slider__item dib wrap ph5 m:ph10" style="vertical-align: top;">
-        <div class="project-slider__item__inner">
-          <a class="db pen" href="/project/{{ project.slug }}/">
-            {% include lazy-image,
-              image: project.image,
-              containerCx: 'r--4x3 br7 oh mb10 s:mb20',
-              imgCx: 'x y o-cover',
-              width: 740,
-              padding: false
-            %}
-            <p class="mono f11 s:f14 mb5 s:mb10 m:mb5">
-              {{ project.metadata.semester | capitalize }} {{ project.metadata.year }}
-            </p>
-            <h3 class="serif f16 s:f21 m:f32 lh125 mb15">{{ project.title }}</h3>
-            <p class="sans f16 m:f18 lh155 ls02em dn s:db">{{ project.subtitle }}</p>
-        </a>
-        </div>
-      </li>
-    {% endfor %}
-  </ul>
+<div class="rel" data-component="projectSlider">
+  <div class="project-slider ph20 m:ph40 l:ph80 js-slider">
+    <ul class="f0 nowrap mhn5 m:mhn10">
+      {% for project in projects %}
+        <li class="project-slider__item dib wrap ph5 m:ph10" style="vertical-align: top;">
+          <div class="project-slider__item__inner">
+            <a class="db pen" href="/project/{{ project.slug }}/">
+              {%- capture cx -%}
+                r--4x3 br7 oh mb10 s:mb20 {% if forloop.first %}js-image{% endif %}
+              {%- endcapture -%}
+              {% include lazy-image,
+                image: project.image,
+                containerCx: cx,
+                imgCx: 'x y o-cover',
+                width: 740,
+                padding: false
+              %}
+              <p class="mono f11 s:f14 mb5 s:mb10 m:mb5">
+                {{ project.metadata.semester | capitalize }} {{ project.metadata.year }}
+              </p>
+              <h3 class="serif f16 s:f21 m:f32 lh125 mb15">{{ project.title }}</h3>
+              <p class="sans f16 m:f18 lh155 ls02em dn s:db">{{ project.subtitle }}</p>
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div
+    class="project-slider__prev abs top left bottom y pen z2 js-wrap"
+    style="opacity: 0; visibility: hidden;"
+  >
+    <div class="rel x y">
+      <button class="project-slider__prev__button df jcc aic abs left ml15 pea js-buttons" data-prev>
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 15C0 23.2843 6.71573 30 15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15Z" fill="#3F5262"/>
+          <path d="M17.5296 8L10.4585 15.0711L17.5296 22.1421" stroke="#FBF7EB"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="project-slider__next abs top right bottom y pen z2 js-wrap">
+    <div class="rel x y">
+      <button class="project-slider__next__button df jcc aic abs right mr15 pea js-buttons" data-next>
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="15" r="15" fill="#3F5262"/>
+          <path d="M12.4702 8L19.5413 15.0711L12.4702 22.1421" stroke="#FBF7EB"/>
+        </svg>
+      </button>
+    </div>
+  </div>
 </div>

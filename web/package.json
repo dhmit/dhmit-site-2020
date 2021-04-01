@@ -7,7 +7,7 @@
   "license": "NONE",
   "scripts": {
     "clean": "rimraf ./build",
-    "serve": "browser-sync build -w --no-notify",
+    "serve": "browser-sync build -w --no-notify --no-ghost-mode",
     "build": "cross-env NODE_ENV=production ELEVENTY_ENV=production run-s clean build:*",
     "build:webpack": "webpack",
     "build:eleventy": "eleventy --quiet",
@@ -19,6 +19,7 @@
     "@dogstudio/highway": "^2.2.1",
     "@selfaware/wool": "^1.0.3",
     "choozy": "^0.0.6",
+    "detect-it": "^4.0.1",
     "embla-carousel": "^2.8.1",
     "focus-visible": "^5.0.2",
     "fontfaceobserver": "^2.1.0",

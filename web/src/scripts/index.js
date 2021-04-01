@@ -1,9 +1,14 @@
 import 'focus-visible'
 import app from '@/app'
 import router from '@/router'
-import { remove, on, size } from '@/util/dom'
+import { add, remove, on, size } from '@/util/dom'
 import gsap from 'gsap'
 import loadFonts from '@/lib/font-loader'
+import { primaryInput } from 'detect-it'
+
+if (primaryInput === 'touch') {
+  add(document.body, 'is-touch')
+}
 
 loadFonts().then(() => {
   remove(document.body, 'o0')
