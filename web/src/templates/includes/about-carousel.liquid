@@ -18,6 +18,16 @@
       <li class="about-carousel__content o0 js-slides">
         <h3 class="serif f38 xl:f50 lh120 mb30">{{ item.headline }}</h3>
         <div class="f16 l:f18 lh155 ls01em l:ls02em">{{ item.body }}</div>
+        {% if forloop.first %}
+          <a
+            class="button dib mono f16 m:f18 lh111 pv20 ph35 ba br3 bc-tan mt40 l:mt45"
+            href="https://github.com/dhmit"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View our Github +
+          </a>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
@@ -32,6 +42,16 @@
           <span class="db serif f27 lh119">{{ item.headline }}</span>
         </h3>
         <div class="f16 lh155 ls01em">{{ item.body }}</div>
+        {% if forloop.first %}
+          <a
+            class="button dib mono f16 m:f18 lh111 pv20 ph35 ba br3 bc-tan mt40 l:mt45"
+            href="https://github.com/dhmit"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View our Github +
+          </a>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
