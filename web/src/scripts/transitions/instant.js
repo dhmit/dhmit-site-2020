@@ -1,6 +1,6 @@
 import Highway from '@dogstudio/highway'
 
-class Fade extends Highway.Transition {
+class Instant extends Highway.Transition {
   in({ from, done }) {
     window.scrollTo(0, 0)
     from.remove()
@@ -12,4 +12,4 @@ class Fade extends Highway.Transition {
   }
 }
 
-export default Fade
+export default Instant
