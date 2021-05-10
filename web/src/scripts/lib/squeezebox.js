@@ -1,5 +1,5 @@
 import choozy from 'choozy'
-import { on, add, remove, has } from '@/util/dom'
+import { on, add, remove, has } from 'martha'
 
 // A lightweight and accessible accordion implementation
 export default function squeezebox(

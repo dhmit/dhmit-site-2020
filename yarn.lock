@@ -7932,6 +7932,11 @@ markdown-it@^8.4.2:
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
+martha@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/martha/-/martha-1.0.3.tgz#075acfb553fce1c2fb55d350b140d7df301b21b4"
+  integrity sha512-DmT7ba3xUF56boWc/Vcjl7lTHU16VFnSpmp78zoVCvGSBcuQZ9BdlhwnQ7M6cLI50ORdvSk6WWe7LTs+OZpkqg==
+
 math-expression-evaluator@^1.2.14:
   version "1.2.22"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.22.tgz#c14dcb3d8b4d150e5dcea9c68c8dad80309b0d5e"

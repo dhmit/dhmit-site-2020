@@ -24,6 +24,7 @@
     "focus-visible": "^5.0.2",
     "fontfaceobserver": "^2.1.0",
     "gsap": "^3.2.5",
+    "martha": "^1.0.3",
     "picoapp": "^3.4.0"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 import { component } from 'picoapp'
 import choozy from 'choozy'
-import { on, add } from '@/util/dom'
+import { on, add } from 'martha'
 
 export default component((node, ctx) => {
   const { img, imgWrap, lqip } = choozy(node)

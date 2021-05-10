@@ -1,5 +1,5 @@
 import { component } from 'picoapp'
-import { on, toggle as toggleClass } from '@/util/dom'
+import { on, toggle as toggleClass } from 'martha'
 
 export default component((node, ctx) => {
   ctx.on('burger:toggle', toggle)

@@ -1,12 +1,4 @@
 .nav {
-  &__column {
-    width: 10rem;
-
-    @media (query('l')) {
-      width: 12rem;
-    }
-  }
-
   &__link {
     position: relative;
 

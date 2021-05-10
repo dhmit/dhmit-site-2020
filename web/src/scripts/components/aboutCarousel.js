@@ -1,8 +1,8 @@
 import { component } from 'picoapp'
 import choozy from 'choozy'
-import { on, inview } from '@/util/dom'
-import { wrap } from '@/util/math'
+import { on, wrap } from 'martha'
 import gsap from 'gsap'
+import { inview } from '@/lib/scroll'
 
 export default component((node, ctx) => {
   // select dom elements
@@ -46,12 +46,12 @@ export default component((node, ctx) => {
   setInitialStyles()
 
   // subscribe to global animation loop
-  let offTick = ctx.on('tick', ({ windowHeight }) => {
+  let offTick = ctx.on('tick', ({ wh }) => {
     // safe-guard against initializing more than once
     if (isInViewport) return
 
     // check if the carousel is visible inside the viewport
-    if (inview(node, windowHeight)) {
+    if (inview(node, wh)) {
       isInViewport = true
       // unsubscribe from tick
       offTick()

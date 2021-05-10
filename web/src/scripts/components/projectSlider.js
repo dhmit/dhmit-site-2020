@@ -1,7 +1,7 @@
 import { component } from 'picoapp'
 import choozy from 'choozy'
 import EmblaCarousel from 'embla-carousel'
-import { on } from '@/util/dom'
+import { on } from 'martha'
 import router from '@/router'
 import gsap from 'gsap'
 

@@ -1,9 +1,9 @@
 import Highway from '@dogstudio/highway'
-import overlay from '@/transitions/overlay'
+import instant from '@/transitions/instant'
 
 export default new Highway.Core({
   renderers: {},
   transitions: {
-    default: overlay,
+    default: instant,
   },
 })
