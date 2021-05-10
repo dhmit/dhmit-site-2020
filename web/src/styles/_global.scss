@@ -12,6 +12,10 @@ html {
   @media (query('l')) {
     font-size: 10 / 1440 * 100vw;
   }
+
+  @media (query('xxl')) {
+    font-size: 10px;
+  }
 }
 
 html,
