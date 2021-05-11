@@ -1,4 +1,4 @@
-.project-slider {
+.slider {
   &.is-draggable {
     cursor: grab;
     cursor: -webkit-grab;
@@ -11,9 +11,19 @@
 
   &__item {
     width: 75%;
+    vertical-align: top;
+    display: inline-block;
+    white-space: normal;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 
     @media (query('s')) {
       width: 47%;
+    }
+
+    @media (query('m')) {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
 
     @media (query('l')) {

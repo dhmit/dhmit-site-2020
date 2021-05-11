@@ -1,7 +1,7 @@
 import { component } from 'picoapp'
 import choozy from 'choozy'
 import EmblaCarousel from 'embla-carousel'
-import { on } from 'martha'
+import { qs, rect, on } from 'martha'
 import router from '@/router'
 import gsap from 'gsap'
 
@@ -36,7 +36,7 @@ export default component((node, ctx) => {
   const events = slides.map((slide) => on(slide, 'click', onSlideClick))
 
   ctx.on('resize', () => {
-    const top = `${refs.image.getBoundingClientRect().height / 2}px`
+    const top = `${rect(qs('.lazy-image')).height / 2}px`
     refs.buttons.forEach((button) => {
       button.style.top = top
     })

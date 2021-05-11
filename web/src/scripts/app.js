@@ -3,7 +3,7 @@ import { size } from 'martha'
 
 import burger from '@/components/burger'
 import lazyImage from '@/components/lazyImage'
-import projectSlider from '@/components/projectSlider'
+import slider from '@/components/slider'
 import aboutCarousel from '@/components/aboutCarousel'
 import newsCarousel from '@/components/newsCarousel'
 import accordion from '@/components/accordion'
@@ -11,7 +11,7 @@ import accordion from '@/components/accordion'
 const components = {
   burger,
   lazyImage,
-  projectSlider,
+  slider,
   aboutCarousel,
   newsCarousel,
   accordion,

@@ -23,17 +23,30 @@ title: Home
     <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
       {% include section-title, title: "Featured Projects" %}
     </div>
-    {% include project-slider,
-      projects: landingPage.projects
-    %}
-    <div class="ph20">
-      <a
-        class="button db mono f16 m:f18 lh111 pv20 ph35 ba br3 mt20 tc"
-        href="/projects"
-      >
-        View more →
-      </a>
-    </div>
+    {% capture slides %}
+      {% for project in landingPage.projects %}
+        <li class="slider__item">
+          <div class="slider__item__inner">
+            <a class="db pen" href="/project/{{ project.slug }}/">
+              {% include lazy-image,
+                image: project.image,
+                containerCx: 'r--4x3 br7 oh mb10 s:mb20',
+                imgCx: 'x y o-cover',
+                width: 740,
+                padding: false
+              %}
+              {% comment %} <p class="mono f11 s:f14 mb5 s:mb10 m:mb5">
+                {{ project.metadata.semester | capitalize }} {{ project.metadata.year }}
+              </p> {% endcomment %}
+              <h3 class="serif f16 s:f21 m:f32 lh125 mb15">{{ project.title }}</h3>
+              <p class="sans f16 m:f18 lh155 ls02em dn s:db">{{ project.subtitle }}</p>
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    {% endcapture %}
+    {% include slider, slides: slides %}
+    {% include view-more-button, href: '/projects' %}
   </section>
 
   {% comment %} About {% endcomment %}
@@ -121,7 +134,7 @@ title: Home
     {% comment %} <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
       {% include section-title, title: "News & Announcements" %}
     </div> {% endcomment %}
-    <div data-component="newsCarousel">
+    <div class="mb80" data-component="newsCarousel">
       <div class="news-carousel rel js-slider">
         <div class="df mhn5">
           {% comment %} {% for blah in blah %} {% endcomment %}
@@ -141,39 +154,76 @@ title: Home
         {% comment %} {% endfor %} {% endcomment %}
       </div>
     </div>
+    <div class="ph20">
+      <div class="tc mb40">
+        <h2 class="serif f27 lh115 mb20">
+          Enhancing the humanities through programming.
+        </h2>
+        <p class="sans f16 lh150 ls02em">
+          Sign up to our newsletter to stay updated on all things Digital Humanities at MIT
+        </p>
+      </div>
+      <div class="rel" data-component="newsletter">
+        <form class="df br3 ba oh js-form">
+          <input
+            class="x mono f14 pv15 pl20"
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+          />
+          <button
+            class="bg-blue c-tan mono f14 lh100 fs0 ph20"
+            type="submit"
+          >
+            Sign up →
+          </button>
+        </form>
+        <p
+          class="abs fill df jcc aic tc f14 mono lh100 js-message"
+          style="opacity: 0; visibility: hidden;"
+        >Success, thank you for signing up!</p>
+      </div>
+    </div>
   </section>
 
   {% comment %} Events {% endcomment %}
-  <section class="pt25 ph20 m:ph40 l:ph80 mb40 m:mb100">
-    {% include section-title, title: "Events", cx: "mb20 m:mb45" %}
-    <ul class="df fw mhn5 s:mhn10 m:mhn15">
-      {% for event in events %}
-        <li class="event-card w50 m:w25 ph5 s:ph10 m:ph15">
-          <a href="/event/{{ event.slug }}/">
-            <div class="rel db br2 m:br4 oh mb15">
-              {% include lazy-image,
-                image: event.image,
-                containerCx: 'r--4x3',
-                imgCx: 'x y o-cover',
-                width: 600,
-                padding: false
-              %}
-              <span class="event-card__date db abs top left bg-teal ph10 z1 c-tan mono f12 m:f14 ttu">
-                {% assign startDate = event.startDatetime | date: '%b %d' %}
-                {% assign endDate = event.endDatetime | date: '%b %d' %}
-                {% if startDate == endDate %}
-                  {{ startDate }}
-                {% else %}
-                  {{ startDate }} - {{ endDate }}
-                {% endif %}
-              </span>
-            </div>
-            <h3 class="serif f16 s:f18 m:f22 lh1318 mb10">{{ event.title }}</h3>
-            <p class="f12 s:f14 m:f18 lh155 ls02em">Presented by {{ event.speakerName }}</p>
-          </a>
+  <section class="oh pt25 mb80">
+    <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
+      {% include section-title, title: "Upcoming Events", cx: "mb20 m:mb45" %}
+    </div>
+    {% capture slides %}
+      {% for event in landingPage.events %}
+        <li class="slider__item event-card">
+          <div class="slider__item__inner">
+            <a class="db pen" href="/event/{{ event.slug }}/">
+              <div class="rel db br2 m:br4 oh mb15">
+                {% include lazy-image,
+                  image: event.image,
+                  containerCx: 'r--4x3',
+                  imgCx: 'x y o-cover',
+                  width: 600,
+                  padding: false
+                %}
+                <span class="event-card__date db abs top left bg-teal ph10 z1 c-tan mono f12 m:f14 ttu">
+                  {% assign startDate = event.startDatetime | date: '%b %d' %}
+                  {% assign endDate = event.endDatetime | date: '%b %d' %}
+                  {% if startDate == endDate %}
+                    {{ startDate }}
+                  {% else %}
+                    {{ startDate }} - {{ endDate }}
+                  {% endif %}
+                </span>
+              </div>
+              <h3 class="serif f16 s:f18 m:f22 lh1318 mb10">{{ event.title }}</h3>
+              <p class="f12 s:f14 m:f18 lh155 ls02em">Presented by {{ event.speakerName }}</p>
+            </a>
+          </div>
         </li>
       {% endfor %}
-    </ul>
+    {% endcapture %}
+    {% include slider, slides: slides %}
+    {% include view-more-button, href: '/events', text: 'View all events →' %}
   </section>
 
   {% include footer %}
