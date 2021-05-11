@@ -4895,10 +4895,10 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
-embla-carousel@^2.8.1:
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/embla-carousel/-/embla-carousel-2.9.1.tgz#be68ac01b34779a437d7ab902a368d1913401a35"
-  integrity sha512-aAyCpbPwcR+NssMJ5tfYUMEavCOhSUfk9k/g9Qd98cAZ1d/8hju0cplEs85DtfwU6Bd+Oki1le/zMH53IVOs9w==
+embla-carousel@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/embla-carousel/-/embla-carousel-4.5.1.tgz#db4b44c8f7e96ab4af1ee4afaa1bb22c06b51065"
+  integrity sha512-E55z44S/gduwUNq8APVYAvzFUrIuzgBckx0Dl/j6QFdwWSkRbPkqmEI9WSMvtpAeGEz5xFBdnYeb5eXWsmCGoA==
 
 emitter-mixin@0.0.3:
   version "0.0.3"

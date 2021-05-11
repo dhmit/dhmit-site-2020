@@ -20,7 +20,7 @@
     "@selfaware/wool": "^1.0.3",
     "choozy": "^0.0.6",
     "detect-it": "^4.0.1",
-    "embla-carousel": "^2.8.1",
+    "embla-carousel": "^4.5.1",
     "focus-visible": "^5.0.2",
     "fontfaceobserver": "^2.1.0",
     "gsap": "^3.2.5",

@@ -15,9 +15,9 @@
                 width: 740,
                 padding: false
               %}
-              <p class="mono f11 s:f14 mb5 s:mb10 m:mb5">
+              {% comment %} <p class="mono f11 s:f14 mb5 s:mb10 m:mb5">
                 {{ project.metadata.semester | capitalize }} {{ project.metadata.year }}
-              </p>
+              </p> {% endcomment %}
               <h3 class="serif f16 s:f21 m:f32 lh125 mb15">{{ project.title }}</h3>
               <p class="sans f16 m:f18 lh155 ls02em dn s:db">{{ project.subtitle }}</p>
             </a>

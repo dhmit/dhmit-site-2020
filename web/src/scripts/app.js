@@ -5,6 +5,7 @@ import burger from '@/components/burger'
 import lazyImage from '@/components/lazyImage'
 import projectSlider from '@/components/projectSlider'
 import aboutCarousel from '@/components/aboutCarousel'
+import newsCarousel from '@/components/newsCarousel'
 import accordion from '@/components/accordion'
 
 const components = {
@@ -12,6 +13,7 @@ const components = {
   lazyImage,
   projectSlider,
   aboutCarousel,
+  newsCarousel,
   accordion,
 }
 

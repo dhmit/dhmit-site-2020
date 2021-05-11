@@ -1,0 +1,12 @@
+.news-carousel {
+  &__slide {
+    position: relative;
+    flex: 0 0 84%;
+  }
+
+  &__dot {
+    width: 1.4rem;
+    height: 1.4rem;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,33 @@
+<div class="ph20 m:ph40 l:ph80 c-tan">
+  <div class="br16 ph30 pt25 pb55 l:p50 bg-teal">
+    <div class="m:df">
+      <div class="m:w40 xl:w50 m:pr25 l:pr40 xl:pr80 mb25 m:mb0">
+        {% include lazy-image,
+          image: lab.facultySpotlight.image,
+          containerCx: 'r--4x3 br10 oh',
+          imgCx: 'x y o-cover',
+          width: 1020,
+          padding: false
+        %}
+      </div>
+      <div class="m:w60 xl:w50 m:pl25">
+        <h3 class="mono f16 l:f18 lh138 mb20 m:mb30">Faculty Spotlight</h3>
+        <h4 class="serif f27 m:f38 xl:f50 lh120 mb20 m:mb30">{{ lab.facultySpotlight.name }}</h4>
+        {% capture teaser %}
+          {% if lab.facultySpotlight.teaser %}
+            {{ lab.facultySpotlight.teaser }}
+          {% else %}
+            {{ lab.facultySpotlight.editorial | truncate: 280 }}
+          {% endif %}
+        {% endcapture %}
+        <div class="f16 l:f18 lh155 ls01em l:ls02em mb35 l:mb45">{{ teaser }}</div>
+        <a
+          class="button button--tan dib mono f16 m:f18 lh111 pv20 ph35 ba br3"
+          href="/faculty-spotlight/{{ lab.facultySpotlight.slug }}/"
+        >
+          Read more +
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

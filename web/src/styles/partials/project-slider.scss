@@ -10,7 +10,11 @@
   }
 
   &__item {
-    width: 47%;
+    width: 75%;
+
+    @media (query('s')) {
+      width: 47%;
+    }
 
     @media (query('l')) {
       width: 31%;
