@@ -4,7 +4,10 @@ import EmblaCarousel from 'embla-carousel'
 import { add, remove, on } from 'martha'
 
 export default component((node, ctx) => {
-  const { slider, dots } = choozy(node)
+  let { slider, dots } = choozy(node)
+
+  // ensure dots is always an array even if there is only 1 element
+  dots = [].concat(dots)
 
   const embla = EmblaCarousel(slider, {
     align: 'center',
@@ -30,6 +33,6 @@ export default component((node, ctx) => {
   })
 
   return () => {
-    events.forEach((off) => off())
+    events.map((off) => off())
   }
 })

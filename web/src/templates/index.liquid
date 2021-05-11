@@ -2,25 +2,179 @@
 layout: base.liquid
 title: Home
 ---
-{% assign intro = landingPage.intro %}
-{% assign projects = landingPage.projects %}
-{% assign about = landingPage.about %}
-{% assign lab = landingPage.lab %}
-{% assign people = landingPage.people %}
-{% assign events = landingPage.events %}
-{% assign community = landingPage.community %}
-{% assign footer = landingPage.footer %}
-{% assign landingPageHeader = true %}
-
 <div data-router-view>
-  <div>
-    {% include header %}
-    {% include landing-sections/intro %}
-    {% include landing-sections/projects %}
-    {% include landing-sections/about %}
-    {% include landing-sections/lab %}
-    {% include landing-sections/news %}
-    {% include landing-sections/events %}
-    {% include footer %}
-  </div>
+  {% comment %} Hero {% endcomment %}
+  <section class="rel ph20 m:ph40 l:ph80 pt90 s:pt150 m:pt200 pb20 m:pb200 oh">
+    <div class="rel z1 mb40 m:mb0">
+      <h1 class="serif f32 s:f52 l:f72 lh1156 s:lh1138 mb20 s:mb45 max-w700 l:max-w920">
+        {{ landingPage.intro.headline }}
+      </h1>
+      <div class="sans f16 s:f20 l:f24 lh150 ls01em s:ls02em max-w600 l:max-w850">
+        {{ landingPage.intro.body }}
+      </div>
+    </div>
+    <div class="texture--1 m:abs right bottom w80 s:w70">
+      {% include texture %}
+    </div>
+  </section>
+
+  {% comment %} Featured Projects {% endcomment %}
+  <section class="oh pt25 mb80">
+    <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
+      {% include section-title, title: "Featured Projects" %}
+    </div>
+    {% include project-slider,
+      projects: landingPage.projects
+    %}
+    <div class="ph20">
+      <a
+        class="button db mono f16 m:f18 lh111 pv20 ph35 ba br3 mt20 tc"
+        href="/projects"
+      >
+        View more →
+      </a>
+    </div>
+  </section>
+
+  {% comment %} About {% endcomment %}
+  <section id="about" class="pt25 m:pt75 ph20 m:ph40 l:ph80 pb20 m:pb110 mb40 s:mb60 m:mb80 c-tan bg-blue">
+    {% include section-title, title: "About", cx: "mb50" %}
+    {% include about-carousel,
+      items: landingPage.about.carouselItems,
+      autoplayDuration: landingPage.about.carouselSettings.autoplayDuration
+    %}
+  </section>
+
+  {% comment %} Lab {% endcomment %}
+  <section class="pt25 mb20 m:mb80 l:mb100">
+    <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
+      {% include section-title, title: "Lab" %}
+    </div>
+    <div class="m:df ph20 m:ph40 l:ph80 mb80 l:mb110">
+      <div class="m:w60 xl:w50 m:pr25 mb35 m:mb0">
+        <h3 class="serif f27 m:f38 xl:f50 lh120 mb20 m:mb30">
+          {{ landingPage.lab.row1.headline }}
+        </h3>
+        <div class="f16 l:f18 lh155 ls01em l:ls02em mb45">
+          {{ landingPage.lab.row1.body }}
+        </div>
+        <a
+          class="button dib mono f16 m:f18 lh111 pv20 ph35 ba br3"
+          href="{{ landingPage.lab.row1.button.url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ landingPage.lab.row1.button.title }} +
+        </a>
+      </div>
+      <div class="xs:w90 s:w80 m:w40 xl:w50 m:pl25 l:pl40 xl:pl80 xl:pt45">
+        <div class="r r--4x3">
+          {% for image in landingPage.lab.row1.images %}
+            <div class="abs w55{% if forloop.first %} top left{% else %} bottom right z0{% endif %}">
+              {% include lazy-image,
+                image: image,
+                containerCx: 'r--4x3 br4 oh',
+                imgCx: 'x y o-cover',
+                width: 620,
+                padding: false
+              %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="m:df ph20 m:ph40 l:ph80 mb80 l:mb110">
+      <div class="m:w60 xl:w50 m:pl25 mb35 m:mb0">
+        <h3 class="serif f27 m:f38 xl:f50 lh120 mb20 m:mb30">
+          {{ landingPage.lab.row2.headline }}
+        </h3>
+        <div class="f16 l:f18 lh155 ls01em l:ls02em mb45">
+          {{ landingPage.lab.row2.body }}
+        </div>
+        <a
+          class="button dib mono f16 m:f18 lh111 pv20 ph35 ba br3"
+          href="{{ landingPage.lab.row2.button.url }}"
+        >
+          {{ landingPage.lab.row2.button.title }} +
+        </a>
+      </div>
+      <div class="on1 xs:w90 s:w80 m:w40 xl:w50 m:pr25 l:pr40 xl:pr80 xl:pt45">
+        <div class="r r--4x3">
+          {% for image in landingPage.lab.row2.images %}
+            <div class="abs w55{% if forloop.first %} top left{% else %} bottom right{% endif %}">
+              {% include lazy-image,
+                image: image,
+                containerCx: 'r--4x3 br4 oh',
+                imgCx: 'x y o-cover',
+                width: 620,
+                padding: false
+              %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% comment %} News & Announcements {% endcomment %}
+  <section id="news" class="oh pt25 mb80">
+    {% comment %} <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
+      {% include section-title, title: "News & Announcements" %}
+    </div> {% endcomment %}
+    <div data-component="newsCarousel">
+      <div class="news-carousel rel js-slider">
+        <div class="df mhn5">
+          {% comment %} {% for blah in blah %} {% endcomment %}
+            <div class="news-carousel__slide ph5">
+              <div class="c-tan bg-teal br10 pt30 pb40 ph30">
+                <p class="mono f16 lh100 mb15">March 13, 2021</p>
+                <h3 class="serif f18 lh120 mb40">DH Lab Spring Project: Emerging Technologies for Language Learning</h3>
+                <a href="#0" class="mono f16 lh100">Read more +</a>
+              </div>
+            </div>
+          {% comment %} {% endfor %} {% endcomment %}
+        </div>
+      </div>
+      <div class="df jcc aic mt20">
+        {% comment %} {% for blah in blah %} {% endcomment %}
+          <div class="news-carousel__dot ba br50 mh5 js-dots{% if forloop.first %} bg-gold{% endif %}"></div>
+        {% comment %} {% endfor %} {% endcomment %}
+      </div>
+    </div>
+  </section>
+
+  {% comment %} Events {% endcomment %}
+  <section class="pt25 ph20 m:ph40 l:ph80 mb40 m:mb100">
+    {% include section-title, title: "Events", cx: "mb20 m:mb45" %}
+    <ul class="df fw mhn5 s:mhn10 m:mhn15">
+      {% for event in events %}
+        <li class="event-card w50 m:w25 ph5 s:ph10 m:ph15">
+          <a href="/event/{{ event.slug }}/">
+            <div class="rel db br2 m:br4 oh mb15">
+              {% include lazy-image,
+                image: event.image,
+                containerCx: 'r--4x3',
+                imgCx: 'x y o-cover',
+                width: 600,
+                padding: false
+              %}
+              <span class="event-card__date db abs top left bg-teal ph10 z1 c-tan mono f12 m:f14 ttu">
+                {% assign startDate = event.startDatetime | date: '%b %d' %}
+                {% assign endDate = event.endDatetime | date: '%b %d' %}
+                {% if startDate == endDate %}
+                  {{ startDate }}
+                {% else %}
+                  {{ startDate }} - {{ endDate }}
+                {% endif %}
+              </span>
+            </div>
+            <h3 class="serif f16 s:f18 m:f22 lh1318 mb10">{{ event.title }}</h3>
+            <p class="f12 s:f14 m:f18 lh155 ls02em">Presented by {{ event.speakerName }}</p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  {% include footer %}
 </div>
