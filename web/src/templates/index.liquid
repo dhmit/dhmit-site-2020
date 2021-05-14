@@ -190,14 +190,14 @@ title: Home
   {% comment %} Events {% endcomment %}
   <section class="oh pt25 mb80">
     <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
-      {% include section-title, title: "Upcoming Events", cx: "mb20 m:mb45" %}
+      {% include section-title, title: "Upcoming Events" %}
     </div>
     {% capture slides %}
       {% for event in landingPage.events %}
         <li class="slider__item event-card">
           <div class="slider__item__inner">
             <a class="db pen" href="/event/{{ event.slug }}/">
-              <div class="rel db br2 m:br4 oh mb15">
+              <div class="rel db br7 oh mb10 s:mb20">
                 {% include lazy-image,
                   image: event.image,
                   containerCx: 'r--4x3',
