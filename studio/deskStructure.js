@@ -16,6 +16,15 @@ export default () =>
             .documentId('landingPage'),
         ),
       S.listItem()
+        .title('Footer')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text="👟" />)
+        .child(
+          S.editor()
+            .title('Footer')
+            .schemaType('footer')
+            .documentId('footer'),
+        ),
+      S.listItem()
         .title('Configuration')
         .icon(() => <Emoji style={{ fontSize: 30 }} text="🌎" />)
         .child(
@@ -32,6 +41,10 @@ export default () =>
         .icon(() => <Emoji style={{ fontSize: 30 }} text="💻" />)
         .child(S.documentTypeList('project').title('Projects')),
       S.listItem()
+        .title('Posts')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text="🖊️" />)
+        .child(S.documentTypeList('post').title('Posts')),
+      S.listItem()
         .title('People')
         .icon(() => <Emoji style={{ fontSize: 30 }} text="🤸‍" />)
         .child(S.documentTypeList('person').title('People')),
@@ -39,18 +52,32 @@ export default () =>
         .title('Events')
         .icon(() => <Emoji style={{ fontSize: 30 }} text="🗓️" />)
         .child(S.documentTypeList('event').title('Events')),
+
+      S.divider(),
+
       S.listItem()
-        .title('Faculty Spotlight')
-        .icon(() => <Emoji style={{ fontSize: 30 }} text="✨" />)
+        .title('Deprecated')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text="✖️" />)
         .child(
-          S.documentTypeList('facultySpotlight').title('Faculty Spotlight'),
+          S.list()
+            .title('Deprecated')
+            .items([
+              S.listItem()
+                .title('Faculty Spotlight')
+                .icon(() => <Emoji style={{ fontSize: 30 }} text="✨" />)
+                .child(
+                  S.documentTypeList('facultySpotlight').title(
+                    'Faculty Spotlight',
+                  ),
+                ),
+              S.listItem()
+                .title('Publications')
+                .icon(() => <Emoji style={{ fontSize: 30 }} text="📔" />)
+                .child(S.documentTypeList('publication').title('Publications')),
+              S.listItem()
+                .title('Calls')
+                .icon(() => <Emoji style={{ fontSize: 30 }} text="📔" />)
+                .child(S.documentTypeList('call').title('Calls')),
+            ]),
         ),
-      S.listItem()
-        .title('Publications')
-        .icon(() => <Emoji style={{ fontSize: 30 }} text="📔" />)
-        .child(S.documentTypeList('publication').title('Publications')),
-      S.listItem()
-        .title('Calls')
-        .icon(() => <Emoji style={{ fontSize: 30 }} text="📔" />)
-        .child(S.documentTypeList('call').title('Calls')),
     ])
