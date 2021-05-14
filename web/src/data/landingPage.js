@@ -34,7 +34,11 @@ module.exports = async function() {
           },
         }
       },
-      newsCarousel,
+      newsCarousel[]-> {
+        title,
+        publishAt,
+        'slug': slug.current,
+      },
       newsletterCta,
       "events": *[_type == 'event'] [0..3] | order(metadata.startDatetime) {
         title,

@@ -136,21 +136,21 @@ title: Home
         <div class="m:bg-teal m:br10 m:y m:df m:fc m:jcb">
           <div class="news-carousel rel oh fg1 js-slider">
             <div class="df mhn5">
-              {% comment %} {% for blah in blah %} {% endcomment %}
+              {% for post in landingPage.newsCarousel %}
                 <div class="news-carousel__slide ph5 m:pt30">
                   <div class="c-tan bg-teal br10 pt30 pb40 ph30 s:ph40 l:ph70">
-                    <p class="mono f16 m:f18 lh100 mb15 m:mb20">March 13, 2021</p>
-                    <h3 class="serif f18 s:f24 m:f27 l:f32 lh120 mb40 l:mb45">DH Lab Spring Project: Emerging Technologies for Language Learning</h3>
-                    <a href="#0" class="mono f16 m:f18 lh100">Read more +</a>
+                    <p class="mono f16 m:f18 lh100 mb15 m:mb20">{{ post.publishAt | date: '%B %d, %Y' }}</p>
+                    <h3 class="serif f18 s:f24 m:f27 l:f32 lh120 mb40 l:mb45">{{ post.title }}</h3>
+                    <a href="/posts/{{ post.slug }}" class="mono f16 m:f18 lh100">Read more +</a>
                   </div>
                 </div>
-              {% comment %} {% endfor %} {% endcomment %}
+              {% endfor %}
             </div>
           </div>
           <div class="df jcc aic mt20 m:mb40">
-            {% comment %} {% for blah in blah %} {% endcomment %}
+            {% for post in landingPage.newsCarousel %}
               <div class="news-carousel__dot ba m:bc-tan br50 mh5 js-dots{% if forloop.first %} is-active{% endif %}"></div>
-            {% comment %} {% endfor %} {% endcomment %}
+            {% endfor %}
           </div>
         </div>
       </div>

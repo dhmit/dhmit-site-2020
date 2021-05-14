@@ -22,6 +22,11 @@ export default {
       },
     },
     {
+      title: 'Publish Date',
+      name: 'publishAt',
+      type: 'datetime',
+    },
+    {
       title: 'Body',
       name: 'body',
       type: 'richText',

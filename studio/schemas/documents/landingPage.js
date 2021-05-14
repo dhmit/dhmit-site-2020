@@ -119,7 +119,15 @@ export default {
       type: 'array',
       title: 'News Carousel',
       name: 'newsCarousel',
-      of: [{ type: 'reference', to: [{ type: 'post' }] }],
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'post' }],
+          options: {
+            filter: `publishAt < now()`,
+          },
+        },
+      ],
     },
     {
       type: 'object',
