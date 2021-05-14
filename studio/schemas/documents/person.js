@@ -1,9 +1,12 @@
+import React from 'react'
+import Emoji from 'react-emoji-render'
 import ConditionalField from '../../plugins/ConditionalField'
 
 export default {
   type: 'document',
   title: 'Person',
   name: 'person',
+  icon: () => <Emoji style={{ fontSize: 23 }} text="🤸" />,
   fields: [
     {
       title: 'Full Name',

@@ -2,6 +2,7 @@ export default {
   type: 'document',
   title: 'Footer',
   name: 'footer',
+  __experimental_actions: ['update', 'publish'],
   fieldsets: [{ title: 'Address', name: 'address' }],
   fields: [
     {
@@ -38,9 +39,9 @@ export default {
       type: 'string',
     },
     {
-      title: 'Mellon Logo',
-      name: 'mellonLogo',
-      type: 'a11yImage',
+      title: 'Github Handle',
+      name: 'githubHandle',
+      type: 'string',
     },
   ],
 }

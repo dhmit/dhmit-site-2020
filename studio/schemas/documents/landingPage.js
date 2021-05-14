@@ -2,6 +2,7 @@ export default {
   type: 'document',
   title: 'Landing Page',
   name: 'landingPage',
+  __experimental_actions: ['update', 'publish'],
   fields: [
     {
       type: 'object',

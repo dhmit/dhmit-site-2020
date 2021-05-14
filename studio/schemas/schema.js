@@ -20,6 +20,7 @@ import facultySpotlight from './documents/facultySpotlight'
 import publication from './documents/publication'
 import landingPage from './documents/landingPage'
 import post from './documents/post'
+import footer from './documents/footer'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -43,5 +44,6 @@ export default createSchema({
     publication,
     landingPage,
     post,
+    footer,
   ]),
 })

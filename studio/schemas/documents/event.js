@@ -1,7 +1,11 @@
+import React from 'react'
+import Emoji from 'react-emoji-render'
+
 export default {
   type: 'document',
   title: 'Event',
   name: 'event',
+  icon: () => <Emoji style={{ fontSize: 23 }} text="🗓️" />,
   fields: [
     {
       title: 'Title',

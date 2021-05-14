@@ -5,7 +5,7 @@ const allBlocksToHtml = require('../util/allBlocksToHtml')
 module.exports = async function() {
   const landingPage = await client.fetch(
     groq`
-    *[_type == "landingPage"] {
+    *[_type == "landingPage"][0] {
       intro,
       "projects": *[_type == "project"] | order(metadata.year desc, metadata.semester, title) {
         title,
@@ -46,15 +46,7 @@ module.exports = async function() {
         },
         ...metadata
       },
-      footer {
-        ...,
-        "mellonLogo": {
-          ...mellonLogo.image.asset->,
-          "altText": mellonLogo.altText,
-          "caption": mellonLogo.caption
-        },
-      },
-   } [0]`,
+   }`,
   )
 
   return allBlocksToHtml(landingPage)

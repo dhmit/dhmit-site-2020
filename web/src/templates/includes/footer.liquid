@@ -1,10 +1,8 @@
-{% assign footer = landingPage.footer %}
-
 <footer class="footer bg-blue c-tan ph20 m:ph40 l:ph60 pt50 pb70">
   <div class="rel">
-    <div class="abs x df aic jcb">
+    <div class="abs x df aic jcb pen">
       <a 
-        class="footer__logo"
+        class="footer__logo pea"
         href="#intro"
         data-router-disabled
         aria-label="MIT Programs in Digital Humanities"
@@ -12,7 +10,7 @@
         {% include mark-tan %}
       </a>
       <a
-        class="footer__mit"
+        class="footer__mit pea"
         href="https://mit.edu"
         target="_blank"
         rel="noopener noreferrer"
@@ -45,7 +43,7 @@
               <li class="dib">
                 <a
                   class="tdu"
-                  href="https://github.com/dhmit"
+                  href="https://github.com/{{ footer.githubHandle }}"
                   target="_blank"
                   rel="noopener noreferrer"
                 >Github</a>

@@ -2,6 +2,7 @@ export default {
   title: 'Config',
   name: 'config',
   type: 'document',
+  __experimental_actions: ['update', 'publish'],
   fields: [
     {
       title: 'SEO Metadata',
