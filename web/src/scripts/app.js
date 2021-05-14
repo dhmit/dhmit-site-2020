@@ -7,6 +7,7 @@ import slider from '@/components/slider'
 import aboutCarousel from '@/components/aboutCarousel'
 import newsCarousel from '@/components/newsCarousel'
 import accordion from '@/components/accordion'
+import newsletter from '@/components/newsletter'
 
 const components = {
   burger,
@@ -15,6 +16,7 @@ const components = {
   aboutCarousel,
   newsCarousel,
   accordion,
+  newsletter,
 }
 
 const state = {

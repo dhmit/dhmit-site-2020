@@ -18,6 +18,7 @@
   "dependencies": {
     "@dogstudio/highway": "^2.2.1",
     "@selfaware/wool": "^1.0.3",
+    "astrochimp": "^1.0.1",
     "choozy": "^0.0.6",
     "detect-it": "^4.0.1",
     "embla-carousel": "^4.5.1",

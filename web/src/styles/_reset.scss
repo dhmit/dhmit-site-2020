@@ -12,7 +12,6 @@ input {
   font: inherit;
   line-height: inherit;
   text-decoration: none;
-  cursor: pointer;
   white-space: normal;
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
@@ -22,6 +21,7 @@ input {
 
 button {
   text-align: center;
+  cursor: pointer;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 

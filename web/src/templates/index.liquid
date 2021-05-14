@@ -131,58 +131,63 @@ title: Home
 
   {% comment %} News & Announcements {% endcomment %}
   <section id="news" class="oh pt25 mb80">
-    {% comment %} <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
+    <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50 dn m:db">
       {% include section-title, title: "News & Announcements" %}
-    </div> {% endcomment %}
-    <div class="mb80" data-component="newsCarousel">
-      <div class="news-carousel rel js-slider">
-        <div class="df mhn5">
-          {% comment %} {% for blah in blah %} {% endcomment %}
-            <div class="news-carousel__slide ph5">
-              <div class="c-tan bg-teal br10 pt30 pb40 ph30">
-                <p class="mono f16 lh100 mb15">March 13, 2021</p>
-                <h3 class="serif f18 lh120 mb40">DH Lab Spring Project: Emerging Technologies for Language Learning</h3>
-                <a href="#0" class="mono f16 lh100">Read more +</a>
-              </div>
+    </div>
+    <div class="m:df m:aistr m:mhn15 m:ph40 l:ph80">
+      <div class="m:w50 mb80 m:mb0 m:ph15" data-component="newsCarousel">
+        <div class="m:bg-teal m:br10 m:y m:df m:fc m:jcb">
+          <div class="news-carousel rel oh fg1 js-slider">
+            <div class="df mhn5">
+              {% comment %} {% for blah in blah %} {% endcomment %}
+                <div class="news-carousel__slide ph5 m:pt30">
+                  <div class="c-tan bg-teal br10 pt30 pb40 ph30 s:ph40 l:ph70">
+                    <p class="mono f16 m:f18 lh100 mb15 m:mb20">March 13, 2021</p>
+                    <h3 class="serif f18 s:f24 m:f27 l:f32 lh120 mb40 l:mb45">DH Lab Spring Project: Emerging Technologies for Language Learning</h3>
+                    <a href="#0" class="mono f16 m:f18 lh100">Read more +</a>
+                  </div>
+                </div>
+              {% comment %} {% endfor %} {% endcomment %}
             </div>
-          {% comment %} {% endfor %} {% endcomment %}
+          </div>
+          <div class="df jcc aic mt20 m:mb40">
+            {% comment %} {% for blah in blah %} {% endcomment %}
+              <div class="news-carousel__dot ba m:bc-tan br50 mh5 js-dots{% if forloop.first %} is-active{% endif %}"></div>
+            {% comment %} {% endfor %} {% endcomment %}
+          </div>
         </div>
       </div>
-      <div class="df jcc aic mt20">
-        {% comment %} {% for blah in blah %} {% endcomment %}
-          <div class="news-carousel__dot ba br50 mh5 js-dots{% if forloop.first %} bg-gold{% endif %}"></div>
-        {% comment %} {% endfor %} {% endcomment %}
-      </div>
-    </div>
-    <div class="ph20">
-      <div class="tc mb40">
-        <h2 class="serif f27 lh115 mb20">
-          Enhancing the humanities through programming.
-        </h2>
-        <p class="sans f16 lh150 ls02em">
-          Sign up to our newsletter to stay updated on all things Digital Humanities at MIT
-        </p>
-      </div>
-      <div class="rel" data-component="newsletter">
-        <form class="df br3 ba oh js-form">
-          <input
-            class="x mono f14 pv15 pl20"
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            required
-          />
-          <button
-            class="bg-blue c-tan mono f14 lh100 fs0 ph20"
-            type="submit"
-          >
-            Sign up →
-          </button>
-        </form>
-        <p
-          class="abs fill df jcc aic tc f14 mono lh100 js-message"
-          style="opacity: 0; visibility: hidden;"
-        >Success, thank you for signing up!</p>
+
+      {% comment %} Newsletter CTA & Form {% endcomment %}
+      <div class="max-w500 m:max-w-none mha m:w50 ph20 m:ph15 on1">
+        <div class="m:br10 m:ba m:pv60 l:pv95 m:pl40 l:pl70 m:pr40 l:pr130 m:y">
+          <div class="tc m:tl mb40 l:mb45">
+            <h2 class="serif f27 l:f32 lh115 m:lh120 mb20 m:mb25">
+              Enhancing the humanities through programming.
+            </h2>
+            <p class="sans f16 m:f18 lh150 ls02em">
+              Sign up to our newsletter to stay updated on all things Digital Humanities at MIT
+            </p>
+          </div>
+          <div class="newsletter rel" data-component="newsletter">
+            <form class="df br3 ba oh js-form">
+              <input
+                class="x mono f14 m:f16 l:f18 pv15 pl20"
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+              />
+              <button
+                class="bg-blue c-tan mono f14 m:f16 l:f18 lh100 fs0 ph20"
+                type="submit"
+              >
+                Sign up →
+              </button>
+            </form>
+            <p class="newsletter__message dn tc f14 mono lh120 js-message"></p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

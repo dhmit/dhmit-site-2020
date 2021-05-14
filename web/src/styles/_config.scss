@@ -61,7 +61,9 @@ $font-stacks: (
 );
 
 $max-widths: (
+  '-none': unset,
   '305': 30.5rem,
+  '500': 50rem,
   '600': 60rem,
   '700': 70rem,
   '850': 85rem,
