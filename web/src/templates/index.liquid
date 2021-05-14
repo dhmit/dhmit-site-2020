@@ -35,9 +35,6 @@ title: Home
                 width: 740,
                 padding: false
               %}
-              {% comment %} <p class="mono f11 s:f14 mb5 s:mb10 m:mb5">
-                {{ project.metadata.semester | capitalize }} {{ project.metadata.year }}
-              </p> {% endcomment %}
               <h3 class="serif f16 s:f21 m:f32 lh125 mb15">{{ project.title }}</h3>
               <p class="sans f16 m:f18 lh155 ls02em dn s:db">{{ project.subtitle }}</p>
             </a>
@@ -163,10 +160,10 @@ title: Home
         <div class="m:br10 m:ba m:pv60 l:pv95 m:pl40 l:pl70 m:pr40 l:pr130 m:y">
           <div class="tc m:tl mb40 l:mb45">
             <h2 class="serif f27 l:f32 lh115 m:lh120 mb20 m:mb25">
-              Enhancing the humanities through programming.
+              {{ landingPage.newsletterCta.headline }}
             </h2>
             <p class="sans f16 m:f18 lh150 ls02em">
-              Sign up to our newsletter to stay updated on all things Digital Humanities at MIT
+              {{ landingPage.newsletterCta.body }}
             </p>
           </div>
           {% include newsletter %}

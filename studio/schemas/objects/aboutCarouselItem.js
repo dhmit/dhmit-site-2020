@@ -18,5 +18,10 @@ export default {
       name: 'body',
       type: 'richText',
     },
+    {
+      title: 'Link (Optional)',
+      name: 'link',
+      type: 'externalLink',
+    },
   ],
 }

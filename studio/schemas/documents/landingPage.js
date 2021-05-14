@@ -112,73 +112,28 @@ export default {
             },
           ],
         },
-        {
-          title: 'Faculty Spotlight',
-          name: 'facultySpotlight',
-          type: 'reference',
-          to: [{ type: 'facultySpotlight' }],
-        },
       ],
     },
     {
-      type: 'object',
-      title: 'People',
-      name: 'people',
-      fields: [
-        {
-          title: 'Staff',
-          name: 'staff',
-          type: 'array',
-          of: [
-            {
-              type: 'reference',
-              to: [{ type: 'person' }],
-              options: {
-                filter: 'category == $category',
-                filterParams: { category: 'Staff' },
-              },
-            },
-          ],
-        },
-        {
-          title: 'Steering Committee',
-          name: 'steeringCommittee',
-          type: 'array',
-          of: [
-            {
-              type: 'reference',
-              to: [{ type: 'person' }],
-              options: {
-                filter: 'category == $category',
-                filterParams: { category: 'Steering Committee' },
-              },
-            },
-          ],
-        },
-      ],
+      type: 'array',
+      title: 'News Carousel',
+      name: 'newsCarousel',
+      of: [{ type: 'reference', to: [{ type: 'post' }] }],
     },
     {
       type: 'object',
-      title: 'Community',
-      name: 'community',
+      title: 'Newsletter CTA',
+      name: 'newsletterCta',
       fields: [
         {
-          title: 'Accordion',
-          name: 'accordion',
-          type: 'object',
-          fields: [
-            {
-              title: 'Label',
-              name: 'label',
-              type: 'string',
-            },
-            {
-              title: 'Items',
-              name: 'items',
-              type: 'array',
-              of: [{ type: 'accordionItem' }],
-            },
-          ],
+          type: 'string',
+          title: 'Headline',
+          name: 'headline',
+        },
+        {
+          type: 'string',
+          title: 'Body',
+          name: 'body',
         },
       ],
     },
