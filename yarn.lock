@@ -11400,6 +11400,11 @@ source-map@^0.7.3:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
   integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
 
+spacetime@^6.16.1:
+  version "6.16.1"
+  resolved "https://registry.yarnpkg.com/spacetime/-/spacetime-6.16.1.tgz#e032dc77bea494367a7a321a03458ebbf8f625b0"
+  integrity sha512-+aK5oTrCCfXZsg73NEoy3V2cLa0xY3obddFNbWSJ8UcbuPb7f8zWOV4vH3hEAncznUJQqA7tGHAuVR4TysfgIA==
+
 spdx-correct@^3.0.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-3.1.1.tgz#dece81ac9c1e6713e5f7d1b6f17d468fa53d89a9"

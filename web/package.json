@@ -26,7 +26,8 @@
     "fontfaceobserver": "^2.1.0",
     "gsap": "^3.2.5",
     "martha": "^1.0.3",
-    "picoapp": "^3.4.0"
+    "picoapp": "^3.4.0",
+    "spacetime": "^6.16.1"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",

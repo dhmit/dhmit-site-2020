@@ -1,6 +1,7 @@
 const client = require('../util/client')
 const groq = require('groq')
 const allBlocksToHtml = require('../util/allBlocksToHtml')
+const spacetime = require('spacetime')
 
 module.exports = async function() {
   const landingPage = await client.fetch(
@@ -52,6 +53,12 @@ module.exports = async function() {
       },
    }`,
   )
+
+  landingPage.newsCarousel.forEach((post) => {
+    post.publishAt = spacetime(post.publishAt)
+      .goto('America/New_York')
+      .format('iso')
+  })
 
   return allBlocksToHtml(landingPage)
 }
