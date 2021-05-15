@@ -1,26 +1,26 @@
 export default {
-  type: 'object',
-  title: 'Carousel Item',
   name: 'aboutCarouselItem',
+  title: 'Carousel Item',
+  type: 'object',
   fields: [
     {
-      title: 'Name',
       name: 'name',
+      title: 'Name',
       type: 'string',
     },
     {
-      title: 'Headline',
       name: 'headline',
+      title: 'Headline',
       type: 'string',
     },
     {
-      title: 'Body',
       name: 'body',
+      title: 'Body',
       type: 'richText',
     },
     {
-      title: 'Link (Optional)',
       name: 'link',
+      title: 'Link (Optional)',
       type: 'externalLink',
     },
   ],

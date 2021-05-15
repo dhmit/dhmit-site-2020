@@ -5,18 +5,18 @@
 // - Blurb (optionally used for landing page Faculty spotlight block. if not provided, the full editorial text will be truncated)
 
 export default {
-  type: 'document',
-  title: 'Faculty Spotlight',
   name: 'facultySpotlight',
+  title: 'Faculty Spotlight',
+  type: 'document',
   fields: [
     {
-      title: 'Name',
       name: 'name',
+      title: 'Name',
       type: 'string',
     },
     {
-      title: 'Slug',
       name: 'slug',
+      title: 'Slug',
       type: 'slug',
       options: {
         source: 'name',
@@ -24,23 +24,23 @@ export default {
       },
     },
     {
-      title: 'Headline',
       name: 'headline',
+      title: 'Headline',
       type: 'string',
     },
     {
-      title: 'Image',
       name: 'image',
+      title: 'Image',
       type: 'a11yImageWithCaption',
     },
     {
-      title: 'Editorial',
       name: 'editorial',
+      title: 'Editorial',
       type: 'richText',
     },
     {
-      title: 'Teaser',
       name: 'teaser',
+      title: 'Teaser',
       description:
         'optionally used for the Faculty Spotlight teaser block on the landing page. If left empty, the full editorial text will be used and truncated.',
       type: 'richText',

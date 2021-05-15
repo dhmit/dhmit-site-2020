@@ -2,10 +2,10 @@ import React from 'react'
 import Emoji from 'react-emoji-render'
 
 export default {
-  name: 'post',
-  title: 'Post',
+  name: 'projectCategory',
+  title: 'Project Category',
   type: 'document',
-  icon: () => <Emoji style={{ fontSize: 23 }} text="🖊️" />,
+  icon: () => <Emoji style={{ fontSize: 23 }} text="🏷️" />,
   fields: [
     {
       name: 'title',
@@ -18,17 +18,13 @@ export default {
       type: 'slug',
       options: {
         source: 'title',
-        maxLength: 200,
+        maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     },
     {
-      name: 'publishAt',
-      title: 'Publish Date',
-      type: 'datetime',
-    },
-    {
-      name: 'body',
-      title: 'Body',
+      name: 'description',
+      title: 'Description',
       type: 'richText',
     },
   ],

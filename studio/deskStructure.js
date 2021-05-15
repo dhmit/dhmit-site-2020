@@ -39,7 +39,33 @@ export default () =>
       S.listItem()
         .title('Projects')
         .icon(() => <Emoji style={{ fontSize: 23 }} text="💻" />)
-        .child(S.documentTypeList('project').title('Projects')),
+        .child(
+          S.list()
+            .title('Projects')
+            .items([
+              S.listItem()
+                .title('Projects')
+                .icon(() => <Emoji style={{ fontSize: 23 }} text="💻" />)
+                .child(S.documentTypeList('project').title('Projects')),
+              S.listItem()
+                .title('Project Settings')
+                .icon(() => <Emoji style={{ fontSize: 23 }} text="⚙️" />)
+                .child(
+                  S.editor()
+                    .title('Project Settings')
+                    .schemaType('projectSettings')
+                    .documentId('projectSettings'),
+                ),
+              S.listItem()
+                .title('Project Categories')
+                .icon(() => <Emoji style={{ fontSize: 23 }} text="🏷️" />)
+                .child(
+                  S.documentTypeList('projectCategory').title(
+                    'Project Categories',
+                  ),
+                ),
+            ]),
+        ),
       S.listItem()
         .title('Posts')
         .icon(() => <Emoji style={{ fontSize: 23 }} text="🖊️" />)

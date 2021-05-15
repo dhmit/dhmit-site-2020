@@ -13,6 +13,8 @@ import accordionItem from './objects/accordionItem'
 
 import config from './documents/config'
 import project from './documents/project'
+import projectSettings from './documents/projectSettings'
+import projectCategory from './documents/projectCategory'
 import person from './documents/person'
 import event from './documents/event'
 import call from './documents/call'
@@ -29,21 +31,26 @@ export default createSchema({
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
+    // objects
     a11yImage,
     a11yImageWithCaption,
     externalLink,
     richText,
     aboutCarouselItem,
     accordionItem,
+
+    // documents
+    landingPage,
+    footer,
     config,
     project,
+    post,
     person,
+    projectCategory,
     event,
+    projectSettings,
     call,
     facultySpotlight,
     publication,
-    landingPage,
-    post,
-    footer,
   ]),
 })

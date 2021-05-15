@@ -1,17 +1,22 @@
 export default {
-  title: 'External Link',
   name: 'externalLink',
+  title: 'Link',
   type: 'object',
   fields: [
     {
-      title: 'Title',
       name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {
+      name: 'url',
       title: 'URL',
       type: 'url',
-      name: 'url',
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https', 'mailto', 'tel'],
+          allowRelative: true,
+        }),
     },
   ],
 }

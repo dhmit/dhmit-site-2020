@@ -1,11 +1,11 @@
 export default {
-  title: 'Rich Text',
   name: 'richText',
+  title: 'Rich Text',
   type: 'object',
   fields: [
     {
-      title: 'Content',
       name: 'blocks',
+      title: 'Content',
       type: 'array',
       of: [
         {

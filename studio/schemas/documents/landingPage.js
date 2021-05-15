@@ -1,46 +1,46 @@
 export default {
-  type: 'document',
-  title: 'Landing Page',
   name: 'landingPage',
+  title: 'Landing Page',
+  type: 'document',
   __experimental_actions: ['update', 'publish'],
   fields: [
     {
-      type: 'object',
-      title: 'Intro',
       name: 'intro',
+      title: 'Intro',
+      type: 'object',
       fields: [
         {
-          title: 'Headline',
           name: 'headline',
+          title: 'Headline',
           type: 'string',
         },
         {
-          title: 'Body',
           name: 'body',
+          title: 'Body',
           type: 'richText',
         },
       ],
     },
     {
-      type: 'object',
-      title: 'About Carousel',
       name: 'about',
+      title: 'About Carousel',
+      type: 'object',
       fields: [
         {
-          title: 'Carousel Items',
           name: 'carouselItems',
+          title: 'Carousel Items',
           type: 'array',
           of: [{ type: 'aboutCarouselItem' }],
           validation: (Rule) => Rule.max(3),
         },
         {
-          title: 'Carousel Settings',
           name: 'carouselSettings',
+          title: 'Carousel Settings',
           type: 'object',
           fields: [
             {
-              title: 'Autoplay Duration',
               name: 'autoplayDuration',
+              title: 'Autoplay Duration',
               type: 'number',
               description:
                 'The time it takes for the carousel to automatically advance to the next slide (in milliseconds).',
@@ -51,33 +51,33 @@ export default {
       ],
     },
     {
-      type: 'object',
-      title: 'Lab',
       name: 'lab',
+      title: 'Lab',
+      type: 'object',
       fields: [
         {
-          type: 'object',
-          title: 'Row 1',
           name: 'row1',
+          title: 'Row 1',
+          type: 'object',
           fields: [
             {
-              title: 'Headline',
               name: 'headline',
+              title: 'Headline',
               type: 'string',
             },
             {
-              title: 'Body',
               name: 'body',
+              title: 'Body',
               type: 'richText',
             },
             {
-              title: 'Button',
               name: 'button',
+              title: 'Button',
               type: 'externalLink',
             },
             {
-              title: 'Images',
               name: 'images',
+              title: 'Images',
               type: 'array',
               of: [{ type: 'a11yImage' }],
               validation: (Rule) => Rule.max(2),
@@ -85,28 +85,28 @@ export default {
           ],
         },
         {
-          type: 'object',
-          title: 'Row 2',
           name: 'row2',
+          title: 'Row 2',
+          type: 'object',
           fields: [
             {
-              title: 'Headline',
               name: 'headline',
+              title: 'Headline',
               type: 'string',
             },
             {
-              title: 'Body',
               name: 'body',
+              title: 'Body',
               type: 'richText',
             },
             {
-              title: 'Button',
               name: 'button',
+              title: 'Button',
               type: 'externalLink',
             },
             {
-              title: 'Images',
               name: 'images',
+              title: 'Images',
               type: 'array',
               of: [{ type: 'a11yImage' }],
               validation: (Rule) => Rule.max(2),
@@ -116,9 +116,9 @@ export default {
       ],
     },
     {
-      type: 'array',
-      title: 'News Carousel',
       name: 'newsCarousel',
+      title: 'News Carousel',
+      type: 'array',
       of: [
         {
           type: 'reference',
@@ -130,19 +130,19 @@ export default {
       ],
     },
     {
-      type: 'object',
-      title: 'Newsletter CTA',
       name: 'newsletterCta',
+      title: 'Newsletter CTA',
+      type: 'object',
       fields: [
         {
-          type: 'string',
-          title: 'Headline',
           name: 'headline',
+          title: 'Headline',
+          type: 'string',
         },
         {
-          type: 'string',
-          title: 'Body',
           name: 'body',
+          title: 'Body',
+          type: 'string',
         },
       ],
     },

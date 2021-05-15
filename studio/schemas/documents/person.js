@@ -3,20 +3,20 @@ import Emoji from 'react-emoji-render'
 import ConditionalField from '../../plugins/ConditionalField'
 
 export default {
-  type: 'document',
-  title: 'Person',
   name: 'person',
+  title: 'Person',
+  type: 'document',
   icon: () => <Emoji style={{ fontSize: 23 }} text="🤸" />,
   fields: [
     {
-      title: 'Full Name',
       name: 'name',
+      title: 'Full Name',
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
     {
-      title: 'Category',
       name: 'category',
+      title: 'Category',
       type: 'string',
       options: {
         layout: 'radio',
@@ -29,8 +29,8 @@ export default {
       },
     },
     {
-      title: 'Title',
       name: 'title',
+      title: 'Title',
       type: 'string',
       inputComponent: ConditionalField,
       options: {
@@ -39,8 +39,8 @@ export default {
       },
     },
     {
-      title: 'Sequence',
       name: 'seq',
+      title: 'Sequence',
       type: 'number',
       inputComponent: ConditionalField,
       options: {
@@ -48,13 +48,13 @@ export default {
       },
     },
     {
-      title: 'Is lab alum?',
       name: 'isAlum',
+      title: 'Is lab alum?',
       type: 'boolean',
     },
     {
-      title: 'Link',
       name: 'link',
+      title: 'Link',
       type: 'url',
       inputComponent: ConditionalField,
       options: {
@@ -63,8 +63,8 @@ export default {
       },
     },
     {
-      title: 'Headshot',
       name: 'headshot',
+      title: 'Headshot',
       type: 'image',
       inputComponent: ConditionalField,
       options: {
