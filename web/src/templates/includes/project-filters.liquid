@@ -1,0 +1,25 @@
+{% if projectSettings.filters %}
+  <div class="x ox hide-scrollbar">
+    <ul class="nowrap">
+      {% for filter in projectSettings.filters %}
+        {%- capture cx -%}
+          dib
+          {% if forloop.first %}
+            ml20 m:ml40 l:ml80
+          {% endif %}
+          {% if forloop.last %}
+            mr20 m:mr40 l:mr80
+          {% else %}
+            mr10
+          {% endif %}
+        {%- endcapture -%}
+        <li class="{{ cx }}">
+          {%- capture href -%}
+            /projects/{% unless filter.slug == "" %}{{ filter.slug }}/{% endunless %}
+          {%- endcapture -%}
+          <a class="button db mono f14 pv15 ph25 ba br3{% if href == activeHref %} bg-blue c-tan pen{% endif %}" href="{{ href }}">{{ filter.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

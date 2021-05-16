@@ -12,7 +12,7 @@ renderData:
   <div class="detail ph20 m:ph40 l:ph80 pt100 s:pt150 l:pt180 min-vh100">
     <div class="rel max-w635 mha">
       <div class="breadcrumbs mono f14 lh150 mb20">
-        <a href="/">Home</a> / <a href="/projects">Projects</a> / <a href="/projects/{{ project.metadata.category.slug }}">{{ project.metadata.category.title }}</a>
+        <a href="/">Home</a> / <a href="/projects/">Projects</a> / <a href="/projects/{{ project.metadata.category.slug }}/">{{ project.metadata.category.title }}</a>
       </div>
       <h1 class="serif f27 m:f32 l:f50 lh115 mb15 m:mb25">{{ project.title }}</h1>
       <p class="f18 m:f20 l:f24 lh140 l:lh150 ls02em mb25">{{ project.subtitle }}</p>
@@ -84,9 +84,7 @@ renderData:
       {% endif %}
       <a
         class="button db pt35 m:pt40 pb45 m:pb55 ph30 l:ph50 ba br10 tc mb100"
-        href="/projects/{{ project.metadata.category.slug }}"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/projects/{{ project.metadata.category.slug }}/"
       >
         <div class="mono f14 m:f16 l:f18 lh100 ls02em mb10">View all</div>
         <div class="serif f22 m:f24 l:f32 lh120">{{ project.metadata.category.title }}</div>

@@ -5,32 +5,12 @@ permalink: /projects/
 <div data-router-view>
   <div class="pt100 s:pt150 l:pt180">
     <div class="mb60 l:mb80">
-      <div class="ph20 m:ph40 l:ph80">
-        <h1 class="serif f27 m:f32 l:f50 lh115 mb20 m:mb25 l:mb40">{{ projectSettings.home.title }}</h1>
-        <div class="rich-text f16 m:f18 l:f24 lh150 ls02em mb30 l:mb40 max-w960">{{ projectSettings.home.description }}</div>
-      </div>
-      {% if projectSettings.filters %}
-        <div class="x ox hide-scrollbar">
-          <ul class="nowrap">
-            {% for filter in projectSettings.filters %}
-              {%- capture cx -%}
-                dib
-                {% if forloop.first %}
-                  ml20 m:ml40 l:ml80
-                {% endif %}
-                {% if forloop.last %}
-                  mr20 m:mr40 l:mr80
-                {% else %}
-                  mr10
-                {% endif %}
-              {%- endcapture -%}
-              <li class="{{ cx }}">
-                <a class="button db mono f14 pv15 ph25 ba br3{% if forloop.first %} bg-blue c-tan pen{% endif %}" href="/projects/{{ filter.slug }}">{{ filter.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
+      {% include listing-hero,
+        title: projectSettings.home.title,
+        description: projectSettings.home.description
+      %}
+      {% assign activeHref = '/projects/' %}
+      {% include project-filters %}
     </div>
     {% if projectSettings.home.featuredProject %}
       {% assign featuredProject = projectSettings.home.featuredProject %}
@@ -66,7 +46,7 @@ permalink: /projects/
         {% assign moduleHasProjects = module.projects | size %}
         {% if moduleHasProjects > 0 %}
           {%- capture moduleHref -%}
-            /projects/{{ module.slug }}
+            /projects/{{ module.slug }}/
           {%- endcapture -%}
           <div class="module oh mb80">
             <div class="ph20 m:ph40 l:ph80 pb25 s:pb30 m:pb50">
@@ -85,7 +65,7 @@ permalink: /projects/
                 <ul class="df fw mhn10">
                   {% for project in module.projects %}
                     <li class="w50 l:third ph10 mb60">
-                      <a class="card-hover" href="/project/{{ project.slug }}">
+                      <a class="card-hover" href="/project/{{ project.slug }}/">
                         {% include lazy-image,
                           image: project.image,
                           containerCx: 'r--4x3 br7 oh mb25',
@@ -106,7 +86,7 @@ permalink: /projects/
               {% for project in module.projects %}
                 <li class="slider__item">
                   <div class="slider__item__inner">
-                    <a class="db pen" href="/project/{{ project.slug }}">
+                    <a class="db pen" href="/project/{{ project.slug }}/">
                       {% include lazy-image,
                         image: project.image,
                         containerCx: 'r--4x3 br7 oh mb20',

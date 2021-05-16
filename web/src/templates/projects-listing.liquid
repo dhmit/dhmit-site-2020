@@ -1,0 +1,53 @@
+---
+layout: base.liquid
+permalink: /projects/{{ p.slug }}/{% if p.current > 1 %}{{ p.current }}/{% endif %}
+pagination:
+  alias: p
+  data: projectSettings.pagination
+  size: 1
+---
+<div data-router-view>
+  <div class="pt100 s:pt150 l:pt180">
+    <div class="mb60 l:mb80">
+      {% include listing-hero,
+        title: p.title,
+        description: p.description
+      %}
+      {%- capture activeHref -%}
+        /projects/{{ p.slug }}/
+      {%- endcapture -%}
+      {% include project-filters, activeHref: activeHref %}
+    </div>
+    {% assign length = p.projects | size %}
+    {% if length > 0 %}
+      <ul class="df fw mhn10 ph20 m:ph40 l:ph80">
+        {% for project in p.projects %}
+          <li class="x s:w50 l:third ph10 mb60">
+            <a class="card-hover" href="/project/{{ project.slug }}/">
+              {% include lazy-image,
+                image: project.image,
+                containerCx: 'r--4x3 br7 oh mb25',
+                imgCx: 'x y o-cover',
+                width: 740,
+                padding: false
+              %}
+              <p class="mono f14 lh100 mb10">{{ project.metadata.semester | capitalize }} {{ project.metadata.year }}</p>
+              <h3 class="serif f32 lh120 mb15">{{ project.title }}</h3>
+              <p class="sans f18 lh150 ls02em">{{ project.subtitle }}</p>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <div class="ph20 m:ph40 l:ph80">
+        <p class="mono f18 lh150 ls02em c-blue-muted">No results for {{ p.title }}</p>
+      </div>
+    {% endif %}
+    <div class="l:mt20 mb80 l:mb130">
+      {% if p.total > 1 %}
+        {% pagination p.current, p.total %}
+      {% endif %}
+    </div>
+  </div>
+  {% include footer %}
+</div>

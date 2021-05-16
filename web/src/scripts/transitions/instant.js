@@ -9,6 +9,8 @@ class Instant extends Highway.Transition {
   }
 
   out({ done }) {
+    app.emit('navigate')
+
     if (app.getState().isNavOpen) {
       app.emit('burger:toggle')
     }

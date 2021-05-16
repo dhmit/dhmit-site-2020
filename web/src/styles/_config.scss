@@ -108,11 +108,24 @@ $border-radiuses: (
   '10': 10px,
   '13': 13px,
   '16': 16px,
+  '-full': 9999px,
 );
 
 $user-definitions: (
   'fill-current': (
     fill: currentColor,
+  ),
+  'w9': (
+    width: 9px,
+  ),
+  'w30': (
+    width: 3rem,
+  ),
+  'h30': (
+    height: 3rem,
+  ),
+  'min-w30': (
+    min-width: 3rem,
   ),
 );
 
