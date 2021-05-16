@@ -8,13 +8,13 @@ export default {
   icon: () => <Emoji style={{ fontSize: 23 }} text="🗓️" />,
   fields: [
     {
-      title: 'Title',
       name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {
-      title: 'Slug',
       name: 'slug',
+      title: 'Slug',
       type: 'slug',
       options: {
         source: 'title',
@@ -22,40 +22,45 @@ export default {
       },
     },
     {
-      title: 'Event Metadata',
       name: 'metadata',
+      title: 'Event Metadata',
       type: 'object',
       fields: [
         {
-          title: 'Speaker Name',
           name: 'speakerName',
+          title: 'Speaker Name',
           type: 'string',
         },
         {
-          title: 'Start Date & Time',
           name: 'startDatetime',
+          title: 'Start Date & Time',
           type: 'datetime',
         },
         {
-          title: 'End Date & Time',
           name: 'endDatetime',
+          title: 'End Date & Time',
           type: 'datetime',
         },
         {
-          title: 'Location',
           name: 'location',
+          title: 'Location',
           type: 'string',
+        },
+        {
+          name: 'link',
+          title: 'Link',
+          type: 'externalLink',
         },
       ],
     },
     {
-      title: 'Event Image',
       name: 'image',
+      title: 'Event Image',
       type: 'a11yImageWithCaption',
     },
     {
-      title: 'Editorial',
       name: 'editorial',
+      title: 'Editorial',
       type: 'richText',
     },
   ],
