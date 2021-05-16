@@ -36,7 +36,7 @@ export default component((node, ctx) => {
   const events = slides.map((slide) => on(slide, 'click', onSlideClick))
 
   ctx.on('resize', () => {
-    const top = `${rect(qs('.lazy-image')).height / 2}px`
+    const top = `${rect(qs('.lazy-image', node)).height / 2}px`
     refs.buttons.forEach((button) => {
       button.style.top = top
     })

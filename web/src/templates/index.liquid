@@ -19,9 +19,12 @@ title: Home
   </section>
 
   {% comment %} Featured Projects {% endcomment %}
-  <section class="oh pt25 mb80">
-    <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
-      {% include section-title, title: "Featured Projects" %}
+  <section class="oh pt100 mb80">
+    <div class="ph20 m:ph40 l:ph80 pb20 s:pb30 m:pb50">
+      {% include section-title,
+        title: "Featured Projects",
+        viewMoreHref: '/projects'
+      %}
     </div>
     {% capture slides %}
       {% for project in landingPage.projects %}
@@ -174,8 +177,12 @@ title: Home
 
   {% comment %} Events {% endcomment %}
   <section class="oh pt25 mb80">
-    <div class="pl20 m:pl40 l:pl80 pb20 s:pb30 m:pb50">
-      {% include section-title, title: "Upcoming Events" %}
+    <div class="ph20 m:ph40 l:ph80 pb20 s:pb30 m:pb50">
+      {% include section-title,
+        title: "Upcoming Events",
+        viewMoreHref: '/events',
+        viewMoreText: 'View all'
+      %}
     </div>
     {% capture slides %}
       {% for event in landingPage.events %}
@@ -208,7 +215,7 @@ title: Home
       {% endfor %}
     {% endcapture %}
     {% include slider, slides: slides %}
-    {% include view-more-button, href: '/events', text: 'View all events →' %}
+    {% include view-more-button, href: '/events', text: 'View all events' %}
   </section>
 
   {% include footer %}

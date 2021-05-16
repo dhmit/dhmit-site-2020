@@ -7,7 +7,14 @@ module.exports = async function() {
     groq`
       *[_type == "project"] {
         title,
-        metadata,
+        subtitle,
+        metadata {
+          ...,
+          category-> {
+            title,
+            "slug": slug.current,
+          },
+        },
         editorial,
         studentTeam[]-> {
           ...,

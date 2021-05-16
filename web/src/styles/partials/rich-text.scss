@@ -1,0 +1,12 @@
+.rich-text {
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+    text-decoration-color: $gold;
+
+    &:hover {
+      text-decoration: none;
+      color: $gold;
+    }
+  }
+}

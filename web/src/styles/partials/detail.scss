@@ -1,0 +1,28 @@
+.detail {
+  &__metadata {
+    border-bottom: 1px solid $gold;
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+
+    @media (query('l')) {
+      margin-bottom: 0;
+      position: absolute;
+      width: 26rem;
+      right: -33rem;
+      top: 13.5rem;
+      padding-left: 3rem;
+      padding-top: 1rem;
+      padding-bottom: 2.5rem;
+      border-bottom: unset;
+      border-left: 1px solid $gold;
+    }
+
+    li:not(:last-child) {
+      margin-bottom: 2.5rem;
+
+      @media (query('l')) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+}

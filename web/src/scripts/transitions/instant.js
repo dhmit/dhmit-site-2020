@@ -1,4 +1,5 @@
 import Highway from '@dogstudio/highway'
+import app from '@/app'
 
 class Instant extends Highway.Transition {
   in({ from, done }) {
@@ -8,6 +9,10 @@ class Instant extends Highway.Transition {
   }
 
   out({ done }) {
+    if (app.getState().isNavOpen) {
+      app.emit('burger:toggle')
+    }
+
     done()
   }
 }
