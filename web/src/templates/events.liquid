@@ -1,0 +1,110 @@
+---
+layout: base.liquid
+permalink: /events/{% if p.current > 1 %}{{ p.current }}/{% endif %}
+pagination:
+  alias: p
+  data: eventsListing
+  size: 1
+---
+<div data-router-view>
+  <div class="pt100 s:pt150 l:pt180 ph20 m:ph40 l:ph80 mb100">
+    {% if p.upcomingEvents %}
+      <h1 class="serif f27 m:f32 l:f38 xl:f50 lh115 mb40">Upcoming Events</h1>
+      {% assign length = p.upcomingEvents | size %}
+      {% if length > 0 %}
+        <ul class="mb80">
+          {% for event in p.upcomingEvents %}
+            <li class="mb50">
+              <div class="rel br10 oh mb15">
+                {% include lazy-image,
+                  image: event.image,
+                  containerCx: 'r--4x3 oh',
+                  imgCx: 'x y o-cover',
+                  width: 740,
+                  padding: false
+                %}
+                <div class="abs top left bg-teal c-tan p10 tc z2" style="border-bottom-right-radius: 1rem;">
+                  <p class="mono f12 lh100 ttu">
+                    {{ event.metadata.startDatetime | date: '%b' }}
+                  </p>
+                  <p class="serif f42 lh100">
+                    {{ event.metadata.startDatetime | date: '%d' }}
+                  </p>
+                </div>
+              </div>
+              <h2 class="serif f27 lh120 mb15">
+                {{ event.title }}
+              </h2>
+              <div class="mb20">
+                <p class="mono f14 lh140 mb5">Presented by {{ event.metadata.speakerName}}</p>
+                {% if event.metadata.location %}
+                  <p class="mono f14 lh140 mb5">Location: {{ event.metadata.location }}</p>
+                {% endif %}
+                {% assign startDate = event.metadata.startDatetime | date: '%A, %B %d, %Y' %}
+                {% assign endDate = event.metadata.endDatetime | date: '%A, %B %d, %Y' %}
+                <p class="mono f14 lh140">
+                  {% if startDate == endDate %}
+                    {{ event.metadata.startDatetime | date: '%l:%M %p' }} - {{ event.metadata.endDatetime | date: '%l:%M %p' }}
+                  {% else %}
+                    {{ startDate }} - {{ endDate }}
+                  {% endif %}
+                </p>
+              </div>
+              <div class="df fw mn5">
+                <div class="p5">
+                  <a class="button db f14 mono lh100 br3 ba pv15 ph25" href="/event/{{ event.slug }}/">
+                    Learn more +
+                  </a>
+                </div>
+                  {% if event.metadata.link %}
+                    <div class="p5">
+                      <a class="button db f14 mono lh100 br3 ba pv15 ph25 df items-center" href="/event/{{ event.metadata.link.url }}/">
+                        <span class="mr10">{{ event.metadata.title }}</span>
+                        {% include link-icon %}
+                      </a>
+                    </div>
+                  {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="mono f16 m:f18 lh150 ls02em c-blue-muted">There are no upcoming events at this time.</p>
+      {% endif %}
+    {% endif %}
+    
+    {% include section-title, title: "Past Events", cx: "mb25 m:mb45" %}
+    <ul class="df fw mhn5 s:mhn10 m:mhn15 mb20">
+      {% for event in p.pastEvents %}
+        <li class="event-card w50 m:w25 ph5 s:ph10 m:ph15 mb30">
+          <a href="/event/{{ event.slug }}/">
+            <div class="rel db br2 m:br4 oh mb15">
+              {% include lazy-image,
+                image: event.image,
+                containerCx: 'r--4x3',
+                imgCx: 'x y o-cover',
+                width: 600,
+                padding: false
+              %}
+              <span class="event-card__date db abs top left bg-teal ph10 z1 c-tan mono f12 m:f14 ttu">
+                {% assign startDate = event.metadata.startDatetime | date: '%b %d' %}
+                {% assign endDate = event.metadata.endDatetime | date: '%b %d' %}
+                {% if startDate == endDate %}
+                  {{ startDate }}
+                {% else %}
+                  {{ startDate }} - {{ endDate }}
+                {% endif %}
+              </span>
+            </div>
+            <h3 class="serif f16 s:f18 m:f22 lh1318 mb10">{{ event.title }}</h3>
+            <p class="f12 s:f14 m:f18 lh155 ls02em">Presented by {{ event.metadata.speakerName }}</p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% if p.total > 1 %}
+      {% pagination p.current, p.total %}
+    {% endif %}
+  </div>
+  {% include footer %}
+</div>

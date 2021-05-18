@@ -1724,27 +1724,16 @@
   version "2.10.0"
   resolved "https://registry.npmjs.org/@sanity/cli/-/cli-2.10.0.tgz#f1ea041e112d83af8c00bd678f5f9d29e1d4e7a4"
 
-"@sanity/client@2.8.0":
+"@sanity/client@2.8.0", "@sanity/client@^2.8.0":
   version "2.8.0"
-  resolved "https://registry.npmjs.org/@sanity/client/-/client-2.8.0.tgz#43e35937e4de0f75c0b6bf029fca0e598c8a04ed"
+  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-2.8.0.tgz#43e35937e4de0f75c0b6bf029fca0e598c8a04ed"
+  integrity sha512-S/EYj4SOJ4OMOOULCjNE2moFsb4h2Vy9zV/v4dOappal+GBxafJ9E/J4+qLhkMZqd2hTfECfawjshuoUUo+L+g==
   dependencies:
     "@sanity/eventsource" "2.2.6"
     "@sanity/generate-help-url" "2.2.6"
     "@sanity/observable" "2.0.9"
     deep-assign "^2.0.0"
     get-it "^5.0.3"
-    make-error "^1.3.0"
-    object-assign "^4.1.1"
-
-"@sanity/client@^0.147.3":
-  version "0.147.3"
-  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-0.147.3.tgz#4ac0beb56df455441f203c6bfc8306e3b6c2b191"
-  dependencies:
-    "@sanity/eventsource" "0.147.0"
-    "@sanity/generate-help-url" "0.147.0"
-    "@sanity/observable" "0.147.0"
-    deep-assign "^2.0.0"
-    get-it "^5.0.0"
     make-error "^1.3.0"
     object-assign "^4.1.1"
 
@@ -1928,13 +1917,6 @@
   dependencies:
     diff-match-patch "^1.0.4"
 
-"@sanity/eventsource@0.147.0":
-  version "0.147.0"
-  resolved "https://registry.yarnpkg.com/@sanity/eventsource/-/eventsource-0.147.0.tgz#40ef249c0803902800b951c765ffdf58205db6f7"
-  dependencies:
-    eventsource "^1.0.6"
-    eventsource-polyfill "^0.9.6"
-
 "@sanity/eventsource@1.150.1":
   version "1.150.1"
   resolved "https://registry.yarnpkg.com/@sanity/eventsource/-/eventsource-1.150.1.tgz#4ccfbbe3936f411c7f15b65674446f46e31cba2a"
@@ -2019,10 +2001,6 @@
     speakingurl "^13.0.0"
     styled-components "^5.2.1"
 
-"@sanity/generate-help-url@0.147.0":
-  version "0.147.0"
-  resolved "https://registry.yarnpkg.com/@sanity/generate-help-url/-/generate-help-url-0.147.0.tgz#720b55ea736dfdc65006ca225eceb8fe79537fdf"
-
 "@sanity/generate-help-url@1.150.1":
   version "1.150.1"
   resolved "https://registry.yarnpkg.com/@sanity/generate-help-url/-/generate-help-url-1.150.1.tgz#bc0bda74cd0980e2194d275369e0ebc7970a0a81"
@@ -2043,11 +2021,16 @@
   version "1.0.8"
   resolved "https://registry.npmjs.org/@sanity/icons/-/icons-1.0.8.tgz#37d5996dc5b3c941cc22570071b24a14bce2a3fb"
 
-"@sanity/image-url@^0.140.15", "@sanity/image-url@^0.140.17", "@sanity/image-url@^0.140.19":
+"@sanity/image-url@^0.140.15", "@sanity/image-url@^0.140.19":
   version "0.140.19"
   resolved "https://registry.yarnpkg.com/@sanity/image-url/-/image-url-0.140.19.tgz#6adfea7b7768a1708eba6bdcfe9eb0746d2bb1f9"
   dependencies:
     "@sanity/client" "^1.149.13"
+
+"@sanity/image-url@^0.140.22":
+  version "0.140.22"
+  resolved "https://registry.yarnpkg.com/@sanity/image-url/-/image-url-0.140.22.tgz#7a65f56bb751f7b1c5dfacfadd34ee10fc4f0fde"
+  integrity sha512-CAmQZnj+KM7FSEYiWlIGDit072syicYuAw0w7R2ctMzHiZ4p9mE/g6dBnYqrqFUrw2J+GpJgPt+RVspKP8vdqA==
 
 "@sanity/imagetool@2.10.2":
   version "2.10.2"
@@ -2099,13 +2082,6 @@
     debug "^3.1.0"
     diff-match-patch "^1.0.4"
     lodash "^4.17.15"
-
-"@sanity/observable@0.147.0":
-  version "0.147.0"
-  resolved "https://registry.yarnpkg.com/@sanity/observable/-/observable-0.147.0.tgz#a146444a397eeaf268b3f6e2b02c8e2f114286af"
-  dependencies:
-    object-assign "^4.1.1"
-    rxjs "^6.5.3"
 
 "@sanity/observable@1.150.1":
   version "1.150.1"
@@ -5851,7 +5827,7 @@ get-caller-file@^2.0.1, get-caller-file@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
 
-get-it@^5.0.0, get-it@^5.0.3:
+get-it@^5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/get-it/-/get-it-5.0.3.tgz#482a72d91b482ccf64ecf0499b5456952b1ca9d0"
   dependencies:

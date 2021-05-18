@@ -50,7 +50,7 @@ module.exports = async function() {
     }`,
   )
 
-  const PER_PAGE = 1
+  const PER_PAGE = 6
   const pagination = []
 
   data.categories.forEach((category) => {
