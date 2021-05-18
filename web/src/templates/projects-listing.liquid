@@ -45,7 +45,7 @@ pagination:
     {% endif %}
     <div class="l:mt20 mb80 l:mb130">
       {% if p.total > 1 %}
-        {% pagination p.current, p.total %}
+        {% pagination p.current, p.total, activeHref %}
       {% endif %}
     </div>
   </div>

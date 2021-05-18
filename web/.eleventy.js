@@ -49,11 +49,11 @@ module.exports = function(eleventyConfig) {
   // https://github.com/estrattonbailey/nanoclass
   eleventyConfig.addShortcode('classNames', (...all) => cx(all))
 
-  eleventyConfig.addShortcode('pagination', (page, count) => {
+  eleventyConfig.addShortcode('pagination', (page, count, basePath = '/') => {
     const items = usePagination({ page, count })
 
     return html`
-      <ul class="df jcc aic" data-component="pagination">
+      <ul class="df jcc aic">
         ${items
           .map(({ page, type, selected, ...item }) => {
             let children = null
@@ -68,65 +68,74 @@ module.exports = function(eleventyConfig) {
               `
             } else if (type === 'page') {
               children = html`
-                <button
-                  type="button"
-                  class="${cx(['p10 br3 mh5 js-buttons', selected && 'ba'])}"
-                  aria-label="${selected
-                    ? `The current page is ${page}`
-                    : `Go to page ${page}`}"
-                  ${item.disabled ? 'disabled' : ''}
-                  ${item['aria-current'] ? 'aria-current="true"' : ''}
-                  ${page ? `data-target="${page}"` : ``}
+                <${item.disabled ? 'div' : 'a'}
+                  class="${cx(['dib p10 br3 mh5', selected && 'ba'])}"
+                  ${
+                    !item.disabled
+                      ? `
+                        href="${basePath}${page > 1 ? `${page}/` : ``}"
+                        aria-label="${
+                          selected
+                            ? `The current page is ${page}`
+                            : `Go to page ${page}`
+                        }"
+                        ${item['aria-current'] ? 'aria-current="true"' : ''}`
+                      : ``
+                  }
                 >
                   <div class="mono f18 lh100">
                     ${formatNumber(page)}
                   </div>
-                </button>
+                </${item.disabled ? 'div' : 'a'}>
               `
             } else {
               children = html`
-                <button
-                  type="button"
-                  class="rel p10 br3 mh10 js-buttons"
-                  aria-label="Go to ${type} page"
-                  ${item.disabled ? 'disabled' : ''}
-                  ${item['aria-current'] ? 'aria-current="true"' : ''}
-                  ${page ? `data-target="${page}"` : ``}
+                <${item.disabled ? 'div' : 'a'}
+                  class="dib rel p10 br3 mh10"
+                  ${
+                    !item.disabled
+                      ? `href="${basePath}${page > 1 ? `${page}/` : ``}"
+                      aria-label="Go to ${type} page"
+                      ${item['aria-current'] ? 'aria-current="true"' : ''}`
+                      : ``
+                  }
                 >
                   <div class="w9">
-                    ${type === 'previous'
-                      ? html`
-                          <svg
-                            class="db"
-                            viewBox="0 0 9 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M7.71759 0.646484L8.4247 1.35359L1.70718 8.07111L8.4247 14.7886L7.71759 15.4957L0.292969 8.07111L7.71759 0.646484Z"
-                              class="fill-current"
-                            />
-                          </svg>
-                        `
-                      : html`
-                          <svg
-                            class="db"
-                            viewBox="0 0 9 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M7.364 8.07111L0.646484 1.35359L1.35359 0.646484L8.77821 8.07111L1.35359 15.4957L0.646484 14.7886L7.364 8.07111Z"
-                              fill="#3F5262"
-                            />
-                          </svg>
-                        `}
+                    ${
+                      type === 'previous'
+                        ? html`
+                            <svg
+                              class="db"
+                              viewBox="0 0 9 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M7.71759 0.646484L8.4247 1.35359L1.70718 8.07111L8.4247 14.7886L7.71759 15.4957L0.292969 8.07111L7.71759 0.646484Z"
+                                class="fill-current"
+                              />
+                            </svg>
+                          `
+                        : html`
+                            <svg
+                              class="db"
+                              viewBox="0 0 9 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M7.364 8.07111L0.646484 1.35359L1.35359 0.646484L8.77821 8.07111L1.35359 15.4957L0.646484 14.7886L7.364 8.07111Z"
+                                fill="#3F5262"
+                              />
+                            </svg>
+                          `
+                    }
                   </div>
-                </button>
+                </${item.disabled ? 'div' : 'a'}>
               `
             }
 

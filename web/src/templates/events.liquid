@@ -107,7 +107,7 @@ pagination:
       {% endfor %}
     </ul>
     {% if p.total > 1 %}
-      {% pagination p.current, p.total %}
+      {% pagination p.current, p.total, '/events/' %}
     {% endif %}
   </div>
   {% include footer %}
