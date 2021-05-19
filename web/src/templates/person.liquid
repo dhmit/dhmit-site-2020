@@ -1,0 +1,63 @@
+---
+layout: base.liquid
+permalink: /person/{{ person.slug }}/
+pagination:
+  alias: person
+  data: people.detailPages
+  size: 1
+---
+{% capture intro %}
+  <div class="breadcrumbs mono f14 lh150 mb20">
+    <a href="/">Home</a> / <a href="/people/">People</a>
+  </div>
+  <h1 class="serif f27 m:f32 l:f50 lh115 mb15 m:mb25">{{ person.name }}</h1>
+  <p class="f18 m:f20 l:f24 lh140 l:lh150 ls02em mb30">{{ person.title }}</p>
+{% endcapture %}
+
+<div data-router-view>
+  <div class="ph20 m:ph40 l:ph80 pt100 s:pt150 l:pt180 m:df mhn15 l:mhn40 mb80 l:mb140">
+    <div class="m:w50 l:w40 ph15 l:ph40">
+      <div class="m:dn">
+        {{ intro }}
+      </div>
+      <div class="bg-teal c-tan br10 oh mb40">
+        {% include lazy-image,
+          image: person.headshot,
+          containerCx: 'r--4x3 oh',
+          imgCx: 'x y o-cover',
+          width: 500,
+        %}
+        <div class="pt20 l:pt30 pb30 l:pb50 ph25 l:ph60">
+          <div class="mono f16 l:f18 lh175">
+            {% if person.metadata.email %}
+              <p>email: <a class="tdu" href="mailto:{{ person.metadata.email }}">{{ person.metadata.email }}</a></p>
+            {% endif %}
+            {% if person.metadata.phone %}
+              <p>phone: {{ person.metadata.phone }}</p>
+            {% endif %}
+            {% if person.metadata.office %}
+              <p>office: {{ person.metadata.office }}</p>
+            {% endif %}
+            {% if person.metadata.link %}
+              <div class="mt20 l:mt30">
+                <a class="button button--tan dib f14 br3 pv15 ph25 ba" href="{{ person.metadata.link.url }}">
+                  <span class="mr10">{{ person.metadata.link.title }}</span>
+                  {% include link-icon %}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m:w50 l:w60 ph15 l:ph40">
+      <div class="dn m:db">
+        {{ intro }}
+      </div>
+      <div class="rich-text f16 m:f18 lh150 ls02em">
+        {{ person.bio }}
+      </div>
+    </div>
+  </div>
+  {% include footer %}
+</div>
