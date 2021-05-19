@@ -38,7 +38,9 @@ permalink: /people/
                   padding: false
                 %}
                 <h3 class="f16 s:f18 m:f21 lh120 mb5">{{ person.name }}</h3>
-                <p class="f12 s:f14 m:f18 lh140 ls02em c-blue-muted">{{ person.title }}</p>
+                {% if module.showSubtitles %}
+                  <p class="f12 s:f14 m:f18 lh140 ls02em c-blue-muted">{{ person.title }}</p>
+                {% endif %}
               {% if module.group.hasDetailPages %}
                 </a>
               {% endif %}

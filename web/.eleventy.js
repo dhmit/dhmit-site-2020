@@ -60,7 +60,7 @@ module.exports = function(eleventyConfig) {
 
             if (type === 'start-ellipsis' || type === 'end-ellipsis') {
               children = html`
-                <div class="rel w30 h30 br3">
+                <div class="rel br3 p10 mh10">
                   <div class="absolute-center text-16 font-medium leading-100">
                     …
                   </div>
@@ -69,7 +69,7 @@ module.exports = function(eleventyConfig) {
             } else if (type === 'page') {
               children = html`
                 <${item.disabled ? 'div' : 'a'}
-                  class="${cx(['dib p10 br3 mh5', selected && 'ba'])}"
+                  class="${cx(['db p10 br3 mh5', selected && 'ba'])}"
                   ${
                     !item.disabled
                       ? `
@@ -91,7 +91,7 @@ module.exports = function(eleventyConfig) {
             } else {
               children = html`
                 <${item.disabled ? 'div' : 'a'}
-                  class="dib rel p10 br3 mh10"
+                  class="db rel p10 br3 mh10"
                   ${
                     !item.disabled
                       ? `href="${basePath}${page > 1 ? `${page}/` : ``}"
