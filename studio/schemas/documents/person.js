@@ -27,50 +27,76 @@ export default {
           'Steering Committee',
         ],
       },
+      hidden: true,
     },
     {
       name: 'title',
-      title: 'Title',
+      title: 'Subtitle',
       type: 'string',
-      inputComponent: ConditionalField,
-      options: {
-        condition: ({ category }) =>
-          category === 'Staff' || category === 'Steering Committee',
-      },
     },
     {
       name: 'seq',
       title: 'Sequence',
       type: 'number',
-      inputComponent: ConditionalField,
-      options: {
-        condition: ({ category }) => category === 'Staff',
-      },
+      // inputComponent: ConditionalField,
+      // options: {
+      //   condition: ({ category }) => category === 'Staff',
+      // },
+      hidden: true,
     },
     {
       name: 'isAlum',
       title: 'Is lab alum?',
       type: 'boolean',
+      hidden: true,
     },
     {
       name: 'link',
       title: 'Link',
       type: 'url',
-      inputComponent: ConditionalField,
-      options: {
-        condition: ({ category }) =>
-          category === 'Steering Committee' || category === 'Staff',
-      },
+      hidden: true,
+      // inputComponent: ConditionalField,
+      // options: {
+      //   condition: ({ category }) =>
+      //     category === 'Steering Committee' || category === 'Staff',
+      // },
     },
     {
       name: 'headshot',
       title: 'Headshot',
       type: 'image',
-      inputComponent: ConditionalField,
-      options: {
-        condition: ({ category }) =>
-          category === 'UROP Students' || category === 'Former Members',
-      },
+      // inputComponent: ConditionalField,
+      // options: {
+      //   condition: ({ category }) =>
+      //     category === 'UROP Students' || category === 'Former Members',
+      // },
+    },
+    {
+      name: 'bio',
+      title: 'Bio',
+      type: 'richText',
+    },
+    {
+      name: 'metadata',
+      title: 'Metadata',
+      type: 'object',
+      fields: [
+        {
+          name: 'email',
+          title: 'Email',
+          type: 'email',
+        },
+        {
+          name: 'phone',
+          title: 'Phone',
+          type: 'string',
+        },
+        {
+          name: 'link',
+          title: 'Link',
+          type: 'externalLink',
+        },
+      ],
     },
   ],
   preview: {

@@ -16,6 +16,8 @@ import project from './documents/project'
 import projectSettings from './documents/projectSettings'
 import projectCategory from './documents/projectCategory'
 import person from './documents/person'
+import personGroup from './documents/personGroup'
+import personSettings from './documents/personSettings'
 import event from './documents/event'
 import call from './documents/call'
 import facultySpotlight from './documents/facultySpotlight'
@@ -46,6 +48,8 @@ export default createSchema({
     project,
     post,
     person,
+    personGroup,
+    personSettings,
     projectCategory,
     event,
     projectSettings,

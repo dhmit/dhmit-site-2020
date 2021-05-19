@@ -48,21 +48,19 @@ export default () =>
                 .icon(() => <Emoji style={{ fontSize: 23 }} text="💻" />)
                 .child(S.documentTypeList('project').title('Projects')),
               S.listItem()
-                .title('Project Settings')
+                .title('Settings')
                 .icon(() => <Emoji style={{ fontSize: 23 }} text="⚙️" />)
                 .child(
                   S.editor()
-                    .title('Project Settings')
+                    .title('Settings')
                     .schemaType('projectSettings')
                     .documentId('projectSettings'),
                 ),
               S.listItem()
-                .title('Project Categories')
+                .title('Categories')
                 .icon(() => <Emoji style={{ fontSize: 23 }} text="🏷️" />)
                 .child(
-                  S.documentTypeList('projectCategory').title(
-                    'Project Categories',
-                  ),
+                  S.documentTypeList('projectCategory').title('Categories'),
                 ),
             ]),
         ),
@@ -72,8 +70,31 @@ export default () =>
         .child(S.documentTypeList('post').title('Posts')),
       S.listItem()
         .title('People')
-        .icon(() => <Emoji style={{ fontSize: 23 }} text="🤸‍" />)
-        .child(S.documentTypeList('person').title('People')),
+        .icon(() => <Emoji style={{ fontSize: 23 }} text="🤸🏻‍" />)
+        .child(
+          S.list()
+            .title('People')
+            .items([
+              S.listItem()
+                .title('People')
+                .icon(() => <Emoji style={{ fontSize: 23 }} text="🤸🏻‍" />)
+                .child(S.documentTypeList('person').title('People')),
+              S.listItem()
+                .title('Settings')
+                .icon(() => <Emoji style={{ fontSize: 23 }} text="⚙️" />)
+                .child(
+                  S.editor()
+                    .title('Settings')
+                    .schemaType('personSettings')
+                    .documentId('personSettings'),
+                ),
+              S.listItem()
+                .title('Groups')
+                .icon(() => <Emoji style={{ fontSize: 23 }} text="🏷️" />)
+                .child(S.documentTypeList('personGroup').title('Groups')),
+            ]),
+        ),
+      ,
       S.listItem()
         .title('Events')
         .icon(() => <Emoji style={{ fontSize: 23 }} text="🗓️" />)
