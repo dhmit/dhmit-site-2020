@@ -13,27 +13,31 @@
 
 <div
   class="{% classNames 'lazy-image', containerCx %}"
-  data-component="lazyImage"
+  {% if image %}
+    data-component="lazyImage"
+  {% endif %}
   {% if padding %}
     style="padding-bottom: {{ 1 | divided_by: image.metadata.dimensions.aspectRatio | times: 100 }}%"
   {% endif %}
 >
-  <div class="{% classNames 'lazy-image__lqip js-lqip', lqipCx %}">
-    <img
-      {% if imgCx %}
-        class="{{ imgCx }}"
-      {% endif %}
-      src="{{ image.metadata.lqip }}"
-      alt=""
+  {% if image %}
+    <div class="{% classNames 'lazy-image__lqip js-lqip', lqipCx %}">
+      <img
+        {% if imgCx %}
+          class="{{ imgCx }}"
+        {% endif %}
+        src="{{ image.metadata.lqip }}"
+        alt=""
+      >
+    </div>
+    <div
+      class="{% classNames 'lazy-image__img-wrap js-imgWrap', imgWrapCx %}"
     >
-  </div>
-  <div
-    class="{% classNames 'lazy-image__img-wrap js-imgWrap', imgWrapCx %}"
-  >
-    <img
-      class="{% classNames 'lazy-image__img js-img', imgCx %}"
-      data-src="{% urlFor, image, width %}"
-      alt="{{ image.altText }}"
-    >
-  </div>
+      <img
+        class="{% classNames 'lazy-image__img js-img', imgCx %}"
+        data-src="{% urlFor, image, width %}"
+        alt="{{ image.altText }}"
+      >
+    </div>
+  {% endif %}
 </div>

@@ -59,11 +59,11 @@ export default {
                 },
               ],
               preview: {
-                select: { category: 'category.title' },
-                prepare({ category, ...selection }) {
+                select: { group: 'group.title' },
+                prepare({ group, ...selection }) {
                   return {
                     ...selection,
-                    title: category ?? ``,
+                    title: group ?? ``,
                   }
                 },
               },

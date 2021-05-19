@@ -1,15 +1,22 @@
 {%- capture titleHtml -%}
-  <h2 class="{% classNames 'section-title f18 s:f21 lh119 ls02em', cx %}">{{ title }}</h2>
+  <h2 class="section-title f18 s:f21 lh119 ls02em">{{ title }}</h2>
 {%- endcapture -%}
 
-{% if viewMoreHref %}
-  <div class="df jcb aic">
+<div class="{{ cx }}">
+  {% if viewMoreHref %}
+    <div class="df jcb ais">
+      {{ titleHtml }}
+      <a
+        class="mono f18 lh100 dn m:db" 
+        href="{{ viewMoreHref }}"
+      >
+        {{ viewMoreText | default: 'View more' }} →
+      </a>
+    </div>
+  {% else %}
     {{ titleHtml }}
-    <a class="mono f18 lh100 dn m:db" href="{{ viewMoreHref }}">{{ viewMoreText | default: 'View more' }} →</a>
-  </div>
-{% else %}
-  {{ titleHtml }}
-{% endif %}
+  {% endif %}
+</div>
 
 
 {% assign viewMoreHref = blank %}

@@ -1,6 +1,6 @@
 import React from 'react'
 import Emoji from 'react-emoji-render'
-import ConditionalField from '../../plugins/ConditionalField'
+// import ConditionalField from '../../plugins/ConditionalField'
 
 export default {
   name: 'person',
