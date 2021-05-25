@@ -24,6 +24,9 @@ import facultySpotlight from './documents/facultySpotlight'
 import publication from './documents/publication'
 import landingPage from './documents/landingPage'
 import post from './documents/post'
+import postCategory from './documents/postCategory'
+import postSettings from './documents/postSettings'
+import postCollection from './documents/postCollection'
 import footer from './documents/footer'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -47,6 +50,9 @@ export default createSchema({
     config,
     project,
     post,
+    postCategory,
+    postSettings,
+    postCollection,
     person,
     personGroup,
     personSettings,

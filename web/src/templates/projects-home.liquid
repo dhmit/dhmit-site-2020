@@ -7,7 +7,8 @@ permalink: /projects/
     <div class="mb60 l:mb80">
       {% include listing-hero,
         title: projectSettings.home.title,
-        description: projectSettings.home.description
+        description: projectSettings.home.description,
+        padding: true
       %}
       {% assign activeHref = '/projects/' %}
       {% include project-filters %}

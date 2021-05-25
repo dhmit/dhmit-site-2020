@@ -67,7 +67,35 @@ export default () =>
       S.listItem()
         .title('Posts')
         .icon(() => <Emoji style={{ fontSize: 23 }} text="🖊️" />)
-        .child(S.documentTypeList('post').title('Posts')),
+        .child(
+          S.list()
+            .title('Posts')
+            .items([
+              S.listItem()
+                .title('Posts')
+                .icon(() => <Emoji style={{ fontSize: 23 }} text="🖊️" />)
+                .child(S.documentTypeList('post').title('Posts')),
+              S.listItem()
+                .title('Settings')
+                .icon(() => <Emoji style={{ fontSize: 23 }} text="⚙️" />)
+                .child(
+                  S.editor()
+                    .title('Settings')
+                    .schemaType('postSettings')
+                    .documentId('postSettings'),
+                ),
+              S.listItem()
+                .title('Categories')
+                .icon(() => <Emoji style={{ fontSize: 23 }} text="🏷️" />)
+                .child(S.documentTypeList('postCategory').title('Categories')),
+              S.listItem()
+                .title('Collections')
+                .icon(() => <Emoji style={{ fontSize: 23 }} text="✨" />)
+                .child(
+                  S.documentTypeList('postCollection').title('Collections'),
+                ),
+            ]),
+        ),
       S.listItem()
         .title('People')
         .icon(() => <Emoji style={{ fontSize: 23 }} text="🤸🏻‍" />)

@@ -1,0 +1,22 @@
+---
+layout: base.liquid
+permalink: /news/
+---
+<div data-router-view>
+  <div class="rel pt100 s:pt150 l:pt180 ph20 m:ph40 l:ph80 mb100">
+    <div class="x max-w800">
+      {% include listing-hero,
+        title: 'News & Announcements',
+        description: 'Our newsletter includes the latest Programs in Digital Humanities at MIT news and announcements, as well as a selection of links to content recommended by our staff. Sign up to receive it straight to your inbox.',
+        padding: false
+      %}
+      <div class="max-w635 mt50 pb50 s:pb70 l:pb95 pr">
+        {% include newsletter %}
+      </div>
+    </div>
+    <div class="texture--2 l:abs right bottom df jce">
+      {% include texture %}
+    </div>
+  </div>
+  {% include footer %}
+</div>

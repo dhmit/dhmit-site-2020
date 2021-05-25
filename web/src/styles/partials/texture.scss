@@ -8,28 +8,17 @@
   }
 
   &--2 {
-    width: 140%;
-    transform: translateX(35%) rotate(180deg);
+    transform: translateX(55%) rotate(180deg);
+    width: 82%;
 
     @media (query('m')) {
-      position: absolute;
-      right: 0;
-      width: 85rem;
-      transform: translateX(64%) rotate(180deg);
+      transform: translateX(100%) rotate(180deg);
+      width: 60%;
     }
 
     @media (query('l')) {
-      transform: translateX(58%) rotate(180deg);
-      width: 96.8rem;
-    }
-  }
-
-  &--3 {
-    width: 84%;
-    transform: translateX(-25%);
-
-    @media (query('m')) {
-      width: 100%;
+      transform: translateX(35%) rotate(180deg);
+      width: 45%;
     }
   }
 }

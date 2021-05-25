@@ -11,7 +11,8 @@ pagination:
     <div class="mb60 l:mb80">
       {% include listing-hero,
         title: p.title,
-        description: p.description
+        description: p.description,
+        padding: true
       %}
       {%- capture activeHref -%}
         /projects/{{ p.slug }}/
