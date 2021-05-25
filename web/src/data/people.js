@@ -57,7 +57,7 @@ module.exports = async function() {
   const pagination = []
 
   data.groups.forEach((group) => {
-    if (group?.people?.length) {
+    if (group && group.people && group.people.length) {
       const chunked = chunk(group.people, PER_PAGE)
       chunked.forEach((people, index) => {
         pagination.push({
