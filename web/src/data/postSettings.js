@@ -53,7 +53,13 @@ module.exports = async function() {
           "posts": *[_type == "post" && references(^._id)] | order(publishAt desc) ${postCard},
         },
       ],
-      "posts": *[_type == "post"] ${postCard}
+      "posts": *[_type == "post"] ${postCard},
+      "collections": *[_type == "postCollection"] {
+        title,
+        description,
+        "slug": slug.current,
+        posts[]-> ${postCard},
+      }
     }`,
   )
 
