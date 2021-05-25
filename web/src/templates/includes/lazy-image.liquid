@@ -10,17 +10,20 @@
     padding
   }
 {% endcomment %}
+{%- capture cx -%}
+  lazy-image{% unless image.url %} is-loaded{% endunless %}
+{%- endcapture -%}
 
 <div
-  class="{% classNames 'lazy-image', containerCx %}"
-  {% if image %}
+  class="{% classNames cx, containerCx %}"
+  {% if image.url %}
     data-component="lazyImage"
   {% endif %}
   {% if padding %}
     style="padding-bottom: {{ 1 | divided_by: image.metadata.dimensions.aspectRatio | times: 100 }}%"
   {% endif %}
 >
-  {% if image %}
+  {% if image.url %}
     <div class="{% classNames 'lazy-image__lqip js-lqip', lqipCx %}">
       <img
         {% if imgCx %}
@@ -37,6 +40,16 @@
         class="{% classNames 'lazy-image__img js-img', imgCx %}"
         data-src="{% urlFor, image, width %}"
         alt="{{ image.altText }}"
+      >
+    </div>
+  {% else %}
+    <div
+      class="{% classNames 'lazy-image__img-wrap', imgWrapCx %}"
+    >
+      <img
+        class="{% classNames 'lazy-image__img', imgCx %}"
+        src="/fallback.png"
+        alt=""
       >
     </div>
   {% endif %}

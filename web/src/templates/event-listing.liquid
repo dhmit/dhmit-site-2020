@@ -61,7 +61,7 @@ pagination:
                   </div>
                     {% if event.metadata.link %}
                       <div class="p5">
-                        <a class="button db f14 mono lh100 br3 ba pv15 ph25 df items-center" href="/event/{{ event.metadata.link.url }}/">
+                        <a class="button db f14 mono lh100 br3 ba pv15 ph25 df items-center" href="{{ event.metadata.link.url }}">
                           <span class="mr10">{{ event.metadata.title }}</span>
                           {% include link-icon %}
                         </a>

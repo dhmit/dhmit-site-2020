@@ -17,7 +17,12 @@ pagination:
       {%- capture activeHref -%}
         /projects/{{ p.slug }}/
       {%- endcapture -%}
-      {% include project-filters, activeHref: activeHref %}
+      {% include filters,
+        filters: projectSettings.filters,
+        baseHref: '/projects/',
+        activeHref: activeHref,
+        padding: true
+      %}
     </div>
     {% assign length = p.projects | size %}
     {% if length > 0 %}

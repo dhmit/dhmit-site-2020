@@ -33,5 +33,10 @@ export default {
       title: 'Description',
       type: 'richText',
     },
+    {
+      name: 'badgeColor',
+      title: 'Badge Color',
+      type: 'color',
+    },
   ],
 }

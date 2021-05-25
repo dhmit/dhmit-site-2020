@@ -10,8 +10,12 @@ permalink: /projects/
         description: projectSettings.home.description,
         padding: true
       %}
-      {% assign activeHref = '/projects/' %}
-      {% include project-filters %}
+      {% include filters,
+        filters: projectSettings.filters,
+        baseHref: '/projects/',
+        activeHref: '/projects/',
+        padding: true
+      %}
     </div>
     {% if projectSettings.home.featuredProject %}
       {% assign featuredProject = projectSettings.home.featuredProject %}

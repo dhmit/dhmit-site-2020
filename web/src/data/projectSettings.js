@@ -23,7 +23,7 @@ module.exports = async function() {
       "filters": [
         {
           "title": "All",
-          "slug": "",
+          "slug": null,
         },
         ...filters[]-> {
           title,

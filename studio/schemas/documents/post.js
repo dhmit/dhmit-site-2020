@@ -44,5 +44,10 @@ export default {
         'Leave the Body field blank and fill in this link field to create a post with no detail page and just an external link. Useful for Newsletters and other posts that are just links.',
       type: 'externalLink',
     },
+    {
+      name: 'image',
+      title: 'Thumbnail Image',
+      type: 'a11yImageWithCaption',
+    },
   ],
 }
