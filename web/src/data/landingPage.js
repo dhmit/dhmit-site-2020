@@ -8,7 +8,7 @@ module.exports = async function() {
     groq`
     *[_type == "landingPage"][0] {
       intro,
-      "projects": *[_type == "project"] | order(metadata.year desc, metadata.semester, title) {
+      "projects": *[_type == "project"][0..5] | order(metadata.year desc, metadata.semester, title) {
         title,
         subtitle,
         metadata,
