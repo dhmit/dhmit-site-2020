@@ -116,7 +116,7 @@ export default {
   preview: {
     select: {
       title: 'name',
-      subtitle: 'category',
+      // subtitle: 'category',
     },
   },
 }
