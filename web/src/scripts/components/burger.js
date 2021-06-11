@@ -4,7 +4,7 @@ import { on, toggle as toggleClass } from 'martha'
 export default component((node, ctx) => {
   ctx.on('burger:toggle', toggle)
 
-  let offClick = on(node, 'click', () => {
+  on(node, 'click', () => {
     ctx.emit('burger:toggle')
   })
 
@@ -18,6 +18,4 @@ export default component((node, ctx) => {
 
     ctx.hydrate({ isNavOpen: !prevState.isNavOpen })
   }
-
-  return offClick
 })
