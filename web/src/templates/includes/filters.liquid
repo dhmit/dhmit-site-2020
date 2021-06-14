@@ -1,6 +1,6 @@
 {% assign length = filters | size %}
 {% if length > 0 %}
-  <div class="x ox hide-scrollbar">
+  <div class="x ox hide-scrollbar" data-component="filters">
     <ul class="nowrap">
       {% for filter in filters %}
         {%- capture cx -%}
@@ -22,7 +22,7 @@
           {%- capture href -%}
             {{ baseHref }}{% if filter.slug %}{{ filter.slug }}/{% endif %}
           {%- endcapture -%}
-          <a class="button db mono f14 pv15 ph25 ba br3{% if href == activeHref %} bg-blue c-tan pen{% endif %}" href="{{ href }}">{{ filter.title }}</a>
+          <a class="button db mono f14 pv15 ph25 ba br3{% if href == activeHref %} bg-blue c-tan pen is-active{% endif %} js-links" href="{{ href }}">{{ filter.title }}</a>
         </li>
       {% endfor %}
     </ul>

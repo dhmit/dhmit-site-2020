@@ -9,6 +9,7 @@ import aboutCarousel from '@/components/aboutCarousel'
 import newsCarousel from '@/components/newsCarousel'
 import accordion from '@/components/accordion'
 import newsletter from '@/components/newsletter'
+import filters from '@/components/filters'
 
 const components = {
   nav,
@@ -19,6 +20,7 @@ const components = {
   newsCarousel,
   accordion,
   newsletter,
+  filters,
 }
 
 const state = {
