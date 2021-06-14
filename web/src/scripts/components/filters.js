@@ -7,7 +7,7 @@ export default component((node) => {
 
   links.forEach((link) => {
     if (has(link, 'is-active')) {
-      link.scrollIntoView({ inline: 'center' })
+      link.scrollIntoView()
     }
   })
 
