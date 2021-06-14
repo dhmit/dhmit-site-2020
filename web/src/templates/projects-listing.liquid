@@ -26,7 +26,7 @@ pagination:
     </div>
     {% assign length = p.projects | size %}
     {% if length > 0 %}
-      <ul class="df fw mhn10 ph20 m:ph40 l:ph80">
+      <ul class="x df fw mhn10 ph20 m:ph40 l:ph80">
         {% for project in p.projects %}
           <li class="x s:w50 l:third ph10 mb60">
             <a class="card-hover" href="/project/{{ project.slug }}/">
