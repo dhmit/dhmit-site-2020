@@ -9,7 +9,7 @@ export default component((node, ctx) => {
   const { buttons, lines, slides } = choozy(node)
 
   // grab dynamic autoplay duration value
-  const autoplayDuration = parseInt(node.dataset.autoplayDuration)
+  const autoplayDuration = parseInt(node.dataset.autoplayDuration, 10)
 
   // store the duration of our animation for use later
   const tweenDuration = 0.5
@@ -61,6 +61,14 @@ export default component((node, ctx) => {
   })
 
   function setSlideIndex(index) {
+    slides.forEach((slide, i) => {
+      if (i === index) {
+        slide.removeAttribute('aria-hidden')
+      } else {
+        slide.setAttribute('aria-hidden', 'true')
+      }
+    })
+
     // update local state
     isTransitioning = true
     previousSlideIndex = currentSlideIndex

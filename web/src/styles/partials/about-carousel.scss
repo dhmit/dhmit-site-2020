@@ -3,6 +3,11 @@
     position: relative;
     transition: opacity 0.3s $ease-out-quart;
 
+    &:focus {
+      outline: 5px auto Highlight;
+      outline: 5px auto -webkit-focus-ring-color;
+    }
+
     > span {
       content: '';
       display: block;
