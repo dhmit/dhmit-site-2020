@@ -15,7 +15,7 @@ renderData:
         <a href="/">Home</a> / <a href="/projects/">Projects</a> / <a href="/projects/{{ project.metadata.category.slug }}/">{{ project.metadata.category.title }}</a>
       </div>
       <h1 class="serif f27 m:f32 l:f50 lh115 mb15 m:mb25">{{ project.title }}</h1>
-      <p class="f18 m:f20 l:f24 lh140 l:lh150 ls02em mb25">{{ project.subtitle }}</p>
+      <p class="f18 m:f20 l:f24 lh140 l:lh150 ls02em mb25">{{ project.lede }}</p>
       {% if project.metadata.links %}
         <ul class="mb40 l:mb50">
           {% for link in project.metadata.links %}

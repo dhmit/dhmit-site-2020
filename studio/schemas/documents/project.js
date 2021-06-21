@@ -15,6 +15,14 @@ export default {
     {
       name: 'subtitle',
       subtitle: 'Subtitle',
+      description: 'The text that appears after the title for project cards',
+      type: 'string',
+    },
+    {
+      name: 'lede',
+      subtitle: 'Lede',
+      description:
+        'The text that appears after the title for project detail pages',
       type: 'string',
     },
     {

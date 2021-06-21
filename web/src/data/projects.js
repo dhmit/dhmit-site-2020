@@ -8,6 +8,7 @@ module.exports = async function() {
       *[_type == "project"] {
         title,
         subtitle,
+        lede,
         metadata {
           ...,
           category-> {
