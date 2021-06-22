@@ -32,7 +32,10 @@ module.exports = async function() {
             showSubtitles,
             link {
               title,
-              "slug": reference->slug.current,
+              "slug": select(
+                reference->hasListing => reference->slug.current,
+                null
+              ),
             },
           },
         },
@@ -53,7 +56,7 @@ module.exports = async function() {
     [],
   )
 
-  const PER_PAGE = 1
+  const PER_PAGE = 12
   const pagination = []
 
   data.groups.forEach((group) => {
