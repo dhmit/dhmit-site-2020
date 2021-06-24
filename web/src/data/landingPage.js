@@ -41,7 +41,7 @@ module.exports = async function() {
         'slug': slug.current,
       },
       newsletterCta,
-      "events": *[_type == 'event'] [0..3] | order(metadata.startDatetime) {
+      "events": *[_type == 'event' && metadata.startDatetime > now()] [0..3] | order(metadata.startDatetime) {
         title,
         "slug": slug.current,
         "image": {

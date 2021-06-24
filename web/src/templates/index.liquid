@@ -120,47 +120,50 @@ title: Home
   </section>
 
   {% comment %} Events {% endcomment %}
-  <section class="oh pt25 mb80">
-    <div class="ph20 m:ph40 l:ph80 pb20 s:pb30 m:pb50">
-      {% include section-title,
-        title: "Upcoming Events",
-        viewMoreHref: '/events/',
-        viewMoreText: 'View more'
-      %}
-    </div>
-    {% capture slides %}
-      {% for event in landingPage.events %}
-        <li class="slider__item event-card">
-          <div class="slider__item__inner">
-            <a class="db pen" href="/event/{{ event.slug }}/">
-              <div class="rel db br7 oh mb10 s:mb20">
-                {% include lazy-image,
-                  image: event.image,
-                  containerCx: 'r--4x3',
-                  imgCx: 'x y o-cover',
-                  width: 600,
-                  padding: false
-                %}
-                <span class="event-card__date db abs top left bg-teal ph10 z1 c-tan mono f12 m:f14 ttu">
-                  {% assign startDate = event.startDatetime | date: '%b %d' %}
-                  {% assign endDate = event.endDatetime | date: '%b %d' %}
-                  {% if startDate == endDate %}
-                    {{ startDate }}
-                  {% else %}
-                    {{ startDate }} - {{ endDate }}
-                  {% endif %}
-                </span>
-              </div>
-              <h3 class="serif f16 s:f18 m:f22 lh1318 mb10">{{ event.title }}</h3>
-              <p class="f12 s:f14 m:f18 lh155 ls02em">Presented by {{ event.speakerName }}</p>
-            </a>
-          </div>
-        </li>
-      {% endfor %}
-    {% endcapture %}
-    {% include slider, slides: slides %}
-    {% include view-more-button, href: '/events/', text: 'View more' %}
-  </section>
+  {% assign eventsLength = landingPage.events | length %}
+  {% if eventsLength > 0 %}
+    <section class="oh pt25 mb80">
+      <div class="ph20 m:ph40 l:ph80 pb20 s:pb30 m:pb50">
+        {% include section-title,
+          title: "Upcoming Events",
+          viewMoreHref: '/events/',
+          viewMoreText: 'View more'
+        %}
+      </div>
+      {% capture slides %}
+        {% for event in landingPage.events %}
+          <li class="slider__item event-card">
+            <div class="slider__item__inner">
+              <a class="db pen" href="/event/{{ event.slug }}/">
+                <div class="rel db br7 oh mb10 s:mb20">
+                  {% include lazy-image,
+                    image: event.image,
+                    containerCx: 'r--4x3',
+                    imgCx: 'x y o-cover',
+                    width: 600,
+                    padding: false
+                  %}
+                  <span class="event-card__date db abs top left bg-teal ph10 z1 c-tan mono f12 m:f14 ttu">
+                    {% assign startDate = event.startDatetime | date: '%b %d' %}
+                    {% assign endDate = event.endDatetime | date: '%b %d' %}
+                    {% if startDate == endDate %}
+                      {{ startDate }}
+                    {% else %}
+                      {{ startDate }} - {{ endDate }}
+                    {% endif %}
+                  </span>
+                </div>
+                <h3 class="serif f16 s:f18 m:f22 lh1318 mb10">{{ event.title }}</h3>
+                <p class="f12 s:f14 m:f18 lh155 ls02em">Presented by {{ event.speakerName }}</p>
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+      {% endcapture %}
+      {% include slider, slides: slides %}
+      {% include view-more-button, href: '/events/', text: 'View more' %}
+    </section>
+  {% endif %}
 
   {% comment %} News & Announcements {% endcomment %}
   <section id="news" class="oh pt25 mb80">
