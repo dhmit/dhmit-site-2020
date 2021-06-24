@@ -19,8 +19,8 @@ const eventCard = groq`{
 module.exports = async function() {
   const data = await client.fetch(
     groq`{
-      'upcomingEvents': *[_type == "event" && metadata.startDatetime > now()] ${eventCard},
-      'pastEvents': *[_type == "event" && metadata.startDatetime < now()] ${eventCard},
+      'upcomingEvents': *[_type == "event" && metadata.startDatetime > now()] | order(metadata.startDatetime) ${eventCard},
+      'pastEvents': *[_type == "event" && metadata.startDatetime < now()] | order(metadata.startDatetime desc) ${eventCard},
     }`,
   )
 
@@ -34,7 +34,7 @@ module.exports = async function() {
     event.metadata.endDatetime = toEST(event.metadata.endDatetime)
   })
 
-  const PER_PAGE = 6
+  const PER_PAGE = 8
   const pagination = []
   const chunkedEvents = chunk(data.pastEvents, PER_PAGE)
 

@@ -93,11 +93,11 @@ pagination:
               <span class="event-card__date db abs top left bg-teal ph10 z1 c-tan mono f12 m:f14 ttu">
                 {% assign startDate = event.metadata.startDatetime | date: '%b %d' %}
                 {% assign endDate = event.metadata.endDatetime | date: '%b %d' %}
-                {% if startDate == endDate %}
+                {%- if startDate == endDate -%}
                   {{ startDate }}
-                {% else %}
+                {%- else -%}
                   {{ startDate }} - {{ endDate }}
-                {% endif %}
+                {%- endif -%}, {{ event.metadata.startDatetime | date: '%Y' }}
               </span>
             </div>
             <h3 class="serif f16 s:f18 m:f22 lh1318 mb10">{{ event.title }}</h3>
