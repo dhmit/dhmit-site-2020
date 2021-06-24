@@ -43,22 +43,22 @@ module.exports = async function() {
           "title": @.title,
           "description": @.description,
           "slug": null,
-          "posts": *[_type == "post"] | order(publishAt desc) ${postCard},
+          "posts": *[_type == "post" && publishAt < now()] | order(publishAt desc) ${postCard},
         },
         ...filters[]-> {
           title,
           singularTitle,
           description,
           "slug": slug.current,
-          "posts": *[_type == "post" && references(^._id)] | order(publishAt desc) ${postCard},
+          "posts": *[_type == "post" && publishAt < now() && references(^._id)] | order(publishAt desc) ${postCard},
         },
       ],
-      "posts": *[_type == "post"] ${postCard},
+      "posts": *[_type == "post" && publishAt < now()] ${postCard},
       "collections": *[_type == "postCollection"] {
         title,
         description,
         "slug": slug.current,
-        posts[]-> ${postCard},
+        posts[@->publishAt < now()]-> ${postCard},
       }
     }`,
   )
