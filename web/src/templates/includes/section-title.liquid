@@ -3,7 +3,7 @@
 {%- endcapture -%}
 
 <div class="x {{ cx }}">
-  {% if viewMoreHref != '' %}
+  {% if viewMoreHref != blank and viewMoreHref != '' %}
     <div class="df jcb ais">
       {{ titleHtml }}
       <a
