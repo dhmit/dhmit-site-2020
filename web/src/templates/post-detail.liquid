@@ -1,0 +1,67 @@
+---
+layout: base.liquid
+permalink: /post/{{ post.slug }}/
+pagination:
+  alias: post
+  data: postSettings.posts
+  size: 1
+---
+{% capture breadcrumbs %}
+  <div class="breadcrumbs mono f14 lh150 mb20">
+    <a href="/">Home</a> / <a href="/posts/">Posts</a> / <a href="/posts/{{ post.category.slug }}/">{{ post.category.title }}</a>
+  </div>
+{% endcapture %}
+
+<div data-router-view>
+  {% if post.image.url %}
+    {% capture intro %}
+      {{ breadcrumbs }}
+      <h1 class="serif f27 m:f32 l:f50 lh115 mb15 m:mb40">{{ post.title }}</h1>
+    {% endcapture %}
+    <div class="x ph20 m:ph40 l:ph80 pt100 s:pt150 l:pt180 m:df mhn15 l:mhn40 mb80 l:mb140">
+      <div class="m:w50 l:w40 ph15 l:ph40">
+        <div class="m:dn">
+          {{ intro }}
+        </div>
+        <div class="bg-teal c-tan br10 oh mb40">
+          {% include lazy-image,
+            image: post.image,
+            containerCx: 'r--4x3 oh',
+            imgCx: 'x y o-cover',
+            width: 500,
+          %}
+          <div class="pt20 l:pt40 pb30 l:pb50 ph25 l:ph60">
+            <div class="mono f16 l:f18 lh175">
+              Posted {{ post.publishAt | date: '%B %e, %Y' }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="m:w50 l:w60 ph15 l:ph40">
+        <div class="dn m:db">
+          {{ intro }}
+        </div>
+        <div class="rich-text f16 m:f18 lh150 ls02em">
+          {{ post.body }}
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div class="detail ph20 m:ph40 l:ph80 pt100 s:pt150 l:pt180 min-vh100">
+      <div class="rel max-w635 mha">
+        {{ breadcrumbs }}
+        <h1 class="serif f27 m:f32 l:f50 lh115 mb15 m:mb45">{{ post.title }}</h1>
+        <ul class="detail__metadata mono f14">
+          <li>
+            <h2 class="lh100 ls02em ttu c-blue-muted mb10">Posted</h2>
+            <p class="lh150">{{ post.publishAt | date: '%B %e, %Y' }}</p>
+          </li>
+        </ul>
+        <div class="rich-text f16 m:f18 l:f22 lh150 ls02em mb40 l:mb90">
+          {{ post.body }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% include footer %}
+</div>

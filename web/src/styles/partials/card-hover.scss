@@ -1,0 +1,8 @@
+.card-hover {
+  display: block;
+  transition: opacity 0.4s $ease-out-quart;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

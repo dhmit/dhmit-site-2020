@@ -1,16 +1,16 @@
 export default {
-  type: 'object',
-  title: 'Accordion Item',
   name: 'accordionItem',
+  title: 'Accordion Item',
+  type: 'object',
   fields: [
     {
-      title: 'Title',
       name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {
-      title: 'Body',
       name: 'body',
+      title: 'Body',
       type: 'richText',
     },
   ],

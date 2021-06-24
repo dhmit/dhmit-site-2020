@@ -1,0 +1,10 @@
+{% if padding %}
+  <div class="ph20 m:ph40 l:ph80">
+{% endif %}
+  <h1 class="serif f27 m:f32 l:f50 lh115 mb20 m:mb25 l:mb40">{{ title }}</h1>
+  {% if description %}
+    <div class="rich-text f16 m:f18 l:f24 lh150 ls02em mb30 l:mb40 max-w960">{{ description }}</div>
+  {% endif %}
+{% if padding %}
+  </div>
+{% endif %}

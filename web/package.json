@@ -7,7 +7,7 @@
   "license": "NONE",
   "scripts": {
     "clean": "rimraf ./build",
-    "serve": "browser-sync build -w --no-notify",
+    "serve": "browser-sync build -w --no-notify --no-ghost-mode",
     "build": "cross-env NODE_ENV=production ELEVENTY_ENV=production run-s clean build:*",
     "build:webpack": "webpack",
     "build:eleventy": "eleventy --quiet",
@@ -18,12 +18,17 @@
   "dependencies": {
     "@dogstudio/highway": "^2.2.1",
     "@selfaware/wool": "^1.0.3",
+    "astrochimp": "^1.0.1",
     "choozy": "^0.0.6",
-    "embla-carousel": "^2.8.1",
+    "detect-it": "^4.0.1",
+    "embla-carousel": "^4.5.1",
     "focus-visible": "^5.0.2",
     "fontfaceobserver": "^2.1.0",
     "gsap": "^3.2.5",
-    "picoapp": "^3.4.0"
+    "lodash.chunk": "^4.2.0",
+    "martha": "^1.0.3",
+    "picoapp": "^3.4.0",
+    "spacetime": "^6.16.1"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
@@ -33,8 +38,8 @@
     "@babel/plugin-transform-template-literals": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@sanity/block-content-to-html": "^1.3.8",
-    "@sanity/client": "^0.147.3",
-    "@sanity/image-url": "^0.140.17",
+    "@sanity/client": "^2.8.0",
+    "@sanity/image-url": "^0.140.22",
     "autoprefixer": "^9.7.4",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
@@ -45,6 +50,8 @@
     "file-loader": "^5.1.0",
     "glob": "^7.1.6",
     "groq": "^1.149.0",
+    "lodash.chunk": "^4.2.0",
+    "lodash.uniqby": "^4.7.0",
     "mini-css-extract-plugin": "^0.9.0",
     "nanoclass": "^0.0.2",
     "node-sass-glob-importer": "^5.3.2",

@@ -1,0 +1,120 @@
+---
+layout: base.liquid
+permalink: /projects/
+---
+<div data-router-view>
+  <div class="pt100 s:pt150 l:pt180">
+    <div class="mb60 l:mb80">
+      {% include listing-hero,
+        title: projectSettings.home.title,
+        description: projectSettings.home.description,
+        padding: true
+      %}
+      {% include filters,
+        filters: projectSettings.filters,
+        baseHref: '/projects/',
+        activeHref: '/projects/',
+        padding: true
+      %}
+    </div>
+    {% if projectSettings.home.featuredProject %}
+      {% assign featuredProject = projectSettings.home.featuredProject %}
+      <div class="ph20 m:ph40 l:ph80 c-tan mb110">
+        <div class="oh br10 bg-teal">
+          <div class="m:df aic">
+            <div class="m:w50" style="align-self: stretch">
+              {% include lazy-image,
+                image: featuredProject.image,
+                containerCx: 'r--4x3 y oh',
+                imgCx: 'x y o-cover',
+                width: 1020,
+                padding: false
+              %}
+            </div>
+            <div class="m:w50 ph30 l:ph60 pt30 m:pt65 pb40 m:pb65 on1">
+              <h3 class="mono f16 l:f18 lh100 mb15">Featured Project</h3>
+              <h4 class="serif f27 m:f32 l:f38 xl:f50 lh120 mb20 m:mb25">{{ featuredProject.title }}</h4>
+              <div class="f16 l:f18 lh155 ls01em l:ls02em mb35 l:mb40">{{ featuredProject.subtitle }}</div>
+              <a
+                class="button button--tan dib mono f16 m:f18 lh111 pv20 ph35 ba br3"
+                href="/project/{{ featuredProject.slug }}/"
+              >
+                Read more +
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    <div class="module-list">
+      {% for module in projectSettings.home.modules %}
+        {% assign moduleHasProjects = module.projects | size %}
+        {% if moduleHasProjects > 0 %}
+          {%- capture moduleHref -%}
+            /projects/{{ module.slug }}/
+          {%- endcapture -%}
+          <div class="module oh mb80">
+            <div class="ph20 m:ph40 l:ph80 pb25 s:pb30 m:pb50">
+              {% include section-title,
+                title: module.title,
+                viewMoreHref: moduleHref,
+                viewMoreText: 'View more'
+              %}
+            </div>
+            <div class="dn m:db ph20 m:ph40 l:ph80">
+              <div
+                {% unless forloop.last %}
+                  class="bb"
+                {% endunless %}
+              >
+                <ul class="df fw mhn10">
+                  {% for project in module.projects %}
+                    <li class="w50 l:third ph10 mb60">
+                      <a class="card-hover" href="/project/{{ project.slug }}/">
+                        {% include lazy-image,
+                          image: project.image,
+                          containerCx: 'r--4x3 br7 oh mb25',
+                          imgCx: 'x y o-cover',
+                          width: 740,
+                          padding: false
+                        %}
+                        <p class="mono f14 lh100 mb10">{{ project.metadata.semester | capitalize }} {{ project.metadata.year }}</p>
+                        <h3 class="serif f32 lh120 mb15">{{ project.title }}</h3>
+                        <p class="sans f18 lh150 ls02em">{{ project.subtitle }}</p>
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% capture mobileSlides %}
+              {% for project in module.projects %}
+                <li class="slider__item">
+                  <div class="slider__item__inner">
+                    <a class="db pen" href="/project/{{ project.slug }}/">
+                      {% include lazy-image,
+                        image: project.image,
+                        containerCx: 'r--4x3 br7 oh mb20',
+                        imgCx: 'x y o-cover',
+                        width: 740,
+                        padding: false
+                      %}
+                      <p class="mono f14 lh100 mb10">{{ project.metadata.semester | capitalize }} {{ project.metadata.year }}</p>
+                      <h3 class="serif f22 lh120 mb10">{{ project.title }}</h3>
+                      <p class="sans f16 lh150 ls02em">{{ project.subtitle }}</p>
+                    </a>
+                  </div>
+                </li>
+              {% endfor %}
+            {% endcapture %}
+            <div class="m:dn">
+              {% include slider, slides: mobileSlides %}
+            </div>
+            {% include view-more-button, text: 'View more', href: moduleHref %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% include footer %}
+</div>

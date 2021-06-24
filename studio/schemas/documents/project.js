@@ -1,21 +1,33 @@
+import React from 'react'
+import Emoji from 'react-emoji-render'
+
 export default {
-  type: 'document',
-  title: 'Project',
   name: 'project',
+  title: 'Project',
+  type: 'document',
+  icon: () => <Emoji style={{ fontSize: 23 }} text="💻" />,
   fields: [
     {
-      title: 'Title',
       name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {
-      subtitle: 'Subtitle',
       name: 'subtitle',
+      subtitle: 'Subtitle',
+      description: 'The text that appears after the title for project cards',
       type: 'string',
     },
     {
-      title: 'Slug',
+      name: 'lede',
+      subtitle: 'Lede',
+      description:
+        'The text that appears after the title for project detail pages',
+      type: 'string',
+    },
+    {
       name: 'slug',
+      title: 'Slug',
       type: 'slug',
       options: {
         source: 'title',
@@ -23,13 +35,19 @@ export default {
       },
     },
     {
-      title: 'Project Metadata',
       name: 'metadata',
+      title: 'Project Metadata',
       type: 'object',
       fields: [
         {
-          title: 'Semester',
+          name: 'category',
+          title: 'Category',
+          type: 'reference',
+          to: [{ type: 'projectCategory' }],
+        },
+        {
           name: 'semester',
+          title: 'Semester',
           type: 'string',
           options: {
             layout: 'radio',
@@ -42,32 +60,32 @@ export default {
           validation: (Rule) => Rule.required(),
         },
         {
-          title: 'Year',
           name: 'year',
+          title: 'Year',
           type: 'number',
           validation: (Rule) => Rule.required().min(2000), // must be a valid 4 digit year
         },
         {
-          title: 'Links',
           name: 'links',
+          title: 'Links',
           type: 'array',
           of: [{ type: 'externalLink' }],
         },
       ],
     },
     {
-      title: 'Project Image',
       name: 'image',
+      title: 'Project Image',
       type: 'a11yImageWithCaption',
     },
     {
-      title: 'Editorial',
       name: 'editorial',
+      title: 'Editorial',
       type: 'richText',
     },
     {
-      title: 'Student Team',
       name: 'studentTeam',
+      title: 'Student Team',
       type: 'array',
       of: [
         {

@@ -1,11 +1,12 @@
 export default {
-  title: 'Config',
   name: 'config',
+  title: 'Config',
   type: 'document',
+  __experimental_actions: ['update', 'publish'],
   fields: [
     {
-      title: 'SEO Metadata',
       name: 'seo',
+      title: 'SEO Metadata',
       type: 'object',
       fields: [
         {

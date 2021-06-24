@@ -17,6 +17,7 @@ const serializers = {
 }
 
 module.exports = function allBlocksToHtml(data) {
+  if (!data) return data
   if (typeof data === 'object') {
     if (data._type && data._type === 'richText') {
       return blocksToHtml({

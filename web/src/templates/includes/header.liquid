@@ -1,32 +1,22 @@
-<header class="header fix top fill-x bg-tan bb z2">
+<header class="header fix top fill-x bg-tan bb z10">
   <div class="header__inner df aic jcb ph10 xs:ph20 pv10">
     <a
       class="header__logo db"
-      href="
-        {% if landingPageHeader %}
-        #intro
-        {% else %}
-        /
-        {% endif %}
-      "
+      href="/"
       aria-label="MIT Programs in Digital Humanities"
-      data-router-disabled
     >
       {% include logo-blue %}
     </a>
     <div class="df aic">
-      {% if landingPageHeader %}
-        <div class="df aic m:dn pr10 xs:pr15 z2">
-          {% include burger %}
-        </div>
-        <div class="z1">
-          {% include mobile-nav %}
-        </div>
-        <div class="dn m:db pt5">
-          {% include nav %}
-        </div>
-      {% endif %}
-
+      <div class="df aic m:dn pr10 xs:pr15 z2">
+        {% include burger %}
+      </div>
+      <div class="z1">
+        {% include mobile-nav %}
+      </div>
+      <div class="dn m:db pt5">
+        {% include nav %}
+      </div>
       <div class="pv10 pl10 xs:pl15 m:pl20 bl">
         <a
           class="header__mit db"

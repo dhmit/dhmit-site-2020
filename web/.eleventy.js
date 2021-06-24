@@ -5,7 +5,9 @@ const readFile = util.promisify(fs.readFile)
 const cx = require('nanoclass')
 const imageUrlBuilder = require('@sanity/image-url')
 const client = require('./src/util/client')
-
+const usePagination = require('./src/util/usePagination')
+const html = require('./src/util/html')
+const formatNumber = require('./src/util/formatNumber')
 const builder = imageUrlBuilder(client)
 
 module.exports = function(eleventyConfig) {
@@ -47,8 +49,108 @@ module.exports = function(eleventyConfig) {
   // https://github.com/estrattonbailey/nanoclass
   eleventyConfig.addShortcode('classNames', (...all) => cx(all))
 
+  eleventyConfig.addShortcode('pagination', (page, count, basePath = '/') => {
+    const items = usePagination({ page, count })
+
+    return html`
+      <ul class="df jcc aic">
+        ${items
+          .map(({ page, type, selected, ...item }) => {
+            let children = null
+
+            if (type === 'start-ellipsis' || type === 'end-ellipsis') {
+              children = html`
+                <div class="rel br3 p10 mh10">
+                  <div class="absolute-center text-16 font-medium leading-100">
+                    …
+                  </div>
+                </div>
+              `
+            } else if (type === 'page') {
+              children = html`
+                <${item.disabled ? 'div' : 'a'}
+                  class="${cx(['db p10 br3 mh5', selected && 'ba'])}"
+                  ${
+                    !item.disabled
+                      ? `
+                        href="${basePath}${page > 1 ? `${page}/` : ``}"
+                        aria-label="${
+                          selected
+                            ? `The current page is ${page}`
+                            : `Go to page ${page}`
+                        }"
+                        ${item['aria-current'] ? 'aria-current="true"' : ''}`
+                      : ``
+                  }
+                >
+                  <div class="mono f18 lh100">
+                    ${formatNumber(page)}
+                  </div>
+                </${item.disabled ? 'div' : 'a'}>
+              `
+            } else {
+              children = html`
+                <${item.disabled ? 'div' : 'a'}
+                  class="db rel p10 br3 mh10"
+                  ${
+                    !item.disabled
+                      ? `href="${basePath}${page > 1 ? `${page}/` : ``}"
+                      aria-label="Go to ${type} page"
+                      ${item['aria-current'] ? 'aria-current="true"' : ''}`
+                      : ``
+                  }
+                >
+                  <div class="w9">
+                    ${
+                      type === 'previous'
+                        ? html`
+                            <svg
+                              class="db"
+                              viewBox="0 0 9 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M7.71759 0.646484L8.4247 1.35359L1.70718 8.07111L8.4247 14.7886L7.71759 15.4957L0.292969 8.07111L7.71759 0.646484Z"
+                                class="fill-current"
+                              />
+                            </svg>
+                          `
+                        : html`
+                            <svg
+                              class="db"
+                              viewBox="0 0 9 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M7.364 8.07111L0.646484 1.35359L1.35359 0.646484L8.77821 8.07111L1.35359 15.4957L0.646484 14.7886L7.364 8.07111Z"
+                                fill="#3F5262"
+                              />
+                            </svg>
+                          `
+                    }
+                  </div>
+                </${item.disabled ? 'div' : 'a'}>
+              `
+            }
+
+            return html`
+              <li>${children}</li>
+            `
+          })
+          .join('')}
+      </ul>
+    `
+  })
+
   // Copy favicons into the root of the build directory
   eleventyConfig.addPassthroughCopy({ 'src/assets/icons': '/' })
+  eleventyConfig.addPassthroughCopy({ 'src/assets/images': '/' })
 
   // Configure eleventy directory names and locations
   return {

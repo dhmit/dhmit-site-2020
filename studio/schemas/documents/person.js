@@ -1,19 +1,31 @@
-import ConditionalField from '../../plugins/ConditionalField'
+import React from 'react'
+import Emoji from 'react-emoji-render'
+// import ConditionalField from '../../plugins/ConditionalField'
 
 export default {
-  type: 'document',
-  title: 'Person',
   name: 'person',
+  title: 'Person',
+  type: 'document',
+  icon: () => <Emoji style={{ fontSize: 23 }} text="🤸" />,
   fields: [
     {
-      title: 'Full Name',
       name: 'name',
+      title: 'Full Name',
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
     {
-      title: 'Category',
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 200,
+      },
+    },
+    {
       name: 'category',
+      title: 'Category',
       type: 'string',
       options: {
         layout: 'radio',
@@ -24,56 +36,87 @@ export default {
           'Steering Committee',
         ],
       },
+      hidden: true,
     },
     {
-      title: 'Title',
       name: 'title',
+      title: 'Subtitle',
       type: 'string',
-      inputComponent: ConditionalField,
-      options: {
-        condition: ({ category }) =>
-          category === 'Staff' || category === 'Steering Committee',
-      },
     },
     {
-      title: 'Sequence',
       name: 'seq',
+      title: 'Sequence',
       type: 'number',
-      inputComponent: ConditionalField,
-      options: {
-        condition: ({ category }) => category === 'Staff',
-      },
+      // inputComponent: ConditionalField,
+      // options: {
+      //   condition: ({ category }) => category === 'Staff',
+      // },
+      hidden: true,
     },
     {
-      title: 'Is lab alum?',
       name: 'isAlum',
+      title: 'Is lab alum?',
       type: 'boolean',
+      hidden: true,
     },
     {
-      title: 'Link',
       name: 'link',
+      title: 'Link',
       type: 'url',
-      inputComponent: ConditionalField,
-      options: {
-        condition: ({ category }) =>
-          category === 'Steering Committee' || category === 'Staff',
-      },
+      hidden: true,
+      // inputComponent: ConditionalField,
+      // options: {
+      //   condition: ({ category }) =>
+      //     category === 'Steering Committee' || category === 'Staff',
+      // },
     },
     {
-      title: 'Headshot',
       name: 'headshot',
+      title: 'Headshot',
       type: 'image',
-      inputComponent: ConditionalField,
-      options: {
-        condition: ({ category }) =>
-          category === 'UROP Students' || category === 'Former Members',
-      },
+      // inputComponent: ConditionalField,
+      // options: {
+      //   condition: ({ category }) =>
+      //     category === 'UROP Students' || category === 'Former Members',
+      // },
+    },
+    {
+      name: 'bio',
+      title: 'Bio',
+      type: 'richText',
+    },
+    {
+      name: 'metadata',
+      title: 'Metadata',
+      type: 'object',
+      fields: [
+        {
+          name: 'email',
+          title: 'Email',
+          type: 'email',
+        },
+        {
+          name: 'phone',
+          title: 'Phone',
+          type: 'string',
+        },
+        {
+          name: 'office',
+          title: 'Office',
+          type: 'string',
+        },
+        {
+          name: 'link',
+          title: 'Link',
+          type: 'externalLink',
+        },
+      ],
     },
   ],
   preview: {
     select: {
       title: 'name',
-      subtitle: 'category',
+      // subtitle: 'category',
     },
   },
 }

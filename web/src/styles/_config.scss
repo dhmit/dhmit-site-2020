@@ -1,10 +1,12 @@
 $blue: #3f5262;
+$blue-muted: #63737d;
 $teal: #528486;
 $gold: #bc8540;
 $tan: #fbf7eb;
 
 $colors: (
   'blue': $blue,
+  'blue-muted': $blue-muted,
   'teal': $teal,
   'gold': $gold,
   'tan': $tan,
@@ -25,6 +27,7 @@ $font-sizes: (
   '32': 3.2rem,
   '36': 3.6rem,
   '38': 3.8rem,
+  '42': 4.2rem,
   '50': 5rem,
   '52': 5.2rem,
   '72': 7.2rem,
@@ -33,6 +36,7 @@ $font-sizes: (
 $line-heights: (
   '1': 1,
   '111': 1.11,
+  '115': 1.15,
   '119': 1.19,
   '1136': 1.136,
   '1138': 1.138,
@@ -42,11 +46,13 @@ $line-heights: (
   '1318': 1.318,
   '133': 1.33,
   '138': 1.38,
+  '140': 1.4,
   '1437': 1.437,
   '150': 1.5,
   '155': 1.55,
   '1625': 1.625,
   '175': 1.75,
+  '180': 1.8,
 );
 
 $letter-spacings: (
@@ -61,11 +67,16 @@ $font-stacks: (
 );
 
 $max-widths: (
+  '-none': unset,
   '305': 30.5rem,
+  '500': 50rem,
   '600': 60rem,
+  '635': 63.5rem,
   '700': 70rem,
+  '800': 80rem,
   '850': 85rem,
   '920': 92rem,
+  '960': 96rem,
 );
 
 $aspect-ratios: (
@@ -95,10 +106,31 @@ $border-radiuses: (
   '2': 2px,
   '3': 3px,
   '4': 4px,
+  '5': 5px,
+  '6': 6px,
   '7': 7px,
   '10': 10px,
   '13': 13px,
   '16': 16px,
+  '-full': 9999px,
+);
+
+$user-definitions: (
+  'fill-current': (
+    fill: currentColor,
+  ),
+  'w9': (
+    width: 9px,
+  ),
+  'w30': (
+    width: 3rem,
+  ),
+  'h30': (
+    height: 3rem,
+  ),
+  'min-w30': (
+    min-width: 3rem,
+  ),
 );
 
 $breakpoints: (

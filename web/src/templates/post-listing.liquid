@@ -1,0 +1,95 @@
+---
+layout: base.liquid
+permalink: /posts/{% if p.slug %}{{ p.slug }}/{% endif %}{% if p.current > 1 %}{{ p.current }}/{% endif %}
+pagination:
+  alias: p
+  data: postSettings.pagination
+  size: 1
+---
+{%- capture activeHref -%}
+  /posts/{% if p.slug %}{{ p.slug }}/{% endif %}
+{%- endcapture -%}
+<div class="x oh" data-router-view>
+  <div class="rel pt100 s:pt150 l:pt180 mb100 ph20 m:ph40 l:ph80">
+    <div class="x max-w800">
+      {% include listing-hero,
+        title: p.title,
+        description: p.description,
+        padding: false
+      %}
+      <div class="max-w635 mt50 pb50 s:pb70 l:pb95 pr">
+        {% include newsletter %}
+      </div>
+    </div>
+    <div class="texture--2 l:abs right bottom df jce">
+      {% include texture %}
+    </div>
+  </div>
+  <div>
+    <div class="mb50">
+      {% include filters,
+        filters: postSettings.filters,
+        baseHref: '/posts/',
+        activeHref: activeHref,
+        padding: true
+      %}
+    </div>
+    <div class="ph20 m:ph40 l:ph80">
+      {% assign length = p.posts | size %}
+      {% if length > 0 %}
+        <ul class="mb80 db s:df s:fw m:db mhn10 m:mh0">
+          {% for post in p.posts %}
+            <li class="x s:w50 m:x mb50 m:df aic m:mhn15 l:mhn40 ph10 m:ph0 mb60">
+              <div class="m:w50 l:w40 m:ph15 l:ph40 mb15 m:mb0">
+                {% include lazy-image,
+                  image: post.image,
+                  containerCx: 'r--4x3 br10 oh bg-teal',
+                  imgCx: 'x y o-cover',
+                  width: 740,
+                  padding: false
+                %}
+              </div>
+              <div class="m:w50 l:w60 m:ph15 l:ph40 m:mb20">
+                <a
+                  class="dib f14 lh100 mono c-tan bg-teal br5 mb20"
+                  href="/posts/{{ post.category.slug }}/"
+                  style="background-color: {{ post.category.badgeColor }}; padding: 0.8rem 1.5rem;"
+                >
+                  {{ post.category.singularTitle }}
+                </a>
+                <h2 class="serif f27 m:f32 l:f38 lh120 mb15 l:mb20">
+                  {{ post.title }}
+                </h2>
+                <div class="mb20">
+                  <p class="mono f14 lh140">
+                    {{ post.publishAt | date: '%B %e, %Y' }}
+                  </p>
+                </div>
+                <div class="df ais">
+                  {% if post.link.url and post.link.title %}
+                    <a class="button f14 mono lh100 br3 ba pv15 ph25 df items-center" href="{{ post.link.url }}">
+                      <span class="mr10">{{ post.link.title }}</span>
+                      {% include link-icon %}
+                    </a>
+                  {% else %}
+                    <a class="button f14 mono lh100 br3 ba pv15 ph25" href="/post/{{ post.slug }}/">
+                      Learn more +
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="mono f16 m:f18 lh150 ls02em c-blue-muted">No results.</p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="l:mt20 mb80 l:mb130">
+    {% if p.total > 1 %}
+      {% pagination p.current, p.total, activeHref %}
+    {% endif %}
+  </div>
+  {% include footer %}
+</div>

@@ -17,15 +17,12 @@
     "web"
   ],
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
     "husky": "^4.1.0",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "pretty-quick --staged"
     }
   }

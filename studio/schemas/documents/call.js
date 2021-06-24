@@ -1,16 +1,16 @@
 export default {
-  type: 'document',
-  title: 'Call',
   name: 'call',
+  title: 'Call',
+  type: 'document',
   fields: [
     {
-      title: 'Title',
       name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {
-      title: 'Slug',
       name: 'slug',
+      title: 'Slug',
       type: 'slug',
       options: {
         source: 'title',
@@ -18,13 +18,13 @@ export default {
       },
     },
     {
-      title: 'Body',
       name: 'body',
+      title: 'Body',
       type: 'richText',
     },
     {
-      title: 'Sequence',
       name: 'sequence',
+      title: 'Sequence',
       type: 'number',
     },
   ],

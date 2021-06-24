@@ -1,0 +1,30 @@
+<div class="rel" data-component="slider">
+  <div class="slider ph20 m:ph40 l:ph80 js-slider">
+    <ul class="f0 nowrap mhn10">
+      {{ slides }}
+    </ul>
+  </div>
+  <div
+    class="slider__prev abs top left bottom y pen z2 js-wrap"
+    style="opacity: 0; visibility: hidden;"
+  >
+    <div class="rel x y">
+      <button class="slider__prev__button df jcc aic abs left ml15 pea js-buttons" data-prev>
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 15C0 23.2843 6.71573 30 15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15Z" fill="#3F5262"/>
+          <path d="M17.5296 8L10.4585 15.0711L17.5296 22.1421" stroke="#FBF7EB"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="slider__next abs top right bottom y pen z2 js-wrap">
+    <div class="rel x y">
+      <button class="slider__next__button df jcc aic abs right mr15 pea js-buttons" data-next>
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="15" r="15" fill="#3F5262"/>
+          <path d="M12.4702 8L19.5413 15.0711L12.4702 22.1421" stroke="#FBF7EB"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,27 +1,32 @@
 import { picoapp } from 'picoapp'
-import { size } from '@/util/dom'
+import { size } from 'martha'
 
-import anchors from '@/components/anchors'
+import nav from '@/components/nav'
 import burger from '@/components/burger'
 import lazyImage from '@/components/lazyImage'
-import projectSlider from '@/components/projectSlider'
+import slider from '@/components/slider'
 import aboutCarousel from '@/components/aboutCarousel'
+import newsCarousel from '@/components/newsCarousel'
 import accordion from '@/components/accordion'
+import newsletter from '@/components/newsletter'
+import filters from '@/components/filters'
 
 const components = {
-  anchors,
+  nav,
   burger,
   lazyImage,
-  projectSlider,
+  slider,
   aboutCarousel,
+  newsCarousel,
   accordion,
+  newsletter,
+  filters,
 }
 
 const state = {
   ...size(),
   isNavOpen: false,
   aboutCarouselIndex: 0,
-  percentScrolled: 0,
 }
 
 export default picoapp(components, state)

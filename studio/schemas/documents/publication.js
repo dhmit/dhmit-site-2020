@@ -1,31 +1,31 @@
 export default {
-  type: 'document',
-  title: 'Publication',
   name: 'publication',
+  title: 'Publication',
+  type: 'document',
   fields: [
     {
-      title: 'Title',
       name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {
-      title: 'Publication Date',
       name: 'publicationDate',
+      title: 'Publication Date',
       type: 'date',
     },
     {
-      title: 'Authors',
       name: 'authors',
+      title: 'Authors',
       type: 'string',
     },
     {
-      title: 'Journal',
       name: 'journal',
+      title: 'Journal',
       type: 'string',
     },
     {
-      title: 'Link',
       name: 'link',
+      title: 'Link',
       type: 'url',
     },
   ],

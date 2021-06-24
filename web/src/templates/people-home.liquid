@@ -1,0 +1,54 @@
+---
+layout: base.liquid
+permalink: /people/
+---
+<div data-router-view>
+  <div class="pt100 s:pt150 l:pt180 ph20 m:ph40 l:ph80 mb100">
+    <h1 class="serif f27 m:f32 l:f38 xl:f50 lh115 mb40 m:mb50 l:mb60">
+      {{ people.settings.page.title }}
+    </h1>
+    {% for module in people.settings.page.modules %}
+      {%- capture viewMoreHref -%}
+        {%- if module.link.slug -%}
+          /people/{{ module.link.slug }}/
+        {%- endif -%}
+      {%- endcapture -%}
+      {% include section-title, 
+        title: module.group.title,
+        cx: "mb25 m:mb40",
+        viewMoreHref: viewMoreHref,
+        viewMoreText: module.link.title
+      %}
+      <div
+        {% unless forloop.last %}
+          class="bb mb25 m:mb80"
+        {% endunless %}
+      >
+        <ul class="df fw mhn5 s:mhn10 m:mhn15 mb20">
+          {% for person in module.group.people %}
+            <li class="w50 m:w25 ph5 s:ph10 m:ph15 mb60">
+              {% if module.group.hasDetailPages %}
+                <a class="card-hover" href="/person/{{ person.slug }}/">
+              {% endif %}
+                {% include lazy-image,
+                  image: person.headshot,
+                  containerCx: 'r--4x3 bg-teal br10 oh mb20',
+                  imgCx: 'x y o-cover',
+                  width: 600,
+                  padding: false
+                %}
+                <h3 class="f16 s:f18 m:f21 lh120 mb5">{{ person.name }}</h3>
+                {% if module.showSubtitles %}
+                  <p class="f12 s:f14 m:f18 lh140 ls02em c-blue-muted">{{ person.title }}</p>
+                {% endif %}
+              {% if module.group.hasDetailPages %}
+                </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>      
+      </div>
+    {% endfor %}
+  </div>
+  {% include footer %}
+</div>

@@ -1,0 +1,27 @@
+.news-carousel {
+  cursor: grab;
+
+  &.is-dragging {
+    cursor: grabbing;
+  }
+
+  &__slide {
+    position: relative;
+    flex: 0 0 84%;
+
+    @media (query('m')) {
+      flex: 0 0 100%;
+    }
+  }
+
+  &__dot {
+    width: 1.4rem;
+    height: 1.4rem;
+    cursor: pointer;
+    background-color: $tan;
+
+    &.is-active {
+      background-color: $gold;
+    }
+  }
+}

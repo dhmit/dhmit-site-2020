@@ -1,0 +1,66 @@
+.slider {
+  &.is-draggable {
+    cursor: grab;
+    cursor: -webkit-grab;
+  }
+
+  &.is-dragging {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+  }
+
+  &__item {
+    width: 75%;
+    vertical-align: top;
+    display: inline-block;
+    white-space: normal;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @media (query('s')) {
+      width: 47%;
+    }
+
+    @media (query('l')) {
+      width: 31%;
+    }
+
+    &__inner {
+      cursor: pointer;
+      transition: opacity 0.4s $ease-out-quart;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__prev,
+  &__next {
+    width: 12rem;
+
+    body.is-touch & {
+      display: none;
+    }
+
+    &__button {
+      width: 4.4rem;
+      height: 4.4rem;
+      will-change: transform;
+      transform: translateY(-50%);
+      transition: transform 0.3s $ease-out-cubic;
+
+      &:hover {
+        transform: translateY(-50%) scale(1.2);
+      }
+    }
+  }
+
+  &__next {
+    background: linear-gradient(to right, rgba($tan, 0) 0%, $tan 100%);
+  }
+
+  &__prev {
+    background: linear-gradient(to left, rgba($tan, 0) 0%, $tan 100%);
+  }
+}

@@ -10,30 +10,49 @@
     padding
   }
 {% endcomment %}
+{%- capture cx -%}
+  lazy-image{% unless image.url %} is-loaded{% endunless %}
+{%- endcapture -%}
 
 <div
-  class="{% classNames 'lazy-image', containerCx %}"
-  data-component="lazyImage"
+  class="{% classNames cx, containerCx %}"
+  {% if image.url %}
+    data-component="lazyImage"
+  {% endif %}
   {% if padding %}
-    style="padding-bottom: {{ image.metadata.dimensions.aspectRatio | times: 100 }}%"
+    style="padding-bottom: {{ 1 | divided_by: image.metadata.dimensions.aspectRatio | times: 100 }}%"
   {% endif %}
 >
-  <div class="{% classNames 'lazy-image__lqip js-lqip', lqipCx %}">
-    <img
-      {% if imgCx %}
-        class="{{ imgCx }}"
-      {% endif %}
-      src="{{ image.metadata.lqip }}"
-      alt=""
+  {% if image.url %}
+    <div class="{% classNames 'lazy-image__lqip js-lqip', lqipCx %}">
+      <img
+        {% if imgCx %}
+          class="{{ imgCx }}"
+        {% endif %}
+        src="{{ image.metadata.lqip }}"
+        alt=""
+      >
+    </div>
+    <div
+      class="{% classNames 'lazy-image__img-wrap js-imgWrap', imgWrapCx %}"
     >
-  </div>
-  <div
-    class="{% classNames 'lazy-image__img-wrap js-imgWrap', imgWrapCx %}"
-  >
-    <img
-      class="{% classNames 'lazy-image__img js-img', imgCx %}"
-      data-src="{% urlFor, image, width %}"
-      alt="{{ image.altText }}"
+      <img
+        class="{% classNames 'lazy-image__img js-img', imgCx %}"
+        data-src="{% urlFor, image, width %}"
+        alt="{{ image.altText }}"
+      >
+    </div>
+  {% else %}
+    <div
+      class="{% classNames 'lazy-image__img-wrap', imgWrapCx %}"
     >
-  </div>
+      <img
+        class="{% classNames 'lazy-image__img', imgCx %}"
+        src="/fallback.png"
+        alt=""
+      >
+    </div>
+  {% endif %}
 </div>
+
+{% assign cx = blank %}
