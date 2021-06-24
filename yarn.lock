@@ -6022,9 +6022,9 @@ groq@^1.149.0:
   version "1.150.1"
   resolved "https://registry.yarnpkg.com/groq/-/groq-1.150.1.tgz#ee9c1dfa7a79a058b46c2497a6b7f84a9bfab45f"
 
-gsap@^3.2.5:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.5.1.tgz#36cf76787d1758e749469d5e9cbe365c186544c4"
+gsap@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.6.0.tgz#925f25370c698ce0f6ea563522da8f6b5ed21b0a"
 
 gunzip-maybe@^1.4.1:
   version "1.4.2"
